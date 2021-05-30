@@ -11,7 +11,7 @@ public class BotasPerdidas {
 
         Scanner scanner = new Scanner(System.in);
         ArrayList<Bota> botas = new ArrayList<Bota>();
-        util(botas);
+        casoDois(botas);
 
         Iterator<Bota> itr = botas.iterator();
         int pares = 0;
@@ -28,7 +28,16 @@ public class BotasPerdidas {
     }
 
 
-    public static void util(List botas) {
+    public static void casoDois(List botas) {
+        botas.add(new Bota("E", 38));
+        botas.add(new Bota("E", 39));
+        botas.add(new Bota("D", 40));
+        botas.add(new Bota("D", 38));
+        botas.add(new Bota("D", 40));
+        botas.add(new Bota("E", 37));
+    }
+
+    public static void casoUm(List botas) {
         botas.add(new Bota("D", 40));
         botas.add(new Bota("E", 41));
         botas.add(new Bota("D", 41));
