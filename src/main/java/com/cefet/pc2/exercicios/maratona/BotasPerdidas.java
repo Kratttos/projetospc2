@@ -1,50 +1,48 @@
 package com.cefet.pc2.exercicios.maratona;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BotasPerdidas {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Bota> botas = new ArrayList<Bota>();
-        casoDois(botas);
 
-        Iterator<Bota> itr = botas.iterator();
-        int pares = 0;
-        while (itr.hasNext()) {
-            Bota bota = itr.next();
-            for (int i = 0; i < botas.size(); i++) {
-                if (bota.getTamanho() == botas.get(i).getTamanho() && !bota.getPe().equals(botas.get(i).getPe())) {
-                    pares++;
-                    itr.remove();
+        while (scanner.hasNextInt()) {
+
+            int qtdBotas = scanner.nextInt();
+
+
+            Bota botas[] = new Bota[qtdBotas];
+            for (int i = 0; i < qtdBotas; i++) {
+
+                int tamanhoBota = Integer.parseInt(scanner.next());
+                String pe = scanner.nextLine().trim();
+
+                Bota bota = new Bota(pe, tamanhoBota);
+                botas[i] = bota;
+
+            }
+            int pares = 0;
+            for (int i = 0; i < botas.length; i++) {
+                for (int j = i + 1; j < botas.length; j++) {
+                    if (botas[i] != null && botas[j] != null) {
+                        if (botas[i].getTamanho() == botas[j].getTamanho() && !botas[i].getPe().equals(botas[j].getPe())) {
+                            pares++;
+
+                            botas[i] = null;
+                            botas[j] = null;
+                            break;
+                        }
+                    }
+
                 }
             }
+            System.out.println(pares);
         }
-        System.out.println(pares);
     }
-
-
-    public static void casoDois(List botas) {
-        botas.add(new Bota("E", 38));
-        botas.add(new Bota("E", 39));
-        botas.add(new Bota("D", 40));
-        botas.add(new Bota("D", 38));
-        botas.add(new Bota("D", 40));
-        botas.add(new Bota("E", 37));
-    }
-
-    public static void casoUm(List botas) {
-        botas.add(new Bota("D", 40));
-        botas.add(new Bota("E", 41));
-        botas.add(new Bota("D", 41));
-        botas.add(new Bota("E", 40));
-    }
-
 }
+
 
 class Bota {
 
@@ -64,8 +62,10 @@ class Bota {
         this.tamanho = tamanho;
     }
 }
+/**
+ *
+ */
 
-
-
-
-
+/**
+ *
+ */
