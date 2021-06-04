@@ -16,12 +16,10 @@ public class Handball {
             int contador = 0;
             String[][] pontuacao = new String[numJogadores][numeroPartidas];
             for (int i = 0; i < pontuacao.length; i++) {
-                ArrayList<String> listaTemp = new ArrayList<>();
                 for (int j = 0; j < pontuacao[0].length; j++) {
                     pontuacao[i][j] = scanner.next();
-                    listaTemp.add(pontuacao[i][j]);
                 }
-                contador = Arrays.stream(listaTemp.stream().toArray()).anyMatch(x -> x.equals("0")) ? contador : (contador += 1);
+                contador = Arrays.stream(pontuacao[i]).anyMatch(x -> x.equals("0")) ? contador : (contador += 1);
             }
             System.out.println(contador);
         }
