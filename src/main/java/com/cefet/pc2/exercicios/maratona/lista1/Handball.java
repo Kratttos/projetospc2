@@ -1,4 +1,4 @@
-package com.cefet.pc2.exercicios.maratona;
+package com.cefet.pc2.exercicios.maratona.lista1;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
