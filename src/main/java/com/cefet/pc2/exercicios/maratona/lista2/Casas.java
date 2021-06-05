@@ -2,37 +2,34 @@ package com.cefet.pc2.exercicios.maratona.lista2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
 
 public class Casas {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner teclado = new Scanner(System.in);
 
-        while (teclado.hasNextInt()) {
+        //while (teclado.hasNextInt()) {
 
-            int qtdNumeros = teclado.nextInt();
-            int[] casas = new int[qtdNumeros];
-            int valorCorreto = 0;
-            ArrayList<int[]> somas = new ArrayList();
-            int[] combinacaoCerta = new int[]{0, 0, 0};
-
-            for (int i = 0; i <= casas.length; i++) {
-
-                if (i == casas.length) {
-                    valorCorreto = teclado.nextInt();
-                } else {
-                    casas[i] = teclado.nextInt();
-                    for (int j = 0; j <= i; j++) {
-                        if (i!=j){
-                            int soma = casas[i] + casas[j];
-                            System.out.println(casas[i]+" + "+casas[j] + " = " + soma);
-                            somas.add(new int[]{casas[i], casas[j], soma});
-                        }
-                    }
+        int qtdNumeros = teclado.nextInt();
+        int[] casas = new int[qtdNumeros];
+        for (int i = 0; i < casas.length-1; i++) {
+            casas[i] = teclado.nextInt();
+        }
+        int numeroCorreto = teclado.nextInt();
+        int inicio  =0;
+        int fim = casas.length-1;
+        for (int i = inicio; i < casas.length; i++) {
+            for (int k = fim; k < inicio ; k--) {
+                if (casas[i] + casas[k] == numeroCorreto){
+                    System.out.println("a");
+                    System.out.println(casas[inicio] + " + "+ casas[fim] + " = " + (casas[inicio] + casas[fim]));
                 }
             }
-            System.out.println(combinacaoCerta[1] + " " + combinacaoCerta[0]);
         }
+
+
     }
+
 }
