@@ -14,9 +14,6 @@ public class VetorDesordenado {
 
             int qtdNumeros = teclado.nextInt();
             int[] numeros = new int[qtdNumeros];
-
-
-
             List listaPar = new ArrayList();
             List listaImpar = new ArrayList();
 
@@ -27,25 +24,23 @@ public class VetorDesordenado {
                 } else {
                     listaPar.add(numeros[i]);
                 }
-
             }
-
             Object[] arrayPar = listaPar.stream().sorted().toArray();
             Object[] arrayImpar = listaImpar.stream().sorted().toArray();
 
-            StringBuilder StringV = new StringBuilder("V = { ");
+            StringBuilder stringV = new StringBuilder("V = { ");
             for (int i = 0; i < numeros.length; i++) {
-                StringV.append(numeros[i]);
+                stringV.append(numeros[i]);
                 if (i != numeros.length - 1) {
-                    StringV.append(",");
+                    stringV.append(",");
+                    stringV.append(" ");
                 } else {
-                    StringV.append("}");
+                    stringV.append("}");
                 }
             }
 
-
             StringBuilder stringOutput = new StringBuilder("O = { ");
-            for (int i = 0, iPar = arrayPar.length - 1, iImpar = 0; i != numeros.length; i++) {
+            for (int i = 1, iPar = arrayPar.length - 1, iImpar = 0; i != numeros.length; i++) {
                 if (i % 2 == 0) {
                     stringOutput.append(arrayPar[iPar]);
                     iPar--;
@@ -55,27 +50,20 @@ public class VetorDesordenado {
                 }
                 if (i != numeros.length - 1) {
                     stringOutput.append(",");
-                } else {
-                    stringOutput.append("}");
+                    stringOutput.append(" ");
                 }
             }
-            System.out.println(StringV);
+            stringOutput.append(",");
+            stringOutput.append(" ");
+
+            if (arrayImpar.length > arrayPar.length) {
+                stringOutput.append(arrayImpar[arrayImpar.length - 1]);
+            } else {
+                stringOutput.append(arrayPar[0]);
+            }
+            stringOutput.append("}");
+            System.out.println(stringV);
             System.out.println(stringOutput);
-
-
         }
     }
-
-
 }
-/**
- *
- * 31
- * -611 529 868 -877 836 -911 -792 273 101 -180 -629 -338 382 825 -308 -831 -777 531 676 525 -48 -733 -989 953 910 -885 217 862 -542 -195 -627
- */
-/**
- * System.out.println();
- * for (int i = numeros.length -1; i > -1; i--) {
- * System.out.print(ordenadoCres[i] + " ");
- * }
- */
