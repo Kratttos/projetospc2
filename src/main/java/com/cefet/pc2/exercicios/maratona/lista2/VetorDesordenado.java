@@ -66,4 +66,10 @@ public class VetorDesordenado {
             System.out.println(stringOutput);
         }
     }
+
+    public static int[] ordenaArray(int[] vetor){
+
+
+        return vetor;
+    }
 }
