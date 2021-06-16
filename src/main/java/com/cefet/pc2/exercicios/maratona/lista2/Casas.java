@@ -1,11 +1,6 @@
 package com.cefet.pc2.exercicios.maratona.lista2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.OptionalInt;
 import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.function.IntPredicate;
 
 public class Casas {
 
