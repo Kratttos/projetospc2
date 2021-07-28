@@ -1,11 +1,19 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.model;
 
-import java.util.ArrayList;
-
 public class Triangulo extends FigurasGeometricas{
     public Triangulo() {
-        super(new ArrayList<>());
+
     }
+
+    @Override
+    public int calcularArea() {
+        return 0;
+    } //Placeholder
+
+    @Override
+    public int calcularPerimetro() {
+        return 0;
+    } //Placeholder
 
 
     @Override

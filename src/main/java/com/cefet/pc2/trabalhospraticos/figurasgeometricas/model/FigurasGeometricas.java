@@ -1,14 +1,14 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.model;
 
-import java.util.List;
+public abstract class FigurasGeometricas {
 
-public class FigurasGeometricas {
 
-    private List<Ponto> pontos;
+    public FigurasGeometricas(){
 
-    public FigurasGeometricas(List<Ponto> pontos) {
-        this.pontos = pontos;
     }
 
+    public abstract int calcularArea();
+
+    public abstract int calcularPerimetro();
 
 }

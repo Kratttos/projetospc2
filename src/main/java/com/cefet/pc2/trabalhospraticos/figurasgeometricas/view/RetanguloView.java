@@ -6,9 +6,12 @@ public class RetanguloView extends BasicIO {
 
     public Retangulo askRetangulo(){
 
-        this.printLine("PLACEHOLDER um Retangulo foi criado aqui");
+        this.printLine("Qual e o tamanho da base do Rentagulo ?");
+        int base = this.askInt();
+        this.printLine("Qual e o tamanho dos lados ?");
+        int lados = this.askInt();
 
-        return new Retangulo();
+        return new Retangulo(base,lados);
     }
 
 }

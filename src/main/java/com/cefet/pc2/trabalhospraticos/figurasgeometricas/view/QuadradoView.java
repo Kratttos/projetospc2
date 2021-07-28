@@ -7,8 +7,11 @@ public class QuadradoView extends BasicIO {
 
     public Quadrado askQuadrado() {
 
-        this.printLine("PLACEHOLDER : Um Quadrado foi Criado Aqui");
-        return new Quadrado();
+        this.printLine("Qual e o tamanho dos lados do Quadrado ?");
+        int ladoQuadrado = this.askInt();
+
+        return new Quadrado(ladoQuadrado);
+
     }
 
     public void showMenu() {

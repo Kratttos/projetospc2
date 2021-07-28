@@ -11,17 +11,17 @@ public class MainControl {
 
     List<FigurasGeometricas> lista;
 
-    public MainControl(){
+    public MainControl() {
         this.lista = new ArrayList<>();
     }
 
-    public void start(){
+    public void start() {
         MainView tela = new MainView();
         OpcoesMenu opcao;
         do {
             tela.showMenu();
             opcao = tela.askOption();
-            switch (opcao){
+            switch (opcao) {
                 case QUADRADO -> this.addFigura(new QuadradoView().askQuadrado());
                 case RETANGULO -> this.addFigura(new RetanguloView().askRetangulo());
                 case TRIANGULO -> this.addFigura(new TrianguloView().askTriangulo());
@@ -30,7 +30,6 @@ public class MainControl {
                 case LISTAR -> this.listAll();
                 case SAIR -> System.exit(0);
             }
-
         } while (opcao != OpcoesMenu.SAIR);
     }
 
@@ -42,28 +41,28 @@ public class MainControl {
             tela.showMainMenu();
             opcao = tela.askMainMenuOption();
 
-           switch (opcao){
-               case CIRCULO -> new CirculoController().inicio();
-               case QUADRADO -> new QuadradoController().inicio();
-               case RETANGULO -> new RetanguloController().inicio();
-               case LISTAR -> System.out.println("aqui");
-               case SAIR -> System.exit((0));
-           }
+            switch (opcao) {
+                case CIRCULO -> new CirculoController().inicio();
+                case QUADRADO -> new QuadradoController().inicio();
+                case RETANGULO -> new RetanguloController().inicio();
+                case LISTAR -> System.out.println("aqui");
+                case SAIR -> System.exit((0));
+            }
 
         } while (opcao != OpcoesMenu.SAIR);
     }
 
-    public void listAll(){
-        for ( FigurasGeometricas fig : this.lista ) {
-            new MainView().print(fig.toString());
-        }
+    public void listAll() {
+        new MainView().listarTodos(this.lista);
     }
 
-    public void deleteFigura(){
-
+    public void deleteFigura() {
+        MainView tela = new MainView();
+        int posicao = tela.showDeleteMenu(this.lista);
+        this.lista.remove(posicao);
     }
 
-    public void addFigura(FigurasGeometricas figura){
+    public void addFigura(FigurasGeometricas figura) {
         this.lista.add(figura);
     }
 

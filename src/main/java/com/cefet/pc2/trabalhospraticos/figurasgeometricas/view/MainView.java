@@ -1,6 +1,9 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.enums.OpcoesMenu;
+
+import java.util.List;
 
 public class MainView extends BasicIO {
 
@@ -13,22 +16,22 @@ public class MainView extends BasicIO {
 
     public void showMenu() {
 
-        this.print("Menu Principal");
-        this.print("1 - Criar Quadrado");
-        this.print("2 - Criar Retangulo");
-        this.print("3 - Criar Triangulo");
-        this.print("4 - Criar Circulo");
-        this.print(".....");
-        this.print("D - Apagar Item");
-        this.print("X - Listar");
-        this.print("S - Sair");
+        this.printLine("Menu Principal");
+        this.printLine("1 - Criar Quadrado");
+        this.printLine("2 - Criar Retangulo");
+        this.printLine("3 - Criar Triangulo");
+        this.printLine("4 - Criar Circulo");
+        this.printLine(".....");
+        this.printLine("D - Apagar Item");
+        this.printLine("X - Listar");
+        this.printLine("S - Sair");
     }
 
     public OpcoesMenu askOption() {
         char opcao;
-        int limite = 15;
+        boolean saida;
         do {
-
+            saida = true;
             opcao = this.askString().charAt(0);
             switch (opcao) {
                 case '1':
@@ -39,16 +42,38 @@ public class MainView extends BasicIO {
                     return OpcoesMenu.TRIANGULO;
                 case '4':
                     return OpcoesMenu.CIRCULO;
-                case 'D':
+                case 'D', 'd':
                     return OpcoesMenu.APAGAR_ITEM;
-                case 'X','x':
+                case 'X', 'x':
                     return OpcoesMenu.LISTAR;
-                case 'S','s':
+                case 'S', 's':
                     return OpcoesMenu.SAIR;
                 default:
-                    return null;
+                    this.printLine("Por Favor digite uma opção valida");
+                    saida = false;
+                    break;
             }
-        } while (opcao < 1 || opcao > limite);  //essa condição aqui ta quebrada por hora mas eu vou concertar
+        } while (!saida);
+        return null;    //so pra deixar a linguagem feliz
+    }
+
+    public void listarTodos(List figuras) {
+        for (FigurasGeometricas fig: (List<FigurasGeometricas>) figuras) {
+            this.printLine(fig.toString());
+        }
+    }
+
+    public int showDeleteMenu(List figuras) {
+        int opcao;
+        for (int i = 0; i < figuras.size(); i++) {
+            this.printLine((i + 1) + " - " + figuras.get(i));
+        }
+        this.printLine("Digite o numero do item que você deseja deletar");
+        do{
+            opcao = this.askInt();
+        }while(opcao<1 || opcao>figuras.size());
+
+        return (opcao - 1);
     }
 
     public OpcoesMenu askMainMenuOption() {
