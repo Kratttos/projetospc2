@@ -22,7 +22,8 @@ public class MainView extends BasicIO {
         this.printLine("3 - Criar Triangulo");
         this.printLine("4 - Criar Circulo");
         this.printLine(".....");
-        this.printLine("D - Apagar Item");
+        this.printLine("A - Apagar Item");
+        this.printLine("D - Desenhar");
         this.printLine("X - Listar");
         this.printLine("S - Sair");
     }
@@ -42,8 +43,10 @@ public class MainView extends BasicIO {
                     return OpcoesMenu.TRIANGULO;
                 case '4':
                     return OpcoesMenu.CIRCULO;
-                case 'D', 'd':
+                case 'A', 'a':
                     return OpcoesMenu.APAGAR_ITEM;
+                case 'D','d':
+                    return OpcoesMenu.DESENHAR;
                 case 'X', 'x':
                     return OpcoesMenu.LISTAR;
                 case 'S', 's':
@@ -61,6 +64,10 @@ public class MainView extends BasicIO {
         for (FigurasGeometricas fig: (List<FigurasGeometricas>) figuras) {
             this.printLine(fig.toString());
         }
+    }
+
+    public void vetorCheio(){
+        this.printLine("Não foi possivel inserir pois o vetor esta lotado");
     }
 
     public int showDeleteMenu(List figuras) {

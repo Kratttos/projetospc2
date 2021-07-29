@@ -63,7 +63,12 @@ public class MainControl {
     }
 
     public void addFigura(FigurasGeometricas figura) {
-        this.lista.add(figura);
+
+        if ( this.lista.size()<10){
+            this.lista.add(figura);
+        }else{
+            new MainView().vetorCheio();
+        }
     }
 
 

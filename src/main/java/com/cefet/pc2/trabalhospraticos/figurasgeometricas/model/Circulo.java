@@ -1,23 +1,21 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.model;
 
 public class Circulo extends FigurasGeometricas {
-    public Circulo() {
 
+    private int raio;
+
+    public Circulo(int raio) {
+        this.raio = raio;
     }
+
 
     @Override
     public int calcularArea() {
-        return 0;
-    } //PLADEHOLDER
+        return (int) (Math.PI * (raio * raio));
+    }
 
     @Override
     public int calcularPerimetro() {
-        return 0;
-    }   //PLACEHOLDER
-
-
-    @Override
-    public String toString() {
-        return "PLACEHOLDER Isso aqui e um Circulo";
+        return (int) ((2 * Math.PI) * this.raio);
     }
 }

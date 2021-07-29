@@ -20,11 +20,4 @@ public class Quadrilateros extends FigurasGeometricas{
         return (this.base+this.altura)*2;
     }
 
-    @Override
-    public String toString() {
-
-        String temp = (this.getClass().toString()).substring((this.getClass().toString()).lastIndexOf(".")+1);
-
-        return temp + " : minha area é "+  this.calcularArea() + " e meu perimetro é "+ this.calcularPerimetro();
-    }
 }
