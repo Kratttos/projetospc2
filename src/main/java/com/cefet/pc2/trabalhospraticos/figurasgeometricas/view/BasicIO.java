@@ -13,6 +13,7 @@ public abstract class BasicIO {
     public void print(String msg){
         System.out.print(msg);
     }
+
     public void printLine(String msg){
         this.print(msg + "\n");
     }

@@ -1,11 +1,19 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.model;
 
-public class Quadrilateros extends FigurasGeometricas{
+public abstract class Quadrilateros extends FigurasGeometricas{
 
     private int base;
     private int altura;
 
-    public Quadrilateros(int base,int altura){
+    public int getBase() {
+        return base;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public Quadrilateros(int base, int altura){
         this.base = base;
         this.altura = altura;
     }

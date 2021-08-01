@@ -8,7 +8,6 @@ public class Circulo extends FigurasGeometricas {
         this.raio = raio;
     }
 
-
     @Override
     public int calcularArea() {
         return (int) (Math.PI * (raio * raio));
@@ -18,4 +17,5 @@ public class Circulo extends FigurasGeometricas {
     public int calcularPerimetro() {
         return (int) ((2 * Math.PI) * this.raio);
     }
+
 }
