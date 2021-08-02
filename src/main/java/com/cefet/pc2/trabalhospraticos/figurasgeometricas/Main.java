@@ -5,8 +5,5 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.control.MainControl;
 public class Main {
     public static void main(String[] args) {
         new MainControl().start();
-       // List<FigurasGeometricas> a = new ArrayList<>();
-        //new Paint().desenhar(a);
-
     }
 }

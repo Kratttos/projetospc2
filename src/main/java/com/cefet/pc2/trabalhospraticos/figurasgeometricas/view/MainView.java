@@ -4,7 +4,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.enums.OpcoesMenu
 
 import java.util.List;
 
-public class MainView extends BasicIO {
+public class MainView extends BasicView {
 
     private static final String OPCAO_INVALIDA = "Por Favor digite uma opção valida";
 
@@ -79,7 +79,7 @@ public class MainView extends BasicIO {
         int opcao;
         this.printLine("Digite o numero do item que você deseja deletar");
         do {
-            opcao = this.askInt();
+            opcao = this.askNumberBiggerThanZero();
         } while (opcao < 1 || opcao > limite);
         this.printLine("------------------------------");
         return (opcao - 1);

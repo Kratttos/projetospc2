@@ -2,7 +2,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.Circulo;
 
-public class CirculoView extends BasicIO {
+public class CirculoView extends BasicView {
 
     /**
      * Tela de criação do objeto Circulo
@@ -12,10 +12,7 @@ public class CirculoView extends BasicIO {
     public Circulo askCirculo() {
         this.printLine("----Menu de Criação de Circulo----");
         this.printLine("Qual e o raio do Circulo ?");
-        int raio;
-        do {
-            raio = this.askInt();
-        } while (raio <= 0);
+        int raio = this.askNumberBiggerThanZero();
         this.printLine("---------------------------------");
         return new Circulo(raio);
     }

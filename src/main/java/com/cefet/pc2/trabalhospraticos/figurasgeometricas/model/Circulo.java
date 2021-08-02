@@ -37,4 +37,8 @@ public class Circulo extends FigurasGeometricas {
         return (int) ((2 * Math.PI) * this.raio);
     }
 
+    @Override
+    public String toString() {
+         return super.toString().replaceAll("@",("{ "+(2*this.raio)+" de Diametro é "+this.raio + " de raio }"));
+    }
 }

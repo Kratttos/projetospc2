@@ -2,7 +2,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.Quadrado;
 
-public class QuadradoView extends BasicIO {
+public class QuadradoView extends BasicView {
     /**
      * Tela de criação do Objeto Quadrado
      *
@@ -11,11 +11,7 @@ public class QuadradoView extends BasicIO {
     public Quadrado askQuadrado() {
         this.printLine("----Menu de Criação de Quadrado----");
         this.printLine("Qual e o tamanho dos lados do Quadrado ?");
-        int ladoQuadrado = this.askInt();
-        while(ladoQuadrado<=0){
-            this.printLine("Por Favor Digite um numero maior do que 0");
-            ladoQuadrado = this.askInt();
-        }
+        int ladoQuadrado = this.askNumberBiggerThanZero();
         this.printLine("----------------------------------");
         return new Quadrado(ladoQuadrado);
 

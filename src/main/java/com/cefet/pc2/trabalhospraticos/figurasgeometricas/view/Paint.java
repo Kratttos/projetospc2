@@ -12,12 +12,16 @@ import java.util.List;
 public class Paint {
 
     private void init(List<FigurasGeometricas> lista) {
-        JFrame f = new JFrame("CefetPaint");
-        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        f.setLocationRelativeTo(null);
-        f.add(new PainelDeDesenho(lista));
-        f.setSize(500, 500);
-        f.setVisible(true);
+        if (lista.size()== 0) {
+            JOptionPane.showMessageDialog(null, "Ainda não tem nada para Desenhar");
+        } else {
+            JFrame f = new JFrame("CefetPaint");
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setLocationRelativeTo(null);
+            f.add(new PainelDeDesenho(lista));
+            f.setSize(500, 500);
+            f.setVisible(true);
+        }
     }
 
     public void desenhar(List<FigurasGeometricas> figs) {
@@ -59,14 +63,14 @@ public class Paint {
                 if (fig instanceof Circulo) {
                     Circulo circ = (Circulo) fig;
 
-                    int height = circ.getRaio()*2;
+                    int height = circ.getRaio() * 2;
 
                     if (maiorHeight < height) {
                         maiorHeight = height;
                     }
 
                     if (posicaoInicialLado + height >= TAMANHO_TELA) {
-                        posicaoInicialTopo += (maiorHeight-30);
+                        posicaoInicialTopo += (maiorHeight - 30);
                         posicaoInicialLado = 30;
                     }
 

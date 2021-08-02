@@ -14,6 +14,6 @@ public abstract class FigurasGeometricas {
 
         String temp = (this.getClass().toString()).substring((this.getClass().toString()).lastIndexOf(".")+1);
 
-        return temp + " : minha area é "+  this.calcularArea() + " e meu perimetro é "+ this.calcularPerimetro();
+        return temp + " @ : minha area é "+  this.calcularArea() + " e meu perimetro é "+ this.calcularPerimetro();
     }
 }
