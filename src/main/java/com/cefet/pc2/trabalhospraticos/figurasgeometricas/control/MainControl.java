@@ -39,15 +39,19 @@ public class MainControl {
 
     public void deleteFigura() {
         MainView tela = new MainView();
-        int posicao = tela.showDeleteMenu(this.lista.size());
-        this.lista.remove(posicao);
+        if (this.lista.size() > 0) {
+            int posicao = tela.showDeleteMenu(this.lista.size());
+            this.lista.remove(posicao);
+        } else {
+            tela.listaVazia();
+        }
     }
 
     public void addFigura(FigurasGeometricas figura) {
 
-        if ( this.lista.size()<10){
+        if (this.lista.size() < 10) {
             this.lista.add(figura);
-        }else{
+        } else {
             new MainView().vetorCheio();
         }
     }
