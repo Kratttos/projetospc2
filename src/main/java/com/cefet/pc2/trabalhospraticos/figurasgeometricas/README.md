@@ -22,7 +22,7 @@ Sim, Nas classes Circulo, FiguraGsGeometricas é Quaddrilateros. Eu sobrescrevi 
 Faz com que o codigo se torne um pouco mais facil de ler.
 
 ### Cole a imagem do diagrama de classe do seu sistema e faça um paragrafo se você entende este diagrama e ele representa realmente objetos do mundo real, com nomes de Metodos coerentes.
-![UML](/resources/img/FigurasUML.png , "Diagrama de Classe Figura")
+![Alt Diagrama](resources/img/FigurasUML.png)
 
 O diagrama mostram 3 Figuras Geoemetricas(Circulo, Quadrado e Retangulo) que são filhas da classe FiguraGeoemetrica e no caso do Retangulo e do Quadrado são filhas de Quadrilateros que herdam de FigurasGeoemetricas. Todos tem os metodos calcularArea é calcularPerimetro que permite calcular a area e o perimetro respectivamente.
 
