@@ -32,7 +32,7 @@ public abstract class BasicView extends BasicIO {
         return numberI;
     }
 
-    public void showMenu() {
+    public Enum showMenu() {
         String nomeClasse = this.getClass().getSimpleName();
         String nomeMenu = "MENU *" + nomeClasse.substring(0, nomeClasse.indexOf("View")) + "*:";
         String[] opcoes = new String[]{
@@ -49,6 +49,7 @@ public abstract class BasicView extends BasicIO {
             System.out.println((i + 1) + " - " + opcoes[i]);
         }
         this.printLine("x - Voltar");
+        return null;
     }
 
     public Enum askOption() {

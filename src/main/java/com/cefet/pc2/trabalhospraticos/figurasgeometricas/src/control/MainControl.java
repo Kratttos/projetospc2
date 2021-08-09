@@ -1,7 +1,8 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.repository.Repository;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.*;
 
 public class MainControl implements AbstractController {
@@ -13,21 +14,28 @@ public class MainControl implements AbstractController {
     }
 
     public void start() {
-        OpcoesMenu opcao;
+        SubMenu[] listaSubMenus = new SubMenu[]{
+                new TextoController(new TextoView()),
+                new RetaController(new RetaView()),
+                new RetanguloController(new RetanguloView()),
+                new QuadradoController(new QuadradoView()),
+                new CirculoController(new CirculoView()),
+                new TrianguloController(new TrianguloView()),
+                new ElipseController(new ElipseView())
+        };
         do {
-            this.tela.showMenu();
-            opcao = (OpcoesMenu) tela.askOption();
-            switch (opcao) {
-                case TEXTO -> new TextoController(new TextoView()).start();
-                case RETA -> new RetaController(new RetaView()).start();
-                case QUADRADO -> new QuadradoController(new QuadradoView()).start();
-                case RETANGULO -> new RetanguloController(new RetanguloView()).start();
-                case CIRCULO -> new CirculoController(new CirculoView()).start();
-                case DESENHAR -> new Paint().desenhar(Repository.listaFiguras);
-                case LISTAR -> this.listAll();
-                case SAIR -> System.exit(0);
+            Enum escolha = this.tela.showMenu();
+            if (escolha instanceof Figuras) {
+                int teclaPressionada = (Integer.parseInt(((Figuras) escolha).getTecla()));
+                listaSubMenus[teclaPressionada - 1].start();
+            } else {
+                switch ((Avulsas) escolha) {
+                    case DESENHAR -> new Paint().desenhar(Repository.listaFiguras);
+                    case LISTAR -> this.listAll();
+                    case SAIR -> System.exit(0);
+                }
             }
-        } while (opcao != OpcoesMenu.SAIR);
+        } while (true);
     }
 
     @Override

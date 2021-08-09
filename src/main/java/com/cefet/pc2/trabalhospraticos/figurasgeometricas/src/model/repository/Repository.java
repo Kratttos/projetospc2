@@ -32,9 +32,9 @@ public class Repository {
         return retorno;
     }
 
-    public static Renderizavel findByID(int id){
+    public static Renderizavel findByID(int id,String tipo){
         for (Renderizavel item: listaFiguras) {
-            if (item.getId() == id){
+            if (item.getId() == id && item.getClass().getSimpleName().equalsIgnoreCase(tipo)){
                 return item;
             }
         }
@@ -48,6 +48,7 @@ public class Repository {
                 novaLista.add(item);
             }
         }
+        ;
         return novaLista;
     }
 }

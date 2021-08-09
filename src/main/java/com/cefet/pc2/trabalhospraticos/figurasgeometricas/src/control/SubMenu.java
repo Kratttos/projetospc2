@@ -13,6 +13,7 @@ public abstract class SubMenu implements AbstractController {
     public SubMenu(SubMenuView tela) {
         this.tela = tela;
         this.className = this.getClass().getSimpleName().replace("Controller", "");
+
     }
 
     public void start() {
@@ -28,7 +29,6 @@ public abstract class SubMenu implements AbstractController {
                 case MOSTRAR -> this.details();
             }
         } while (opcao != OpcoesSubMenu.SAIR);
-
     }
 
     public void insert() {
@@ -42,7 +42,7 @@ public abstract class SubMenu implements AbstractController {
 
     public void details() { //detalhes de um objeto da classe
         int id = this.tela.askID();
-        Renderizavel objeto = Repository.findByID(id);
+        Renderizavel objeto = Repository.findByID(id,this.className);
         if (objeto != null) {
             this.tela.showDetails(objeto);
         } else {

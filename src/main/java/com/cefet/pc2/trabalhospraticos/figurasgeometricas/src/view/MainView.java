@@ -1,68 +1,40 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesMenu;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
 
 public class MainView extends BasicView {
 
     @Override
-    public void showMenu() {
-        final String[] figuras = new String[]{"Reta","Texto","Circulo","Quadrado","Retangulo"};
-        final String[][] avulsas = new String[][]{
-                {"D","Desenhar"},
-                {"L","Listar"},
-                {"S","Salvar"},
-                {"R","Recarregar"},
-                {"X","Sair"}
-        };
+    public Enum showMenu() {
+        final Figuras[] figuras = Figuras.values();
+        final Avulsas[] avulsas = Avulsas.values();
+        final Opcoes[] opcoes = new Opcoes[figuras.length + avulsas.length];
+        int j = 0;
+        for (int i = 0; i < figuras.length; i++, j++) {
+            opcoes[j] = figuras[i];
+        }
+        for (int i = 0; i < avulsas.length; i++, j++) {
+            opcoes[j] = avulsas[i];
+        }
         this.printLine("-----------Menu Inicial--------------");
         this.printLine("Digite uma opção:");
-        for (int i = 0; i < figuras.length ; i++) {
-            this.printLine((i+1) + " - "+figuras[i]);
+        for (int i = 0; i < figuras.length; i++) {
+            this.printLine(figuras[i].getTecla() + " - " + figuras[i].getText());
         }
-        this.printLine("....");
+        this.printLine(".....");
         for (int i = 0; i < avulsas.length; i++) {
-            this.printLine(avulsas[i][0] + " - " + avulsas[i][1]);
+            this.printLine(avulsas[i].getTecla() + " - " + avulsas[i].getText());
         }
-    }
-
-    @Override
-    public OpcoesMenu askOption() {
-        char opcao = (int) 0;
-        boolean saida;
         do {
-            saida = true;
-            String opcaoString = "";
-            while (opcaoString.length() == 0) {
-                opcaoString = this.askString();
+            String opcao = this.askString();
+            for (Opcoes item : opcoes) {
+                if (item.getTecla().equalsIgnoreCase(opcao)) {
+                    return (Enum)item;
+                }
             }
-            opcao = opcaoString.charAt(0);
-            switch (opcao) {
-                case '1':
-                    return OpcoesMenu.RETA;
-                case '2':
-                    return OpcoesMenu.TEXTO;
-                case '3':
-                    return OpcoesMenu.CIRCULO;
-                case '4':
-                    return OpcoesMenu.QUADRADO;
-                case '5':
-                    return OpcoesMenu.RETANGULO;
-                case 'D', 'd':
-                    return OpcoesMenu.DESENHAR;
-                case 'L', 'l':
-                    return OpcoesMenu.LISTAR;
-                case 'S','s':
-                    return OpcoesMenu.SALVAR;
-                case 'R','r':
-                    return OpcoesMenu.RECARREGAR;
-                case 'X', 'x':
-                    return OpcoesMenu.SAIR;
-                default:
-                    this.printLine(OPCAO_INVALIDA);
-                    saida = false;
-                    break;
-            }
-        } while (!saida);
-        return null;    //so pra deixar a linguagem feliz
+            this.printLine("Por Favor Digite uma opção valida");
+        } while (true);
     }
 }
