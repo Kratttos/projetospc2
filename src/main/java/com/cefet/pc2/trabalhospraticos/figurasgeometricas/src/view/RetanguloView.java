@@ -3,7 +3,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
 
-public class RetanguloView extends BasicView {
+public class RetanguloView extends SubMenuView {
 
     @Override
     public Renderizavel askObject() {
@@ -14,5 +14,12 @@ public class RetanguloView extends BasicView {
         int lados = this.askIntegerBiggerThanZero();
         this.printLine("-----------------------------------");
         return new Retangulo(base,lados);
+    }
+
+    @Override
+    public Renderizavel showUpdateMenu() {
+        System.out.println("PLACEHOLDER : Aqui ainda vai ter um menu de update");
+
+        return null;
     }
 }

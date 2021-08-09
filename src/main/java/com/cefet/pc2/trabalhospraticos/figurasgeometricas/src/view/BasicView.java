@@ -83,36 +83,17 @@ public abstract class BasicView extends BasicIO {
         return null;    //so pra deixar a linguagem feliz
     }
 
+    public void listAll(List<Renderizavel> lista){
+        for (Renderizavel item: lista) {
+            this.printLine(item.toString());
+        }
+    }
+
     public void vetorCheio() {
         this.printLine("Não foi possivel inserir pois o vetor esta lotado");
     }
 
-    public abstract Renderizavel askObject();
-
     public void listaVazia() {
         this.printLine("Não tem nenhuma Figura para ser deletada");
     }
-    /**
-     * Mostra o menu de deletar e retornar um inteiro referente a posição do item escolhido
-     *
-     * @param limite Ultima posição da List
-     * @return retorna a posição do item na List do objeto
-     */
-    public int showDeleteMenu(int limite) {
-        this.printLine("------ Deletar Figuras ------");
-        int opcao;
-        this.printLine("Digite o numero do item que você deseja deletar");
-        do {
-            opcao = this.askIntegerBiggerThanZero();
-        } while (opcao < 1 || opcao > limite);
-        this.printLine("------------------------------");
-        return (opcao - 1);
-    }
-
-    public void inserido(){
-        this.printLine("Inserido com Sucesso");
-    }
-
-
-    public void listarTodos(List figuras){}
 }

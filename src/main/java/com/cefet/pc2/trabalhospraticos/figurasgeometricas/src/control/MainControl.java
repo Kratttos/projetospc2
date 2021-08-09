@@ -4,10 +4,12 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.repository.R
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.*;
 
-public class MainControl extends AbstractController {
+public class MainControl implements AbstractController {
+
+    private BasicView tela;
 
     public MainControl(BasicView tela) {
-        super(tela);
+        this.tela = tela;
     }
 
     public void start() {

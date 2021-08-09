@@ -1,9 +1,6 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesMenu;
-
-import java.util.List;
 
 public class MainView extends BasicView {
 
@@ -41,9 +38,9 @@ public class MainView extends BasicView {
             opcao = opcaoString.charAt(0);
             switch (opcao) {
                 case '1':
-                    return OpcoesMenu.TEXTO;
-                case '2':
                     return OpcoesMenu.RETA;
+                case '2':
+                    return OpcoesMenu.TEXTO;
                 case '3':
                     return OpcoesMenu.CIRCULO;
                 case '4':
@@ -68,19 +65,4 @@ public class MainView extends BasicView {
         } while (!saida);
         return null;    //so pra deixar a linguagem feliz
     }
-
-    @Override
-    public FigurasGeometricas askObject() {
-        return null;
-    }
-
-    @Override
-    public void listarTodos(List figuras) {
-        this.printLine("------ Lista de Figuras ------");
-        for (int i = 0; i < figuras.size(); i++) {
-            this.printLine((i + 1) + " - " + figuras.get(i));
-        }
-        this.printLine("------------------------------");
-    }
-
 }

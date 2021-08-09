@@ -3,7 +3,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 
-public class CirculoView extends BasicView {
+public class CirculoView extends SubMenuView {
 
     @Override
     public Renderizavel askObject() {
@@ -12,5 +12,12 @@ public class CirculoView extends BasicView {
         int raio = this.askIntegerBiggerThanZero();
         this.printLine("---------------------------------");
         return new Circulo(raio);
+    }
+
+    @Override
+    public Renderizavel showUpdateMenu() {
+        System.out.println("PLACEHOLDER : Aqui ainda vai ter um menu de update");
+
+        return null;
     }
 }

@@ -1,6 +1,6 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
-public abstract class FigurasGeometricas implements Renderizavel {
+public abstract class FigurasGeometricas extends Renderizavel {
 
 
     public FigurasGeometricas(){}
