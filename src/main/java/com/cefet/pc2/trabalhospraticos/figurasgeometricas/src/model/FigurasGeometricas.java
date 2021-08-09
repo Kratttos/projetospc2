@@ -1,4 +1,4 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.model;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
 public abstract class FigurasGeometricas {
 

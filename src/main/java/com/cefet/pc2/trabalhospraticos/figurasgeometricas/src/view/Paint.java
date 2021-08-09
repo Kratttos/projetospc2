@@ -1,8 +1,8 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.Circulo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.FigurasGeometricas;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.Quadrilateros;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrilateros;
 
 import javax.swing.*;
 import java.awt.*;

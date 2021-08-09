@@ -1,4 +1,4 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
 import java.util.Scanner;
 

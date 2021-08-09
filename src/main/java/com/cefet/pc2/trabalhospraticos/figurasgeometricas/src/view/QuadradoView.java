@@ -1,6 +1,6 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.model.Quadrado;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 
 public class QuadradoView extends BasicView {
     /**
@@ -11,7 +11,7 @@ public class QuadradoView extends BasicView {
     public Quadrado askQuadrado() {
         this.printLine("----Menu de Criação de Quadrado----");
         this.printLine("Qual e o tamanho dos lados do Quadrado ?");
-        int ladoQuadrado = this.askNumberBiggerThanZero();
+        int ladoQuadrado = this.askIntegerBiggerThanZero();
         this.printLine("----------------------------------");
         return new Quadrado(ladoQuadrado);
 
