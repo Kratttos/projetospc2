@@ -1,5 +1,6 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesMenu;
 
 import java.util.List;
@@ -66,6 +67,11 @@ public class MainView extends BasicView {
             }
         } while (!saida);
         return null;    //so pra deixar a linguagem feliz
+    }
+
+    @Override
+    public FigurasGeometricas askObject() {
+        return null;
     }
 
     @Override

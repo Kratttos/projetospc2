@@ -1,8 +1,8 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrilateros;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +11,9 @@ import java.util.List;
 
 public class Paint {
 
-    private void init(List<FigurasGeometricas> lista) {
-        if (lista.size()== 0) {
+    private void init(List<Renderizavel> lista) {
+        if (lista.size() == 0) {
+            new MainView().printLine("Vetor Vazio");
             JOptionPane.showMessageDialog(null, "Ainda não tem nada para Desenhar");
         } else {
             JFrame f = new JFrame("CefetPaint");
@@ -24,15 +25,15 @@ public class Paint {
         }
     }
 
-    public void desenhar(List<FigurasGeometricas> figs) {
+    public void desenhar(List<Renderizavel> figs) {
         SwingUtilities.invokeLater(() -> init(figs));
     }
 
     class PainelDeDesenho extends JPanel {
 
-        List<FigurasGeometricas> figs;
+        List<Renderizavel> figs;
 
-        public PainelDeDesenho(List<FigurasGeometricas> lista) {
+        public PainelDeDesenho(List<Renderizavel> lista) {
             this.figs = lista;
         }
 
@@ -42,7 +43,7 @@ public class Paint {
             int posicaoInicialLado = 30;
             int posicaoInicialTopo = 20;
             int maiorHeight = 0;
-            for (FigurasGeometricas fig : this.figs) {
+            for (Renderizavel fig : this.figs) {
                 if (fig instanceof Quadrilateros) {
                     Quadrilateros figura = (Quadrilateros) fig;
 

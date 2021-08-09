@@ -1,5 +1,6 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 
 import java.util.List;
@@ -86,12 +87,11 @@ public abstract class BasicView extends BasicIO {
         this.printLine("Não foi possivel inserir pois o vetor esta lotado");
     }
 
+    public abstract Renderizavel askObject();
+
     public void listaVazia() {
         this.printLine("Não tem nenhuma Figura para ser deletada");
     }
-
-    public void listarTodos(List figuras){}
-
     /**
      * Mostra o menu de deletar e retornar um inteiro referente a posição do item escolhido
      *
@@ -108,4 +108,11 @@ public abstract class BasicView extends BasicIO {
         this.printLine("------------------------------");
         return (opcao - 1);
     }
+
+    public void inserido(){
+        this.printLine("Inserido com Sucesso");
+    }
+
+
+    public void listarTodos(List figuras){}
 }
