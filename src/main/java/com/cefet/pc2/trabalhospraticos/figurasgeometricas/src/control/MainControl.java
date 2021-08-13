@@ -2,10 +2,14 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.repository.Repository;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.Repository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.*;
 
-public class MainControl implements AbstractController {
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class MainControl {
 
     private BasicView tela;
 
@@ -13,15 +17,15 @@ public class MainControl implements AbstractController {
         this.tela = tela;
     }
 
-    public void start() {
-        SubMenu[] listaSubMenus = new SubMenu[]{
+    public void start() throws SQLException {
+        ISubMenu[] listaSubMenus = new SubMenu[]{
                 new TextoController(new TextoView()),
                 new RetaController(new RetaView()),
                 new RetanguloController(new RetanguloView()),
                 new QuadradoController(new QuadradoView()),
                 new CirculoController(new CirculoView()),
                 new TrianguloController(new TrianguloView()),
-                new ElipseController(new ElipseView())
+                new LosangoController(new LosangoView())
         };
         do {
             Enum escolha = this.tela.showMenu();
@@ -30,15 +34,28 @@ public class MainControl implements AbstractController {
                 listaSubMenus[teclaPressionada - 1].start();
             } else {
                 switch ((Avulsas) escolha) {
-                    case DESENHAR -> new Paint().desenhar(Repository.listaFiguras);
+                    case DESENHAR -> new Paint().desenhar(new Repository().getListaFiguras());
                     case LISTAR -> this.listAll();
                     case SAIR -> System.exit(0);
+                    case SALVAR -> {
+                        try {
+                            new Repository().persist(Local.ARQUIVO);
+                        } catch (IOException | ClassNotFoundException ex2) {
+                            this.tela.printLine("Não foi possivel salvar os dados");    //vou mexer nisso aqui ainda
+                        }
+                    }
+                    case RECARREGAR -> {
+                        try {
+                            new Repository().load(Local.ARQUIVO);
+                        } catch (IOException | ClassNotFoundException ex2) {
+                            this.tela.printLine("Não foi possivel Carregar os Dados");  //vou mexer nisso aqui ainda
+                        }
+                    }
+
                 }
             }
         } while (true);
     }
-
-    @Override
     public void listAll() {
 
     }

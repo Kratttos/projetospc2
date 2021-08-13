@@ -58,7 +58,7 @@ public abstract class BasicView extends BasicIO {
         do {
             saida = true;
             String opcaoString = "";
-            while (opcaoString.length() == 0) {
+            while (opcaoString.length() == 0 || opcaoString.length()>1) {
                 opcaoString = this.askString();
             }
             opcao = opcaoString.charAt(0);

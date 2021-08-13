@@ -31,7 +31,7 @@ public class MainView extends BasicView {
             String opcao = this.askString();
             for (Opcoes item : opcoes) {
                 if (item.getTecla().equalsIgnoreCase(opcao)) {
-                    return (Enum)item;
+                    return (Enum) item;
                 }
             }
             this.printLine("Por Favor Digite uma opção valida");

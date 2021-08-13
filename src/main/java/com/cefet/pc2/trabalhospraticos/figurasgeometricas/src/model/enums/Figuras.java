@@ -7,7 +7,7 @@ public enum Figuras implements Opcoes {
     QUADRADO("Quadrado", "4"),
     CIRCULO("Circulo", "5"),
     TRIANGULO("Triangulo","6"),
-    ELIPSE("Elipse","7");
+    ELIPSE("Losango","7");
 
     private String text;
     private String tecla;
