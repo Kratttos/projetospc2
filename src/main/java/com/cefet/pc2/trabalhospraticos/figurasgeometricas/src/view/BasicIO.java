@@ -29,4 +29,27 @@ public abstract class BasicIO {
     public double askDouble(){
         return this.input.nextDouble();
     }
+
+    /**
+     * Retorna um inteiro
+     *
+     * @return retorna um inteiro maior do que 0
+     */
+    public int askIntegerBiggerThanZero() {
+        String number;
+        int numberI = -50;
+        do {
+            number = this.askString();
+            try {
+                numberI = Integer.parseInt(number);
+                if (numberI <= 0) {
+                    this.printLine("O valor digitado deve ser maior que 0");
+                }
+            } catch (NumberFormatException ex) {
+                this.printLine("O valor digitado deve ser um numero");
+            }
+        } while (numberI <= 0);
+
+        return numberI;
+    }
 }

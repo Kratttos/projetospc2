@@ -11,15 +11,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repository {
+public class RenderizaveisRepository implements IRepository {
 
     private static List<Renderizavel> listaFiguras = new ArrayList<>();
     private static final int TAMANHO_VETOR = 10;
     private static int autoIncrement = 1;
 
+    @Override
     public boolean insert(Renderizavel figura) {
-        if (Repository.listaFiguras.size() < TAMANHO_VETOR) {
-            Repository.listaFiguras.add(figura);
+        if (RenderizaveisRepository.listaFiguras.size() < TAMANHO_VETOR) {
+            RenderizaveisRepository.listaFiguras.add(figura);
             figura.setId(autoIncrement++);
             return true;
         } else {
@@ -27,6 +28,7 @@ public class Repository {
         }
     }
 
+    @Override
     public boolean delete(int id, String tipo) {
         boolean retorno = false;
         for (Renderizavel rend : listaFiguras) {
@@ -38,6 +40,7 @@ public class Repository {
         return retorno;
     }
 
+    @Override
     public Renderizavel findByID(int id, String tipo) {
         for (Renderizavel item : listaFiguras) {
             if (item.getId() == id && item.getClass().getSimpleName().equalsIgnoreCase(tipo)) {
@@ -47,6 +50,7 @@ public class Repository {
         return null;
     }
 
+    @Override
     public List<Renderizavel> findByType(String tipo) {
         List<Renderizavel> novaLista = new ArrayList<>();
         for (Renderizavel item : listaFiguras) {
@@ -57,16 +61,19 @@ public class Repository {
         return novaLista;
     }
 
+    @Override
     public void persist(Local opcao) throws SQLException, IOException, ClassNotFoundException {
         Persistence local = opcao == Local.ARQUIVO ? new Arquivo() : new SQLite();
         local.save(listaFiguras);
     }
 
+    @Override
     public void load(Local opcao) throws IOException, ClassNotFoundException {
         Persistence local = opcao == Local.ARQUIVO ? new Arquivo() : new SQLite();
         listaFiguras = local.load();
     }
 
+    @Override
     public List<Renderizavel> getListaFiguras() {
         return listaFiguras;
     }

@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface DbName{
+public @interface Entity {
 
-    String value();
+    String tableName();
 }

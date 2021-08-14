@@ -6,8 +6,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel
 public class LosangoView extends SubMenuView{
     @Override
     public Renderizavel askObject() {
-        this.printLine("PLACEHOLDER: aqui vai ter um menu de criação de elipse");
-        return new Losango();
+        this.printLine("Digite o tamanho dos lados do losango");
+        int lados = this.askIntegerBiggerThanZero();
+        return new Losango(lados);
     }
 
     @Override

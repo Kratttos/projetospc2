@@ -4,10 +4,17 @@ import java.util.Random;
 
 public class Losango extends Quadrilateros {
 
-    private int diagonal1, diagonal2;
+    private int diagonalMaior;
+    private int diagonalMenor;
 
     public Losango(int tamanhoLado) {
         super(tamanhoLado, tamanhoLado);
+        System.out.println(
+
+        );
+        
+        //System.out.println;
+        //System.out.println(diagonalMenor);
     }
 
     public Losango() {
@@ -21,4 +28,7 @@ public class Losango extends Quadrilateros {
         return new Random().nextInt();
     }
 
+    public static void main(String[] args) {
+        new Losango(3);
+    }
 }
