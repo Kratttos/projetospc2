@@ -1,21 +1,28 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums;
 
 public enum Figuras implements Opcoes {
-    TEXTO("Texto", "1"),
-    RETA("Reta", "2"),
-    RETANGULO("Retangulo", "3"),
-    QUADRADO("Quadrado", "4"),
-    CIRCULO("Circulo", "5"),
-    TRIANGULO("Triangulo","6"),
-    ELIPSE("Losango","7"),
-    TRAPEZIO("Trapezio","8");
+
+    TEXTO("Texto", definirNumero()),
+    RETA("Reta", definirNumero()),
+    RETANGULO("Retangulo", definirNumero()),
+    QUADRADO("Quadrado", definirNumero()),
+    CIRCULO("Circulo", definirNumero()),
+    TRIANGULO("Triangulo",definirNumero()),
+    ELIPSE("Losango",definirNumero()),
+    TRAPEZIO("Trapezio",definirNumero());
 
     private String text;
     private String tecla;
 
+    private static int numero;
+
     Figuras(String text, String tecla) {
         this.text = text;
         this.tecla = tecla;
+    }
+
+    private static final String definirNumero() {
+        return (Figuras.numero+=1) + "";
     }
 
     @Override

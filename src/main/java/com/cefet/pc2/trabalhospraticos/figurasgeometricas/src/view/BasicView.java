@@ -1,68 +1,42 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 
 import java.util.List;
 
 public abstract class BasicView extends BasicIO {
-
-    protected static final String OPCAO_INVALIDA = "Por Favor digite uma opção valida";
-
+    
     public Enum showMenu() {
         String nomeClasse = this.getClass().getSimpleName();
         String nomeMenu = "MENU *" + nomeClasse.substring(0, nomeClasse.indexOf("View")) + "*:";
-        String[] opcoes = new String[]{
-                "Novo (Criar/Adicionar novo item (Quad, Ret, Text, etcc)",
-                "Editar (Selecionar Id e Editar)",
-                "Listar (Listar Itens do Tipo)",
-                "Mostrar (Listar detalhes de 1 Itens)",
-                "Excluir (Excluir Id)"
-        };
+        Opcoes[] opcoes = OpcoesSubMenu.values();
+
         this.printLine(nomeMenu);
         this.printLine("");
         this.printLine("Digite uma opção");
         for (int i = 0; i < opcoes.length; i++) {
-            System.out.println((i + 1) + " - " + opcoes[i]);
+            this.printLine(opcoes[i].getTecla() + " - " + opcoes[i].getText());
         }
-        this.printLine("x - Voltar");
-        return null;
-    }
-
-    public Enum askOption() {
-        char opcao = (int) 0;
-        boolean saida;
+        int opcao;
+        String opcaoString = "";
         do {
-            saida = true;
-            String opcaoString = "";
-            while (opcaoString.length() == 0 || opcaoString.length()>1) {
+            while (opcaoString.length() <= 0 || opcaoString.length() > 1) {
                 opcaoString = this.askString();
             }
-            opcao = opcaoString.charAt(0);
-            switch (opcao) {
-                case '1':
-                    return OpcoesSubMenu.CRIAR;
-                case '2':
-                    return OpcoesSubMenu.ALTERAR;
-                case '3':
-                    return OpcoesSubMenu.LISTAR;
-                case '4':
-                    return OpcoesSubMenu.MOSTRAR;
-                case '5':
-                    return OpcoesSubMenu.EXCLUIR;
-                case 'X', 'x':
-                    return OpcoesSubMenu.SAIR;
-                default:
-                    this.printLine(OPCAO_INVALIDA);
-                    saida = false;
-                    break;
+            if (opcaoString.equalsIgnoreCase(OpcoesSubMenu.SAIR.getTecla())) return OpcoesSubMenu.SAIR;
+            try {
+                opcao = Integer.parseInt(opcaoString) - 1;
+                return (OpcoesSubMenu) opcoes[opcao];
+            } catch (NumberFormatException ex) {
+                this.printLine("O valor digitado deve ser um numero de 1 a " + (opcaoString.length() + 1) + " ou X");
             }
-        } while (!saida);
-        return null;    //so pra deixar a linguagem feliz
+        } while (true);
     }
 
-    public void listAll(List<Renderizavel> lista){
-        for (Renderizavel item: lista) {
+    public void listAll(List<Renderizavel> lista) {
+        for (Renderizavel item : lista) {
             this.printLine(item.toString());
         }
     }

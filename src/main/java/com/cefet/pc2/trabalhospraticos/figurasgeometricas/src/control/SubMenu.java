@@ -21,8 +21,7 @@ public abstract class SubMenu implements ISubMenu{
     public void start() {
         OpcoesSubMenu opcao;
         do {
-            this.tela.showMenu();
-            opcao = (OpcoesSubMenu) this.tela.askOption();
+            opcao = (OpcoesSubMenu) this.tela.showMenu();
             switch (opcao) {
                 case CRIAR -> this.insert();
                 case ALTERAR -> this.update();
