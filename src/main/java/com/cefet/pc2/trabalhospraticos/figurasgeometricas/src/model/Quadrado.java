@@ -6,4 +6,14 @@ public class Quadrado extends Quadrilateros{
         super(tamanhoLado,tamanhoLado);
     }
 
+    public void setTamanhoLado(int tamanhoLado){
+        this.setAltura(tamanhoLado);
+        this.setBase(tamanhoLado);
+    }
+
+    public int getTamanhoLado(){
+        return this.getAltura();
+    }
+
+
 }

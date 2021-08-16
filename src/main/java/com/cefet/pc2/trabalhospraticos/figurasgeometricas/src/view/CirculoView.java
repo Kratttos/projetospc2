@@ -15,9 +15,15 @@ public class CirculoView extends SubMenuView {
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
-        System.out.println("PLACEHOLDER : Aqui ainda vai ter um menu de update");
+    public void showUpdateMenu(Renderizavel item) {
+        Circulo circulo = (Circulo) item;
+        this.printLine("----Menu de alteração de Circulo----");
+        this.printLine("Qual e o valor que você deseja que seja o novo raio ?");
+        int raio = this.askIntegerBiggerThanZero();
 
-        return null;
+        this.printLine("Você tem certeza que deseja subistuir o valor atual ( " + circulo.getRaio() + " ) por " + raio + " ?");
+
+        circulo.setRaio(this.askSorN() ? raio : circulo.getRaio());
+        this.printLine("---------------------------------");
     }
 }

@@ -22,7 +22,7 @@ public class TrapezioView extends SubMenuView{
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
-        return null;
+    public void showUpdateMenu(Renderizavel item) {
+
     }
 }

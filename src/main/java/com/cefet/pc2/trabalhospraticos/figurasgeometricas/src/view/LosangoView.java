@@ -12,9 +12,8 @@ public class LosangoView extends SubMenuView{
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
-        this.printLine("PLACEHOLDER: aqui vai ter um menu de criação de triangulo");
+    public void showUpdateMenu(Renderizavel item) {
+        this.printLine("PLACEHOLDER: aqui vai ter um menu de alteração de losango");
 
-        return null;
     }
 }

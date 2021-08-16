@@ -15,6 +15,14 @@ public abstract class Quadrilateros extends FigurasGeometricas{
         return altura;
     }
 
+    public void setBase(int base) {
+        this.base = base;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
     public Quadrilateros(int base, int altura){
         this.base = base;
         this.altura = altura;

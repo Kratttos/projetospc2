@@ -60,9 +60,9 @@ public abstract class SubMenu implements ISubMenu{
 
     @Override
     public void update() {
-        this.tela.printLine("Em Progresso");
-        String name = this.className;
-        System.out.println("PLACEHOLDER : Update da classe " + name);
+        int id = this.tela.askID();
+        Renderizavel item = this.repository.findByID(id,this.className);
+        this.tela.showUpdateMenu(item);
     }
 
     @Override

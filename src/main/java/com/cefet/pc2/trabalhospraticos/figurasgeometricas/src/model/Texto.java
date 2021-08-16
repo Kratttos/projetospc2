@@ -8,8 +8,12 @@ public class Texto extends Renderizavel{
         this.text = text;
     }
 
-    public Texto() {
-        this.text = "";
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Override

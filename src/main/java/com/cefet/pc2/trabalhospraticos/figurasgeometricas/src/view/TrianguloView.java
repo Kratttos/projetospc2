@@ -12,8 +12,8 @@ public class TrianguloView extends SubMenuView{
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
+    public void showUpdateMenu(Renderizavel item) {
         this.printLine("PLACEHOLDER : aqui vai ter um menu de mudança do triangulo");
-        return null;
+
     }
 }

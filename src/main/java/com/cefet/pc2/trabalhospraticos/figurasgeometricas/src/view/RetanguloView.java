@@ -13,13 +13,23 @@ public class RetanguloView extends SubMenuView {
         this.printLine("Qual e o tamanho dos lados ?");
         int lados = this.askIntegerBiggerThanZero();
         this.printLine("-----------------------------------");
-        return new Retangulo(base,lados);
+        return new Retangulo(base, lados);
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
-        System.out.println("PLACEHOLDER : Aqui ainda vai ter um menu de update");
+    public void showUpdateMenu(Renderizavel item) {
+        Retangulo retangulo = (Retangulo) item;
+        this.printLine("----Menu de alteração de Retangulo----");
+        this.printLine("Qual propiedade você deseja alterar ?");
+        this.printLine("1 - Tamanho da base");
+        this.printLine("2 - Tamanho da altura");
+        this.printLine("X - Cancelar e Voltar");
+        String opcao = this.askString();
+        //em processo
 
-        return null;
+
+
+        this.printLine("-----------------------------------");
+
     }
 }

@@ -6,7 +6,7 @@ public abstract class SubMenuView extends BasicView {
 
     public abstract Renderizavel askObject();
 
-    public abstract Renderizavel showUpdateMenu();
+    public abstract void showUpdateMenu(Renderizavel item);
 
     public int showDeleteMenu() {
         this.printLine("------ Deletar Figuras ------");

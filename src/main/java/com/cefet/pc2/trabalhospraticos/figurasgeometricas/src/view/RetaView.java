@@ -12,9 +12,8 @@ public class RetaView extends SubMenuView{
     }
 
     @Override
-    public Renderizavel showUpdateMenu() {
+    public void showUpdateMenu(Renderizavel item) {
         System.out.println("PLACEHOLDER : Aqui ainda vai ter um menu de update");
 
-        return null;
     }
 }

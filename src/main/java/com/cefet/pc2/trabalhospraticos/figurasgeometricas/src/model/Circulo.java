@@ -14,6 +14,10 @@ public class Circulo extends FigurasGeometricas {
         return raio;
     }
 
+    public void setRaio(int raio) {
+        this.raio = raio;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

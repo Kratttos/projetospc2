@@ -18,7 +18,7 @@ public class MainControl {
         this.tela = tela;
     }
 
-    public void start() throws SQLException {
+    public void start(){
         ISubMenu[] listaSubMenus = new SubMenu[]{
                 new TextoController(new TextoView()),
                 new RetaController(new RetaView()),
@@ -42,7 +42,7 @@ public class MainControl {
                     case SALVAR -> {
                         try {
                             this.repository.persist(Local.ARQUIVO);
-                        } catch (IOException | ClassNotFoundException ex2) {
+                        } catch (IOException | ClassNotFoundException | SQLException ex2) {
                             this.tela.printLine("Não foi possivel salvar os dados");    //vou mexer nisso aqui ainda
                         }
                     }
