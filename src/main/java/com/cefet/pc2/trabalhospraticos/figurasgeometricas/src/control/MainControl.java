@@ -27,7 +27,6 @@ public class MainControl {
                 new QuadradoController(new QuadradoView()),
                 new CirculoController(new CirculoView()),
                 new TrianguloController(new TrianguloView()),
-                new LosangoController(new LosangoView()),
                 new TrapezioController(new TrapezioView())
         };
         do {

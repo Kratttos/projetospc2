@@ -8,7 +8,6 @@ public enum Figuras implements Opcoes {
     QUADRADO("Quadrado", definirNumero()),
     CIRCULO("Circulo", definirNumero()),
     TRIANGULO("Triangulo",definirNumero()),
-    ELIPSE("Losango",definirNumero()),
     TRAPEZIO("Trapezio",definirNumero());
 
     private String text;

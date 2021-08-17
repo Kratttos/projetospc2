@@ -7,6 +7,7 @@ public class TrapezioView extends SubMenuView{
     @Override
     public Renderizavel askObject() {
         this.printLine("----Menu de Criação de Trapezio----");
+
         this.printLine("Por favor Digite o tamanho da menor base");
         int menorBase = this.askIntegerBiggerThanZero();
         this.printLine("Por Favor Digite o tamanho da maior base");
@@ -17,6 +18,8 @@ public class TrapezioView extends SubMenuView{
         int ladoDireito = this.askIntegerBiggerThanZero();
         this.printLine("Por favor digite a altura");
         int altura = this.askIntegerBiggerThanZero();
+
+        this.printLine("---------------------------------");
 
         return new Trapezio(maiorBase,altura,menorBase,ladoDireito,ladoEsquerdo);
     }
