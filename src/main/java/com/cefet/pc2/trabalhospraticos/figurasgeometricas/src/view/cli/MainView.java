@@ -1,8 +1,9 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
 
 public class MainView extends BasicView {
 

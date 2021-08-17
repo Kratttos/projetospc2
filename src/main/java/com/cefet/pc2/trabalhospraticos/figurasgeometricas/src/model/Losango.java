@@ -27,8 +27,4 @@ public class Losango extends Quadrilateros {
         //Aqui ainda vai ter o calculo da area
         return new Random().nextInt();
     }
-
-    public static void main(String[] args) {
-        new Losango(3);
-    }
 }

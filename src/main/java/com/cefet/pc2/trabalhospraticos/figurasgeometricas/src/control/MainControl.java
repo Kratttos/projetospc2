@@ -4,7 +4,8 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsa
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.*;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class MainControl {
     }
 
     public void start(){
-        ISubMenu[] listaSubMenus = new SubMenu[]{
+        SubMenu[] listaSubMenus = new SubMenu[]{
                 new TextoController(new TextoView()),
                 new RetaController(new RetaView()),
                 new RetanguloController(new RetanguloView()),
@@ -33,7 +34,7 @@ public class MainControl {
             Enum escolha = this.tela.showMenu();
             if (escolha instanceof Figuras) {
                 int teclaPressionada = (Integer.parseInt(((Figuras) escolha).getTecla()));
-                listaSubMenus[teclaPressionada - 1].start();
+                listaSubMenus[teclaPressionada - 1].startSubMenu();
             } else {
                 switch ((Avulsas) escolha) {
                     case DESENHAR -> new Paint().desenhar(this.repository.getListaFiguras());

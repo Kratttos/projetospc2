@@ -3,9 +3,9 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.SubMenuView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.SubMenuView;
 
-public abstract class SubMenu implements ISubMenu{
+public abstract class SubMenu{
 
     protected SubMenuView tela;
     private String className;
@@ -17,8 +17,7 @@ public abstract class SubMenu implements ISubMenu{
 
     }
 
-    @Override
-    public void start() {
+    public void startSubMenu() {
         OpcoesSubMenu opcao;
         do {
             opcao = (OpcoesSubMenu) this.tela.showMenu();
@@ -32,8 +31,7 @@ public abstract class SubMenu implements ISubMenu{
         } while (opcao != OpcoesSubMenu.SAIR);
     }
 
-    @Override
-    public void insert() {
+    protected void insert() {
         boolean resposta = new RenderizaveisRepository().insert(this.tela.askObject());
         if (resposta) {
             this.tela.inseridoSucesso();
@@ -42,8 +40,7 @@ public abstract class SubMenu implements ISubMenu{
         }
     }
 
-    @Override
-    public void details() { //detalhes de um objeto da classe
+    protected void details() { //detalhes de um objeto da classe
         int id = this.tela.askID();
         Renderizavel objeto = this.repository.findByID(id,this.className);
         if (objeto != null) {
@@ -53,20 +50,17 @@ public abstract class SubMenu implements ISubMenu{
         }
     }
 
-    @Override
-    public void listAll() { //mostrar tds os objetos desse tipo no vetor
+    protected void listAll() { //mostrar tds os objetos desse tipo no vetor
         this.tela.listAll(this.repository.findByType(this.className));
     }
 
-    @Override
-    public void update() {
+    protected void update() {
         int id = this.tela.askID();
         Renderizavel item = this.repository.findByID(id,this.className);
         this.tela.showUpdateMenu(item);
     }
 
-    @Override
-    public void delete() {
+    protected void delete() {
         int id = this.tela.showDeleteMenu();
 
         if (this.repository.delete(id, this.className)) {

@@ -1,4 +1,4 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrilateros;

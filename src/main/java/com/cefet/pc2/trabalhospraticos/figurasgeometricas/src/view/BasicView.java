@@ -1,51 +1,78 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.BasicIO;
 
-import java.util.List;
+public abstract class BasicView implements IO {
 
-public abstract class BasicView extends BasicIO {
-    
-    public Enum showMenu() {
-        String nomeClasse = this.getClass().getSimpleName();
-        String nomeMenu = "MENU *" + nomeClasse.substring(0, nomeClasse.indexOf("View")) + "*:";
-        Opcoes[] opcoes = OpcoesSubMenu.values();
+    private IO io;
 
-        this.printLine(nomeMenu);
-        this.printLine("");
-        this.printLine("Digite uma opção");
-        for (int i = 0; i < opcoes.length; i++) {
-            this.printLine(opcoes[i].getTecla() + " - " + opcoes[i].getText());
-        }
-        int opcao;
-        String opcaoString = "";
+    public abstract Enum showMenu();
+
+    public void setIo(IO io) {
+        this.io = io;
+    }
+
+    public BasicView() {
+        this.io = new BasicIO();
+    }
+
+    @Override
+    public void print(String msg) {
+        this.io.print(msg);
+    }
+
+    @Override
+    public void printLine(String msg) {
+        this.io.printLine(msg);
+    }
+
+    @Override
+    public int askInt() {
+        return io.askInt();
+    }
+
+    @Override
+    public String askString() {
+        return io.askString();
+    }
+
+    @Override
+    public double askDouble() {
+        return io.askDouble();
+    }
+
+    public int askIntegerBiggerThanZero() {
+        String number;
+        int numberI = -50;
         do {
-            while (opcaoString.length() <= 0 || opcaoString.length() > 1) {
-                opcaoString = this.askString();
-            }
-            if (opcaoString.equalsIgnoreCase(OpcoesSubMenu.SAIR.getTecla())) return OpcoesSubMenu.SAIR;
+            number = this.askString();
             try {
-                opcao = Integer.parseInt(opcaoString) - 1;
-                return (OpcoesSubMenu) opcoes[opcao];
+                numberI = Integer.parseInt(number);
+                if (numberI <= 0) {
+                    this.printLine("O valor digitado deve ser maior que 0");
+                }
             } catch (NumberFormatException ex) {
-                this.printLine("O valor digitado deve ser um numero de 1 a " + (opcaoString.length() + 1) + " ou X");
+                this.printLine("O valor digitado deve ser um numero");
             }
-        } while (true);
+        } while (numberI <= 0);
+
+        return numberI;
     }
 
-    public void listAll(List<Renderizavel> lista) {
-        for (Renderizavel item : lista) {
-            this.printLine(item.toString());
-        }
-    }
+    /**
+     * @return retorna um booleano referente a opção escolhida sendo true caso a opção escolhida for S/s é false caso
+     * a opção escolhida seja N/n
+     */
+    public boolean askSorN() {
+        this.printLine("Digite S para Sim ou N para não");
+        String opcao = "";
+        do {
+            opcao = this.askString();
+            if (!opcao.equalsIgnoreCase("S") && !opcao.equalsIgnoreCase("N")) {
+                this.printLine("O Valor entrado tem que ser S ou N");
+            }
+        } while (opcao.length() < 1 || opcao.length() > 1);
 
-    public void vetorCheio() {
-        this.printLine("Não foi possivel inserir pois o vetor esta lotado");
-    }
-
-    public void listaVazia() {
-        this.printLine("Não tem nenhuma Figura para ser deletada");
+        return opcao.equalsIgnoreCase("S");
     }
 }
