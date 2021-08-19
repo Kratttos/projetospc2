@@ -57,7 +57,12 @@ public abstract class SubMenu{
     protected void update() {
         int id = this.tela.askID();
         Renderizavel item = this.repository.findByID(id,this.className);
-        this.tela.showUpdateMenu(item);
+        if (item != null) {
+            this.tela.showUpdateMenu(item);
+        }else{
+            this.tela.invalidID();
+        }
+
     }
 
     protected void delete() {

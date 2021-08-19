@@ -27,7 +27,7 @@ public class RetanguloView extends SubMenuView {
 
         do {
             this.printLine("Retangulo atual: Base = " + retangulo.getBase() + " é Altura = " + retangulo.getAltura());
-            this.printLine("Retangulo atual: Base = " + retanguloNovo.getBase() + " é Altura = " + retanguloNovo.getAltura());
+            this.printLine("Retangulo alterado: Base = " + retanguloNovo.getBase() + " é Altura = " + retanguloNovo.getAltura());
             this.printLine("");
 
             this.printLine("Selecione oque você deseja alterar ?");
@@ -48,12 +48,12 @@ public class RetanguloView extends SubMenuView {
                     this.printLine("Qual e o novo valor da altura ?");
                     retanguloNovo.setAltura(this.askIntegerBiggerThanZero());
                 }
-                case 'S' -> {
+                case 'S','s' -> {
                     retangulo.setBase(retanguloNovo.getBase());
                     retangulo.setAltura(retanguloNovo.getAltura());
                     this.printLine("Objeto Salvo");
                 }
-                case 'X' -> {
+                case 'X','x' -> {
                     this.printLine("Cancelado com Sucesso");
                 }
                 default -> this.printLine("Digite um valor valido");

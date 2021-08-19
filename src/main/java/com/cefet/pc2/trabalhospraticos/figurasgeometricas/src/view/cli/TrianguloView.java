@@ -28,7 +28,7 @@ public class TrianguloView extends SubMenuView {
         this.printLine("----Menu de Criação de Triangulos----");
         do {
             this.printLine("Triangulo atual: Lado 1 = " + triangulo.getLados()[0] + " Lado 2 = " + triangulo.getLados()[1] + " Lado 3 = " + triangulo.getLados()[2]);
-            this.printLine("Triangulo atual: Lado 1 = " + lados[0] + " Lado 2 = " + lados[1] + " Lado 3 = " + lados[2]);
+            this.printLine("Triangulo alterado: Lado 1 = " + lados[0] + " Lado 2 = " + lados[1] + " Lado 3 = " + lados[2]);
             this.printLine("");
 
             this.printLine("Selecione oque você deseja alterar ?");
@@ -53,11 +53,11 @@ public class TrianguloView extends SubMenuView {
                     this.printLine("Qual e o novo valor do Lado 3");
                     lados[2] = this.askIntegerBiggerThanZero();
                 }
-                case 'S' -> {
+                case 'S','s' -> {
                     triangulo.setLados(lados);
                     this.printLine("Objeto Salvo");
                 }
-                case 'X' -> this.printLine("Cancelado com Sucesso");
+                case 'X','x' -> this.printLine("Cancelado com Sucesso");
                 default -> this.printLine("Digite um valor valido");
             }
         } while (!opcaoEscolhida.equalsIgnoreCase("x") && !opcaoEscolhida.equalsIgnoreCase("s"));

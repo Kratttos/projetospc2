@@ -13,6 +13,30 @@ public class Trapezio extends Quadrilateros {
         this.ladoEsquerdo = ladoEsquerdo;
     }
 
+    public int getBaseMenor() {
+        return baseMenor;
+    }
+
+    public void setBaseMenor(int baseMenor) {
+        this.baseMenor = baseMenor;
+    }
+
+    public int getLadoEsquerdo() {
+        return ladoEsquerdo;
+    }
+
+    public void setLadoEsquerdo(int ladoEsquerdo) {
+        this.ladoEsquerdo = ladoEsquerdo;
+    }
+
+    public int getLadoDireito() {
+        return ladoDireito;
+    }
+
+    public void setLadoDireito(int ladoDireito) {
+        this.ladoDireito = ladoDireito;
+    }
+
     @Override
     public int calcularArea() {
         return ((this.getBase() + baseMenor) * this.getAltura()) / 2;
