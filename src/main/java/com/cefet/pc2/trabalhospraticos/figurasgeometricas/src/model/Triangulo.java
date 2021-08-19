@@ -13,6 +13,20 @@ public class Triangulo extends FigurasGeometricas {
         this.lado3 = lado3;
     }
 
+    public Triangulo(int[] lados) {
+        this.setLados(lados);
+    }
+
+    public int[] getLados() {
+        return new int[]{lado1, lado2, lado3};
+    }
+
+    public void setLados(int[] lados){
+        this.lado1 = lados[0];
+        this.lado2 = lados[1];
+        this.lado3 = lados[2];
+    }
+
     @Override
     public int calcularArea() {
         int s = (lado1 + lado2 + lado3) / 2;
