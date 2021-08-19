@@ -5,6 +5,8 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
 
 public class RetanguloView extends SubMenuView {
 
+    private String[] opcoes = new String[]{"base", "altura"};
+
     @Override
     public Renderizavel askObject() {
         this.printLine("----Menu de Criação de Retangulo----");
@@ -19,16 +21,45 @@ public class RetanguloView extends SubMenuView {
     @Override
     public void showUpdateMenu(Renderizavel item) {
         Retangulo retangulo = (Retangulo) item;
+        Retangulo retanguloNovo = new Retangulo(retangulo.getBase(), retangulo.getAltura());
         this.printLine("----Menu de alteração de Retangulo----");
-        this.printLine("Qual propiedade você deseja alterar ?");
-        this.printLine("1 - Tamanho da base");
-        this.printLine("2 - Tamanho da altura");
-        this.printLine("X - Cancelar e Voltar");
-        String opcao = this.askString();
+        String opcaoEscolhida = "";
+
+        do {
+            this.printLine("Retangulo atual: Base = " + retangulo.getBase() + " é Altura = " + retangulo.getAltura());
+            this.printLine("Retangulo atual: Base = " + retanguloNovo.getBase() + " é Altura = " + retanguloNovo.getAltura());
+            this.printLine("");
+
+            this.printLine("Selecione oque você deseja alterar ?");
+            for (int i = 0; i < opcoes.length; i++) {
+                this.printLine((i + 1) + " - Alterar " + opcoes[i]);
+            }
+            this.printLine("");
+            this.printLine("S - Salvar e Voltar");
+            this.printLine("X - Cancelar e Voltar");
+            opcaoEscolhida = this.askString();
+            char opcaoEscolhidaChar = opcaoEscolhida.length() == 1 ? opcaoEscolhida.charAt(0) : (int) 0;
+            switch (opcaoEscolhidaChar) {
+                case '1' -> {
+                    this.printLine("Qual e o novo valor da base ?");
+                    retanguloNovo.setBase(this.askIntegerBiggerThanZero());
+                }
+                case '2' -> {
+                    this.printLine("Qual e o novo valor da altura ?");
+                    retanguloNovo.setAltura(this.askIntegerBiggerThanZero());
+                }
+                case 'S' -> {
+                    retangulo.setBase(retanguloNovo.getBase());
+                    retangulo.setAltura(retanguloNovo.getAltura());
+                    this.printLine("Objeto Salvo");
+                }
+                case 'X' -> {
+                    this.printLine("Cancelado com Sucesso");
+                }
+                default -> this.printLine("Digite um valor valido");
+            }
+        } while (!opcaoEscolhida.equalsIgnoreCase("x") && !opcaoEscolhida.equalsIgnoreCase("s"));
         //em processo
-
-
-
         this.printLine("-----------------------------------");
 
     }
