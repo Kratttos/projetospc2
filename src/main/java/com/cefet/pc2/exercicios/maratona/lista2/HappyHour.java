@@ -1,13 +1,8 @@
 package com.cefet.pc2.exercicios.maratona.lista2;
 
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-
 public class HappyHour {
 
     public static void main(String[] args) {
