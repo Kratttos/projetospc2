@@ -1,8 +1,10 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrilateros;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.MainView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,27 +41,16 @@ public class Paint {
 
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
+            Graphics2D graphics = (Graphics2D) g;
             final int TAMANHO_TELA = (this.getSize().width) - 30;
             int posicaoInicialLado = 30;
             int posicaoInicialTopo = 20;
             int maiorHeight = 0;
             for (Renderizavel fig : this.figs) {
-                if (fig instanceof Quadrilateros) {
+                if (fig instanceof FigurasGeometricas) {
                     Quadrilateros figura = (Quadrilateros) fig;
 
-                    int height = figura.getAltura();
-                    int width = figura.getBase();
-
-                    if (maiorHeight < height) {
-                        maiorHeight = height;
-                    }
-
-                    if (posicaoInicialLado + width >= TAMANHO_TELA) {
-                        posicaoInicialTopo += (maiorHeight + 30);
-                        posicaoInicialLado = 30;
-                    }
-                    g.drawRect(posicaoInicialLado, posicaoInicialTopo, width, height);
-                    posicaoInicialLado += width + 30;
+                    g.drawPolygon(figura.toPolygon());
                 }
                 if (fig instanceof Circulo) {
                     Circulo circ = (Circulo) fig;
