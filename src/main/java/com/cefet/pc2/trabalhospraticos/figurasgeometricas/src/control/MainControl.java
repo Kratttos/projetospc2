@@ -1,14 +1,17 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.*;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.Paint;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MainControl {
 
@@ -19,7 +22,7 @@ public class MainControl {
         this.tela = tela;
     }
 
-    public void start(){
+    public void start() {
         SubMenu[] listaSubMenus = new SubMenu[]{
                 new TextoController(new TextoView()),
                 new RetaController(new RetaView()),
@@ -58,7 +61,17 @@ public class MainControl {
             }
         } while (true);
     }
-    public void listAll() {
 
+    public void listAll() {
+        List<Renderizavel> lista = this.repository.getListaFiguras();
+        if (lista.size() > 0) {
+            for (Renderizavel item : lista) {
+                this.tela.printLine(item + "");
+            }
+        }else{
+            this.tela.printLine("Lista Vazia");
+        }
+        this.tela.printLine("Pressione qualquer tecla para voltar ao Menu Principal");
+        this.tela.askString();
     }
 }
