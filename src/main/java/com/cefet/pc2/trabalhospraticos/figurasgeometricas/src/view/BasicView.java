@@ -70,6 +70,7 @@ public abstract class BasicView implements IO {
             opcao = this.askString();
             if (!opcao.equalsIgnoreCase("S") && !opcao.equalsIgnoreCase("N")) {
                 this.printLine("O Valor entrado tem que ser S ou N");
+                opcao= "@@@@";
             }
         } while (opcao.length() < 1 || opcao.length() > 1);
 
