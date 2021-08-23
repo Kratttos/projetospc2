@@ -1,8 +1,6 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.dao.Arquivo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.dao.Persistence;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.dao.SQLite;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 
@@ -63,14 +61,12 @@ public class RenderizaveisRepository implements IRepository {
 
     @Override
     public void persist(Local opcao) throws SQLException, IOException, ClassNotFoundException {
-        Persistence local = opcao == Local.ARQUIVO ? new Arquivo() : new SQLite();
-        local.save(listaFiguras);
+        new Arquivo().save(listaFiguras);
     }
 
     @Override
     public void load(Local opcao) throws IOException, ClassNotFoundException {
-        Persistence local = opcao == Local.ARQUIVO ? new Arquivo() : new SQLite();
-        listaFiguras = local.load();
+        listaFiguras = new Arquivo().load();
     }
 
     @Override
