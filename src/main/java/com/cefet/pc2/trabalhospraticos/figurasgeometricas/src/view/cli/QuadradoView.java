@@ -15,14 +15,7 @@ public class QuadradoView extends SubMenuView {
     }
 
     @Override
-    public void showUpdateMenu(Renderizavel item) {
-        Quadrado quad = (Quadrado) item;
-        this.printLine("----Menu de Criação de Quadrado----");
-        this.printLine("Qual e o novo tamanho dos lados do quadrado ?");
-        int  tamanho = this.askIntegerBiggerThanZero();
-        this.printLine("Você tem certeza que deseja subistuir o valor atual ( " + quad.getTamanhoLado() + " ) por " + tamanho + " ?");
-        quad.setTamanhoLado(this.askSorN() ? tamanho : quad.getTamanhoLado());
-        this.printLine("----------------------------------");
+    public void update(Renderizavel item) {
 
     }
 }

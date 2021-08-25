@@ -5,7 +5,10 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class SubMenuView extends BasicView {
 
@@ -40,7 +43,56 @@ public abstract class SubMenuView extends BasicView {
         } while (true);
     }
 
-    public abstract void showUpdateMenu(Renderizavel item);
+    public Map<String, String> showUpdateMenu(LinkedHashMap<String, String> valoresAtuais, String nomeMenu) {
+        Map<String, String> editado = new LinkedHashMap<>();
+        List<String> listaPropiedades = new ArrayList<>();
+        valoresAtuais.forEach((key, value) -> {
+            editado.put(key, value);
+            listaPropiedades.add(key);
+        });
+        String opcaoString;
+        this.printLine("----Menu de Criação de " + nomeMenu + "----");
+        do {
+            StringBuilder atualString = new StringBuilder(nomeMenu + " atual \t: ");
+            StringBuilder alteradoString = new StringBuilder(nomeMenu + " alterado \t: ");
+            for (String key : valoresAtuais.keySet()) {
+                atualString.append(key + " = " + valoresAtuais.get(key) + " ");
+                alteradoString.append(key + " = " + editado.get(key) + " ");
+            }
+            this.printLine(atualString.toString());
+            this.printLine(alteradoString.toString());
+            this.printLine("");
+
+            this.printLine("Selecione oque você deseja alterar ?");
+            int i = 1;
+            for (String key : valoresAtuais.keySet()) {
+                System.out.println((i++) + " - " + key);
+            }
+            this.printLine("");
+            this.printLine("S - Salvar e Voltar");
+            this.printLine("X - Cancelar e Voltar");
+
+            int opcao = Integer.MAX_VALUE;      //valor aleatorio so pra deixar o java feliz
+            do {
+                opcaoString = this.askString();
+                if (opcaoString.equalsIgnoreCase("x") || opcaoString.equalsIgnoreCase("s")) {
+                    String mensagem = opcaoString.equalsIgnoreCase("S") ? "Objeto salvo com Sucesso" : "Cancelado com Sucesso";
+                    System.out.println(mensagem);
+                    break;
+                } else {
+                    try {
+                        opcao = (Integer.parseInt(opcaoString) - 1);
+                        System.out.println("Qual e o novo valor do " + listaPropiedades.get(opcao) + " ?");
+                        editado.put((listaPropiedades.get(opcao) + ""), askIntegerBiggerThanZero() + "");
+                    } catch (NumberFormatException ex) {
+                        System.out.println("O valor digitado deve ser um numero");
+                    }
+                }
+            } while (opcao > listaPropiedades.size());
+        } while (!opcaoString.equalsIgnoreCase("x") && !opcaoString.equalsIgnoreCase("s"));
+        this.printLine("-----------------------------------");
+        return opcaoString.equalsIgnoreCase("x") ? valoresAtuais : editado;
+    }
 
     public int showDeleteMenu() {
         this.printLine("------ Deletar Figuras ------");
@@ -50,6 +102,8 @@ public abstract class SubMenuView extends BasicView {
 
         return id;
     }
+
+    public abstract void update(Renderizavel item);
 
     public void listAll(List<Renderizavel> lista) {
         for (Renderizavel item : lista) {

@@ -17,20 +17,7 @@ public class RetaView extends SubMenuView {
     }
 
     @Override
-    public void showUpdateMenu(Renderizavel item) {
-        Reta reta = (Reta) item;
+    public void update(Renderizavel item) {
 
-        this.printLine("----Menu de Alteração de Reta----");
-        this.printLine("Por favor digite um novo tamanho para a Reta");
-        int novoTamanho = this.askIntegerBiggerThanZero();
-        this.printLine("Você tem certeza que deseja subistuir o valor atual ?");
-        this.printLine("Valor antigo : " + reta.getTamanho());
-        this.printLine("Valor novo   : " + novoTamanho);
-        this.printLine("");
-
-
-        this.printLine("---------------------------------");
-        reta.setTamanho(this.askSorN() ? novoTamanho : reta.getTamanho());
-        System.out.println(reta.getTamanho());
     }
 }

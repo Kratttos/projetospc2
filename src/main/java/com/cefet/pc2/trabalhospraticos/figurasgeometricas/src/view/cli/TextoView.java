@@ -14,18 +14,7 @@ public class TextoView extends SubMenuView{
     }
 
     @Override
-    public void showUpdateMenu(Renderizavel item) {
-        Texto text = (Texto) item;
+    public void update(Renderizavel item) {
 
-        this.printLine("----Menu de Alteração de Texto----");
-        this.printLine("Por favor digite um novo texto");
-        String novoTexto = this.askString();
-        this.printLine("Você tem certeza que deseja subistuir o valor atual ?");
-        this.printLine("Valor antigo : " + text.getText());
-        this.printLine("Valor novo   : " +novoTexto);
-        this.printLine("");
-
-        this.printLine("---------------------------------");
-        text.setText(this.askSorN() ? novoTexto : text.getText());
     }
 }
