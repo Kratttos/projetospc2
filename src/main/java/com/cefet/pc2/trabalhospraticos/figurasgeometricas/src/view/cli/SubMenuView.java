@@ -12,7 +12,7 @@ import java.util.Map;
 
 public abstract class SubMenuView extends BasicView {
 
-    protected LinkedHashMap<String,String> objeto = new LinkedHashMap<>();
+    protected LinkedHashMap<String, String> objeto = new LinkedHashMap<>();
 
     public SubMenuView() {
     }
@@ -76,9 +76,7 @@ public abstract class SubMenuView extends BasicView {
             this.printLine("");
             this.printLine("S - Salvar e Voltar");
             this.printLine("X - Cancelar e Voltar");
-
-            int opcao = Integer.MAX_VALUE;      //valor aleatorio so pra deixar o java feliz
-            do {
+            while (true) {
                 opcaoString = this.askString();
                 if (opcaoString.equalsIgnoreCase("x") || opcaoString.equalsIgnoreCase("s")) {
                     String mensagem = opcaoString.equalsIgnoreCase("S") ? "Objeto salvo com Sucesso" : "Cancelado com Sucesso";
@@ -86,14 +84,19 @@ public abstract class SubMenuView extends BasicView {
                     break;
                 } else {
                     try {
-                        opcao = (Integer.parseInt(opcaoString) - 1);
-                        System.out.println("Qual e o novo valor do " + listaPropiedades.get(opcao) + " ?");
-                        editado.put((listaPropiedades.get(opcao) + ""), askIntegerBiggerThanZero() + "");
+                        int opcao = (Integer.parseInt(opcaoString) - 1);
+                        if (opcao < listaPropiedades.size()) {
+                            System.out.println("Qual e o novo valor do " + listaPropiedades.get(opcao) + " ?");
+                            editado.put((listaPropiedades.get(opcao) + ""), askIntegerBiggerThanZero() + "");
+                            break;
+                        } else {
+                            System.out.println("Por favor Digite uma opção valida");
+                        }
                     } catch (NumberFormatException ex) {
                         System.out.println("O valor digitado deve ser um numero");
                     }
                 }
-            } while (opcao > listaPropiedades.size());
+            }
         } while (!opcaoString.equalsIgnoreCase("x") && !opcaoString.equalsIgnoreCase("s"));
         this.printLine("-----------------------------------");
         return opcaoString.equalsIgnoreCase("x") ? valoresAtuais : editado;
