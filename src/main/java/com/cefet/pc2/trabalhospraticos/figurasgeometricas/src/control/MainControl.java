@@ -23,7 +23,7 @@ public class MainControl {
     }
 
     public void start() {
-        SubMenu[] listaSubMenus = new SubMenu[]{
+        AbstractSubMenuController[] listaSubMenus = new AbstractSubMenuController[]{
                 new TextoController(new TextoView()),
                 new RetaController(new RetaView()),
                 new RetanguloController(new RetanguloView()),

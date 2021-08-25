@@ -5,13 +5,13 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.SubMenuView;
 
-public abstract class SubMenu{
+public abstract class AbstractSubMenuController {
 
     protected SubMenuView tela;
     private String className;
     protected RenderizaveisRepository repository = new RenderizaveisRepository();
 
-    public SubMenu(SubMenuView tela) {
+    public AbstractSubMenuController(SubMenuView tela) {
         this.tela = tela;
         this.className = this.getClass().getSimpleName().replace("Controller", "");
 
@@ -58,7 +58,7 @@ public abstract class SubMenu{
         int id = this.tela.askID();
         Renderizavel item = this.repository.findByID(id,this.className);
         if (item != null) {
-            this.tela.showUpdateMenu(item);
+            this.tela.update(item);
         }else{
             this.tela.invalidID();
         }
