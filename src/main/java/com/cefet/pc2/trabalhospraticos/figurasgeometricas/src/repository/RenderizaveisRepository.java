@@ -7,6 +7,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class RenderizaveisRepository implements IRepository {
@@ -29,10 +30,12 @@ public class RenderizaveisRepository implements IRepository {
     @Override
     public boolean delete(int id, String tipo) {
         boolean retorno = false;
-        for (Renderizavel rend : listaFiguras) {
+        Iterator iterator = listaFiguras.iterator();
+        while (iterator.hasNext()) {
+            Renderizavel rend = (Renderizavel) iterator.next();
             if (rend.getId() == id && rend.getClass().getSimpleName().equalsIgnoreCase(tipo)) {
                 retorno = true;
-                listaFiguras.remove(rend);
+                iterator.remove();
             }
         }
         return retorno;
