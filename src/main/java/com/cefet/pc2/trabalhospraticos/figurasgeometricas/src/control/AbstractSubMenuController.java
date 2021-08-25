@@ -32,7 +32,7 @@ public abstract class AbstractSubMenuController {
     }
 
     protected void insert() {
-        boolean resposta = new RenderizaveisRepository().insert(this.tela.askObject());
+        boolean resposta = new RenderizaveisRepository().insert(this.tela.create());
         if (resposta) {
             this.tela.inseridoSucesso();
         } else {

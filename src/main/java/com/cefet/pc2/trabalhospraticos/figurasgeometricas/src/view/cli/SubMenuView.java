@@ -12,7 +12,12 @@ import java.util.Map;
 
 public abstract class SubMenuView extends BasicView {
 
-    public abstract Renderizavel askObject();
+    protected LinkedHashMap<String,String> objeto = new LinkedHashMap<>();
+
+    public SubMenuView() {
+    }
+
+    public abstract Renderizavel create();
 
     @Override
     public Enum showMenu() {
