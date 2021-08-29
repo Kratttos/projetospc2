@@ -3,8 +3,6 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
 
-import java.util.Map;
-
 public class TextoView extends SubMenuView {
 
     @Override
@@ -17,9 +15,11 @@ public class TextoView extends SubMenuView {
 
     @Override
     public void update(Renderizavel item) {
-        Texto circ = (Texto) item;
-        objeto.put("Texto", (circ.getText() + ""));
-        Map<String, String> editado = this.showUpdateMenu(objeto, "Texto");
-        circ.setText(editado.get("Texto"));
+        Texto texto = (Texto) item;
+        this.printLine("----Menu de Alteração de Texto----");
+        this.printLine("Qual e o novo texto ?");
+        String text = this.askString();
+        texto.setText(text);
+        this.printLine("---------------------------------");
     }
 }
