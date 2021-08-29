@@ -1,5 +1,7 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
+import java.util.Objects;
+
 public class Trapezio extends Quadrilateros {
 
     private int baseMenor;
@@ -11,6 +13,20 @@ public class Trapezio extends Quadrilateros {
         this.baseMenor = baseMenor;
         this.ladoDireito = ladoDireito;
         this.ladoEsquerdo = ladoEsquerdo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Trapezio trapezio = (Trapezio) o;
+        return baseMenor == trapezio.baseMenor && ladoEsquerdo == trapezio.ladoEsquerdo && ladoDireito == trapezio.ladoDireito;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), baseMenor, ladoEsquerdo, ladoDireito);
     }
 
     public int getBaseMenor() {
@@ -51,7 +67,7 @@ public class Trapezio extends Quadrilateros {
     public String toString() {
         return "Trapezio { ID = " + this.getId() + ", menor base = " + this.baseMenor + ", maior base = "
                 + this.getBase() + ", altura = " + this.getAltura() + ", lado direito = " + this.ladoDireito
-                + ", lado esquerdo = " + this.ladoEsquerdo + " } : Minha area é: "+this.calcularArea()+
-                " e meu perimetro é: "+this.calcularPerimetro();
+                + ", lado esquerdo = " + this.ladoEsquerdo + " } : Minha area é: " + this.calcularArea() +
+                " e meu perimetro é: " + this.calcularPerimetro();
     }
 }

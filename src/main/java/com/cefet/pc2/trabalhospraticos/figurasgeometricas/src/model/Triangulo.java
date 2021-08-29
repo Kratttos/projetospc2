@@ -1,5 +1,7 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
+import java.util.Objects;
+
 public class Triangulo extends FigurasGeometricas {
 
     private int lado1;
@@ -21,7 +23,7 @@ public class Triangulo extends FigurasGeometricas {
         return new int[]{lado1, lado2, lado3};
     }
 
-    public void setLados(int[] lados){
+    public void setLados(int[] lados) {
         this.lado1 = lados[0];
         this.lado2 = lados[1];
         this.lado3 = lados[2];
@@ -35,6 +37,19 @@ public class Triangulo extends FigurasGeometricas {
                 (s * (s - lado1)) * (s - lado2) * (s - lado3)
         );
         return (int) Math.round(a);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangulo triangulo = (Triangulo) o;
+        return lado1 == triangulo.lado1 && lado2 == triangulo.lado2 && lado3 == triangulo.lado3;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lado1, lado2, lado3);
     }
 
     @Override
