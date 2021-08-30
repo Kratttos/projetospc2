@@ -30,9 +30,10 @@ public class MainGUIView extends BasicGUIDialog {
     }
 
     @Override
-    public Enum showMenu() {
+    public Enum showMenu(String nomeMenu) {
         this.setVisible(true);
         var retorno = this.opcaoEscolhida;
+        this.opcaoEscolhida = Avulsas.SAIR;
         this.dispose();
         return retorno;
 

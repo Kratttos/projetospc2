@@ -7,10 +7,10 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.BasicGUID
 import java.util.List;
 
 public abstract class AbstractSubMenuGUIView extends BasicGUIDialog implements ISubMenuView {
-
+     
     @Override
-    public Enum showMenu() {
-        return new Menu().init();
+    public Enum showMenu(String nomeMenu) {
+        return new Menu().init(nomeMenu);
     }
 
     @Override

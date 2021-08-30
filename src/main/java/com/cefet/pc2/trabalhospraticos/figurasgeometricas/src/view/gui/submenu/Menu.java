@@ -12,17 +12,19 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes
  * @author Everton
  */
 public class Menu extends javax.swing.JDialog {
-
+    
     private Enum opcaoEscolhida = OpcoesSubMenu.SAIR;
-
+    
     public Menu() {
         initComponents();
         this.setModal(true);
     }
-
-    public Enum init() {
+    
+    public Enum init(String className) {
+        this.jLabel1.setText("Menu " + className);
         this.setVisible(true);
         var retorno = this.opcaoEscolhida;
+        this.opcaoEscolhida = OpcoesSubMenu.SAIR;
         this.dispose();
         return retorno;
     }
@@ -93,8 +95,8 @@ public class Menu extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Selecione uma Opção :");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Menu ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +175,7 @@ public class Menu extends javax.swing.JDialog {
         this.opcaoEscolhida = OpcoesSubMenu.SAIR;
         this.close();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    
     private void close() {
         this.setVisible(false);
     }
