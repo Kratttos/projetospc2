@@ -7,13 +7,12 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
-import java.awt.Component;
 
 /**
  *
  * @author Everton
  */
-public class MainGUIView extends BasicGUIPane {
+public class MainGUIView extends BasicGUIDialog {
 
     private Enum opcaoEscolhida = Avulsas.SAIR;
 
@@ -26,14 +25,16 @@ public class MainGUIView extends BasicGUIPane {
     }
 
     public MainGUIView() {
-        super(null, true);
         initComponents();
+        this.setModal(true);
     }
 
     @Override
     public Enum showMenu() {
         this.setVisible(true);
-        return this.opcaoEscolhida;
+        var retorno = this.opcaoEscolhida;
+        this.dispose();
+        return retorno;
 
     }
 
@@ -216,75 +217,79 @@ public class MainGUIView extends BasicGUIPane {
     private void btnRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetaActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.RETA;
-        this.setVisible(false);
+        this.close();
+
     }//GEN-LAST:event_btnRetaActionPerformed
 
     private void btnTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTextActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.TEXTO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnTextActionPerformed
 
     private void btnRetanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetanguloActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.RETANGULO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnRetanguloActionPerformed
 
     private void btnQuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuadradoActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.QUADRADO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnQuadradoActionPerformed
 
     private void btnCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCirculoActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.CIRCULO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnCirculoActionPerformed
 
     private void btnTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrianguloActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.TRIANGULO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnTrianguloActionPerformed
 
     private void btnTrapezioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrapezioActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Figuras.TRAPEZIO;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnTrapezioActionPerformed
 
     private void btnDesenharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenharActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Avulsas.DESENHAR;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnDesenharActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Avulsas.LISTAR;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Avulsas.SALVAR;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecarregarActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Avulsas.RECARREGAR;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnRecarregarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
         this.opcaoEscolhida = Avulsas.SAIR;
-        this.setVisible(false);
+        this.close();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void close() {
+        this.setVisible(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCirculo;
