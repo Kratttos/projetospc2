@@ -3,11 +3,12 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.ISubMenuView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.SubMenuView;
 
 public abstract class AbstractSubMenuController {
 
-    protected SubMenuView tela;
+    protected ISubMenuView tela;
     private String className;
     protected RenderizaveisRepository repository = new RenderizaveisRepository();
 

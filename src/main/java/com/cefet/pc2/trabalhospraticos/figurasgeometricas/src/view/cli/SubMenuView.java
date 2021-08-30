@@ -3,21 +3,19 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.ISubMenuView;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class SubMenuView extends BasicView {
+public abstract class SubMenuView extends BasicView implements ISubMenuView {
 
     protected LinkedHashMap<String, String> objeto = new LinkedHashMap<>();
 
     public SubMenuView() {
     }
-
-    public abstract Renderizavel create();
 
     @Override
     public Enum showMenu() {
@@ -102,6 +100,7 @@ public abstract class SubMenuView extends BasicView {
         return opcaoString.equalsIgnoreCase("x") ? valoresAtuais : editado;
     }
 
+    @Override
     public int showDeleteMenu() {
         this.printLine("------ Deletar Figuras ------");
         this.printLine("Digite o ID do item que você deseja deletar");
@@ -111,31 +110,38 @@ public abstract class SubMenuView extends BasicView {
         return id;
     }
 
+    @Override
     public abstract void update(Renderizavel item);
 
+    @Override
     public void listAll(List<Renderizavel> lista) {
         for (Renderizavel item : lista) {
             this.printLine(item.toString());
         }
     }
 
+    @Override
     public void vetorCheio() {
         this.printLine("Não foi possivel inserir pois o vetor esta lotado");
     }
 
+    @Override
     public int askID() {
         this.printLine("Por Favor Digite o ID do Objeto");
         return this.askIntegerBiggerThanZero();
     }
 
+    @Override
     public void invalidID() {
         this.printLine("Não existe nenhum Objeto do tipo " + this.getClass().getSimpleName().replace("View", "") + " com esse ID");
     }
 
+    @Override
     public void showDetails(Renderizavel rend) {
         this.printLine(rend.toString());
     }
 
+    @Override
     public void inseridoSucesso() {
         this.printLine("Inserido com Sucesso");
     }

@@ -1,12 +1,12 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.BasicIO;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.IO;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.View;
 
-public abstract class BasicView implements IO {
+public abstract class BasicView implements View {
 
     private IO io;
 
-    public abstract Enum showMenu();
 
     public void setIo(IO io) {
         this.io = io;
