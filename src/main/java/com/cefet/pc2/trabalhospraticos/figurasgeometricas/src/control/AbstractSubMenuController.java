@@ -20,7 +20,7 @@ public abstract class AbstractSubMenuController {
     public void startSubMenu() {
         OpcoesSubMenu opcao;
         do {
-            opcao = (OpcoesSubMenu) this.tela.showMenu();
+            opcao = (OpcoesSubMenu) this.tela.showMenu(className);
             switch (opcao) {
                 case CRIAR -> this.insert();
                 case ALTERAR -> this.update();

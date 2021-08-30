@@ -34,7 +34,7 @@ public class MainControl {
             new TrapezioController(new TrapezioView())
         };
         do {
-            Enum escolha = this.tela.showMenu();
+            Enum escolha = this.tela.showMenu("Menu Principal");
             if (escolha instanceof Figuras) {
                 int teclaPressionada = (Integer.parseInt(((Figuras) escolha).getTecla()));
                 listaSubMenus[teclaPressionada - 1].startSubMenu();

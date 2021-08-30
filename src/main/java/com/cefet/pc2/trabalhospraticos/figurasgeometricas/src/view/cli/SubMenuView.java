@@ -18,10 +18,9 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
     }
 
     @Override
-    public Enum showMenu() {
-
-        String nomeClasse = this.getClass().getSimpleName();
-        String nomeMenu = "MENU *" + nomeClasse.substring(0, nomeClasse.indexOf("View")) + "*:";
+    public Enum showMenu(String className) {
+        
+        String nomeMenu = "MENU *" + className + "*:";
         Opcoes[] opcoes = OpcoesSubMenu.values();
 
         this.printLine(nomeMenu);
@@ -36,7 +35,9 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
             while (opcaoString.length() <= 0 || opcaoString.length() > 1) {
                 opcaoString = this.askString();
             }
-            if (opcaoString.equalsIgnoreCase(OpcoesSubMenu.SAIR.getTecla())) return OpcoesSubMenu.SAIR;
+            if (opcaoString.equalsIgnoreCase(OpcoesSubMenu.SAIR.getTecla())) {
+                return OpcoesSubMenu.SAIR;
+            }
             try {
                 opcao = Integer.parseInt(opcaoString) - 1;
                 return (OpcoesSubMenu) opcoes[opcao];

@@ -3,12 +3,11 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Opcoes;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
 
 public class MainView extends BasicView {
 
     @Override
-    public Enum showMenu() {
+    public Enum showMenu(String nomeMenu) {
         final Figuras[] figuras = Figuras.values();
         final Avulsas[] avulsas = Avulsas.values();
         final Opcoes[] opcoes = new Opcoes[figuras.length + avulsas.length];
