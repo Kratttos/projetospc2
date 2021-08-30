@@ -5,8 +5,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Avulsa
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Figuras;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.BasicView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.View;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.*;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.MainGUIView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.Paint;
 
 import java.io.IOException;
@@ -15,22 +16,22 @@ import java.util.List;
 
 public class MainControl {
 
-    private BasicView tela;
+    private View tela;
     private RenderizaveisRepository repository = new RenderizaveisRepository();
 
-    public MainControl(BasicView tela) {
-        this.tela = tela;
+    public MainControl(View tela) {
+        this.tela = new MainGUIView();
     }
 
     public void start() {
         AbstractSubMenuController[] listaSubMenus = new AbstractSubMenuController[]{
-                new TextoController(new TextoView()),
-                new RetaController(new RetaView()),
-                new RetanguloController(new RetanguloView()),
-                new QuadradoController(new QuadradoView()),
-                new CirculoController(new CirculoView()),
-                new TrianguloController(new TrianguloView()),
-                new TrapezioController(new TrapezioView())
+            new TextoController(new TextoView()),
+            new RetaController(new RetaView()),
+            new RetanguloController(new RetanguloView()),
+            new QuadradoController(new QuadradoView()),
+            new CirculoController(new CirculoView()),
+            new TrianguloController(new TrianguloView()),
+            new TrapezioController(new TrapezioView())
         };
         do {
             Enum escolha = this.tela.showMenu();
@@ -39,9 +40,12 @@ public class MainControl {
                 listaSubMenus[teclaPressionada - 1].startSubMenu();
             } else {
                 switch ((Avulsas) escolha) {
-                    case DESENHAR -> new Paint().desenhar(this.repository.getListaFiguras());
-                    case LISTAR -> this.listAll();
-                    case SAIR -> System.exit(0);
+                    case DESENHAR ->
+                        new Paint().desenhar(this.repository.getListaFiguras());
+                    case LISTAR ->
+                        this.listAll();
+                    case SAIR ->
+                        System.exit(0);
                     case SALVAR -> {
                         try {
                             this.repository.persist(Local.ARQUIVO);
@@ -68,7 +72,7 @@ public class MainControl {
             for (Renderizavel item : lista) {
                 this.tela.printLine(item + "");
             }
-        }else{
+        } else {
             this.tela.printLine("Lista Vazia");
         }
         this.tela.printLine("Pressione qualquer tecla para voltar ao Menu Principal");

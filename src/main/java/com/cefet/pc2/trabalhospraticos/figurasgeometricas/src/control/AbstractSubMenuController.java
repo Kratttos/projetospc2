@@ -4,7 +4,6 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.ISubMenuView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.SubMenuView;
 
 public abstract class AbstractSubMenuController {
 
@@ -12,7 +11,7 @@ public abstract class AbstractSubMenuController {
     private String className;
     protected RenderizaveisRepository repository = new RenderizaveisRepository();
 
-    public AbstractSubMenuController(SubMenuView tela) {
+    public AbstractSubMenuController(ISubMenuView tela) {
         this.tela = tela;
         this.className = this.getClass().getSimpleName().replace("Controller", "");
 
