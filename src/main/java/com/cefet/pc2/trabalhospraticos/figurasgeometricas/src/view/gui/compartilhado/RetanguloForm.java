@@ -6,6 +6,8 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
@@ -13,6 +15,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormular
  * @author Everton
  */
 public class RetanguloForm extends javax.swing.JDialog implements IFormulario {
+
+    private OpcoesSubMenu operacao;
+    private Retangulo retangulo;
 
     /**
      * Creates new form Retangulo
@@ -95,6 +100,11 @@ public class RetanguloForm extends javax.swing.JDialog implements IFormulario {
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
         // TODO add your handling code here
+        if (this.operacao == OpcoesSubMenu.CRIAR) {
+            salvar();
+        } else {
+            this.atualizar();
+        }
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
   
 
@@ -108,7 +118,10 @@ public class RetanguloForm extends javax.swing.JDialog implements IFormulario {
 
     @Override
     public Renderizavel inserir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.operacao = OpcoesSubMenu.CRIAR;
+        this.setVisible(true);
+
+        return this.retangulo;
     }
 
     @Override
@@ -118,6 +131,18 @@ public class RetanguloForm extends javax.swing.JDialog implements IFormulario {
 
     @Override
     public void detalhes(Renderizavel item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void salvar() {
+        int base = Integer.parseInt(this.textTamanhoLado.getText());
+        int altura = Integer.parseInt(this.textTamanhoLado1.getText());
+        
+        this.retangulo = new Retangulo(base,altura);
+        this.dispose();
+    }
+
+    private void atualizar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

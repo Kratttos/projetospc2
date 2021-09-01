@@ -7,13 +7,6 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.IController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.MainController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.circulo.CirculoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.quadrado.QuadradoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.reta.RetaView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.retangulo.RetanguloView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.texto.TextoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.trapezio.TrapezioView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.triangulo.TrianguloView;
 import java.awt.CardLayout;
 
 import java.awt.Dimension;

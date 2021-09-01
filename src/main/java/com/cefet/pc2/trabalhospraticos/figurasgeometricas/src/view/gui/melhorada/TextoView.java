@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.triangulo;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrianguloController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TextoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TrianguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TextoForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *
  * @author Everton
  */
-public class TrianguloView extends AbstractSubMenuPane{
+public class TextoView  extends AbstractSubMenuPane{
 
-    public TrianguloView(String nomeMenu) {
+    public TextoView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new TrianguloForm(null, true);
-        this.controller = new TrianguloController();
+        this.form = new TextoForm(null, true);
+        this.controller = new TextoController();
     }
     
 }

@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.retangulo;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetanguloController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrapezioController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetanguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TrapezioForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *
  * @author Everton
  */
-public class RetanguloView extends AbstractSubMenuPane {
+public class TrapezioView extends AbstractSubMenuPane{
 
-    public RetanguloView(String nomeMenu) {
+    public TrapezioView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new RetanguloForm(null, true);
-        this.controller = new RetanguloController();
+        this.form = new TrapezioForm(null,true);
+        this.controller = new TrapezioController();
     }
     
 }
