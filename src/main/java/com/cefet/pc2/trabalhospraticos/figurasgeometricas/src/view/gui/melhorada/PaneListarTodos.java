@@ -5,17 +5,59 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.IController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.MainController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Everton
  */
 public class PaneListarTodos extends javax.swing.JPanel {
 
+    private IController controller = new MainController();
+
     /**
      * Creates new form PaneListarTodos
      */
     public PaneListarTodos() {
         initComponents();
+        atualizaTabela();
+
+    }
+
+    public void atualizaTabela() {
+        List<Renderizavel> lsta = this.controller.findAll();
+        DefaultTableModel model = (DefaultTableModel) this.tabelaTodos.getModel();
+        model.setRowCount(0);
+        for (Renderizavel item : lsta) {
+            if (item instanceof FigurasGeometricas) {
+                model.addRow(new Object[]{
+                    item.getClass().getSimpleName(),
+                    item.getId(),
+                    "",
+                    ((FigurasGeometricas) item).calcularArea(),
+                    ((FigurasGeometricas) item).calcularPerimetro(),
+                    ""
+                });
+            }
+            if (item instanceof Texto) {
+                model.addRow(new Object[]{
+                    item.getClass().getSimpleName(),
+                    item.getId(),
+                    "",
+                    "",
+                    "",
+                    ((Texto) item).getText()
+                });
+
+            }
+
+        }
     }
 
     /**
@@ -28,21 +70,21 @@ public class PaneListarTodos extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaTodos = new javax.swing.JTable();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaTodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Objeto", "Info", "Area", "Perimetro", "Texto"
+                "Objeto", "ID", "Info", "Area", "Perimetro", "Texto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false, false, false
+                false, false, true, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -53,11 +95,15 @@ public class PaneListarTodos extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(tabelaTodos);
+        if (tabelaTodos.getColumnModel().getColumnCount() > 0) {
+            tabelaTodos.getColumnModel().getColumn(0).setResizable(false);
+            tabelaTodos.getColumnModel().getColumn(1).setResizable(false);
+            tabelaTodos.getColumnModel().getColumn(1).setPreferredWidth(2);
+            tabelaTodos.getColumnModel().getColumn(3).setResizable(false);
+            tabelaTodos.getColumnModel().getColumn(3).setPreferredWidth(10);
+            tabelaTodos.getColumnModel().getColumn(4).setResizable(false);
+            tabelaTodos.getColumnModel().getColumn(4).setPreferredWidth(10);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,6 +127,6 @@ public class PaneListarTodos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaTodos;
     // End of variables declaration//GEN-END:variables
 }

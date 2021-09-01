@@ -5,6 +5,8 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.circulo;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
@@ -15,7 +17,7 @@ public class CirculoView extends AbstractSubMenuPane {
 
     public CirculoView(String nomeMenu) {
         super(nomeMenu);
+        this.form = new CirculoForm(null, true);
+        this.controller = new CirculoController();
     }
-       
-    
 }

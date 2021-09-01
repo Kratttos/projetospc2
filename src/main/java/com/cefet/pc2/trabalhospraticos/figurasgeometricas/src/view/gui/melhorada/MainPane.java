@@ -5,6 +5,8 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.IController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.MainController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.circulo.CirculoView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.quadrado.QuadradoView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.reta.RetaView;
@@ -17,6 +19,7 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -28,15 +31,17 @@ public class MainPane extends JPanel {
 
     protected static JFrame frame;
     private CardLayout card;
+    private PaneListarTodos paneltodos;
+    private IController controller = new MainController();
 
     public MainPane() {
         initComponents();
         init();
         addPanes();
     }
-    
-    public void run(){
-        
+
+    public void run() {
+
     }
 
     /**
@@ -76,6 +81,11 @@ public class MainPane extends JPanel {
         btnSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         btnText.setText("Texto");
         btnText.setPreferredSize(new java.awt.Dimension(72, 35));
@@ -146,8 +156,18 @@ public class MainPane extends JPanel {
         btnSalvar.setMaximumSize(new java.awt.Dimension(95, 37));
         btnSalvar.setMinimumSize(new java.awt.Dimension(95, 37));
         btnSalvar.setPreferredSize(new java.awt.Dimension(95, 37));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnRecarregar.setText("Recarregar");
+        btnRecarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecarregarActionPerformed(evt);
+            }
+        });
 
         btnDesenhar.setText("Desenhar");
         btnDesenhar.setMaximumSize(new java.awt.Dimension(95, 37));
@@ -258,7 +278,10 @@ public class MainPane extends JPanel {
 
     private void btnListarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTodosActionPerformed
         // TODO add your handling code here:
+
         this.card.show(this.placeholderResto, "ListarTodos");
+        this.paneltodos.atualizaTabela();
+
     }//GEN-LAST:event_btnListarTodosActionPerformed
 
     private void btnQuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuadradoActionPerformed
@@ -286,6 +309,30 @@ public class MainPane extends JPanel {
         this.card.show(this.placeholderResto, "Reta");
     }//GEN-LAST:event_btnRetaActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        if (!this.controller.save()) {
+            JOptionPane.showMessageDialog(this, "Não possivel Salvar");
+        } else {
+            JOptionPane.showMessageDialog(this, "Salvo com Sucesso");
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecarregarActionPerformed
+        // TODO add your handling code here:
+        if (!this.controller.load()) {
+            JOptionPane.showMessageDialog(this, "Não possivel Recarregar os Dados");
+        } else {
+            JOptionPane.showMessageDialog(this, "Carregado com Sucesso");
+            this.paneltodos.atualizaTabela();
+        }
+    }//GEN-LAST:event_btnRecarregarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSairActionPerformed
+
     private void init() {
         this.card = (CardLayout) this.placeholderResto.getLayout();
         MainPane.frame = new JFrame();
@@ -296,21 +343,22 @@ public class MainPane extends JPanel {
         frame.add(this);
         frame.setVisible(true);
     }
+
     /**
      * Adicionada todos os panes que vão ser mudados pelo Card Layout
      */
     private void addPanes() {
-        this.placeholderResto.add(new PaneListarTodos(), "ListarTodos");
-        
+        this.paneltodos = new PaneListarTodos();
+        this.placeholderResto.add(paneltodos, "PanelTodos");
+
         this.placeholderResto.add(new CirculoView("Circulo"), "Circulo");
-        this.placeholderResto.add(new QuadradoView("Quadrado"),"Quadrado");
-        this.placeholderResto.add(new TrapezioView("Trapezio"),"Trapezio");
-        this.placeholderResto.add(new TrianguloView("Triangulo"),"Triangulo");
-        this.placeholderResto.add(new RetanguloView("Retangulo"),"Retangulo");
-        this.placeholderResto.add(new RetaView("Reta"),"Reta");
-        this.placeholderResto.add(new TextoView("Texto"),"Texto");
-        
-        
+        this.placeholderResto.add(new QuadradoView("Quadrado"), "Quadrado");
+        this.placeholderResto.add(new TrapezioView("Trapezio"), "Trapezio");
+        this.placeholderResto.add(new TrianguloView("Triangulo"), "Triangulo");
+        this.placeholderResto.add(new RetanguloView("Retangulo"), "Retangulo");
+        this.placeholderResto.add(new RetaView("Reta"), "Reta");
+        this.placeholderResto.add(new TextoView("Texto"), "Texto");
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

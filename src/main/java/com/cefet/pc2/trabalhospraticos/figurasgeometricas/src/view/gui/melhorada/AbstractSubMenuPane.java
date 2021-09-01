@@ -8,8 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import java.util.List;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.ISubMenuController;
 
 /**
  *
@@ -19,6 +19,7 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
 
     private String menuName;
     protected IFormulario form;
+    protected ISubMenuController controller;
     protected List<Renderizavel> listaTabela;
 
     /**
@@ -145,7 +146,8 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
         Renderizavel item = this.form.inserir();
-        JOptionPane.showMessageDialog(this, "Ainda vai inserir alguma coisa aqui");
+        this.controller.create(item);
+        this.atualizarTabela();
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -161,7 +163,12 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
     public void setForm(IFormulario form) {
         this.form = form;
     }
+    
+   
 
+    protected void atualizarTabela() {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
