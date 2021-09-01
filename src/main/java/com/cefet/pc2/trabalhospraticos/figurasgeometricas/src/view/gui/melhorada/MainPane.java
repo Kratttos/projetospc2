@@ -278,8 +278,7 @@ public class MainPane extends JPanel {
 
     private void btnListarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTodosActionPerformed
         // TODO add your handling code here:
-
-        this.card.show(this.placeholderResto, "ListarTodos");
+        this.card.show(this.placeholderResto, "PanelTodos");
         this.paneltodos.atualizaTabela();
 
     }//GEN-LAST:event_btnListarTodosActionPerformed

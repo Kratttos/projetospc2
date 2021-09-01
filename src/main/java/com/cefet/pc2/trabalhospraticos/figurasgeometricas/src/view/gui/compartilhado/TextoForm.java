@@ -6,6 +6,8 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
@@ -13,6 +15,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormular
  * @author Everton
  */
 public class TextoForm extends javax.swing.JDialog implements IFormulario {
+
+    private OpcoesSubMenu operacao;
+    private Texto texto;
 
     /**
      * Creates new form Texto
@@ -31,17 +36,11 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textRaio = new javax.swing.JTextField();
+        textTexto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        textRaio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textRaioActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Texto");
 
@@ -67,7 +66,7 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textRaio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -76,7 +75,7 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
                 .addGap(59, 59, 59)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -85,24 +84,27 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textRaioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textRaioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textRaioActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        switch (operacao) {
+            case CRIAR -> this.criar();
+            case ALTERAR -> this.alterar();
+        }
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField textRaio;
+    private javax.swing.JTextField textTexto;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public Renderizavel inserir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.operacao = OpcoesSubMenu.CRIAR;
+        this.setVisible(true);
+
+        return texto;
     }
 
     @Override
@@ -113,5 +115,14 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
     @Override
     public void detalhes(Renderizavel item) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void criar() {
+       this.texto = new Texto(this.textTexto.getText());
+       this.dispose();
+    }
+
+    private void alterar() {
+       
     }
 }

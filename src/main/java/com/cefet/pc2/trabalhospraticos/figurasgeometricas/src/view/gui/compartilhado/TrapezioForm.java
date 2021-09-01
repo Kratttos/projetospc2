@@ -5,11 +5,14 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
+
 /**
  *
  * @author Everton
  */
-public class TrapezioForm extends javax.swing.JDialog {
+public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
 
     /**
      * Creates new form TrapezioForm
@@ -200,4 +203,19 @@ public class TrapezioForm extends javax.swing.JDialog {
     private javax.swing.JTextField textTamanhoReta;
     private javax.swing.JTextField textTamanhoReta1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Renderizavel inserir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Renderizavel item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void detalhes(Renderizavel item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
