@@ -1,4 +1,4 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.*;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.MainView;
@@ -13,7 +13,7 @@ public class Paint {
     private void init(List<Renderizavel> lista) {
         if (lista.size() == 0) {
             new MainView().printLine("Vetor Vazio");
-            JOptionPane.showMessageDialog(null, "Ainda não tem nada para Desenhar");
+            //JOptionPane.showMessageDialog(null, "Ainda não tem nada para Desenhar");
         } else {
             JFrame f = new JFrame("CefetPaint");
             f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

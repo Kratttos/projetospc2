@@ -7,9 +7,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.Local;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.View;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.*;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.MainGUIView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.Paint;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.MenuPrincipalPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.Paint;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,8 +1,8 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.submenu;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.submenu;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.ISubMenuView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.BasicGUIDialog;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.BasicGUIDialog;
 
 import java.util.List;
 

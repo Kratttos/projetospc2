@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.reta;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.reta;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.AbstractSubMenuPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *

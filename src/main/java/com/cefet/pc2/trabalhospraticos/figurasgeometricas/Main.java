@@ -4,8 +4,8 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.MainContro
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.TipoInterface;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.EscolhaInterface;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.MainView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.MainGUIView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.MainPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.MainGUIView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.MainPane;
 
 public class Main {
 

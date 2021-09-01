@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.quadrado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.quadrado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Everton
  */
-public class QuadradoForm extends javax.swing.JDialog {
+public class QuadradoForm extends javax.swing.JDialog implements IFormulario{
 
     private Quadrado quadrado;
     private OpcoesSubMenu operacao;
@@ -25,7 +26,8 @@ public class QuadradoForm extends javax.swing.JDialog {
         initComponents();
 
     }
-
+    
+    @Override
     public void update(Renderizavel item) {
         this.operacao = OpcoesSubMenu.ALTERAR;
         this.quadrado = (Quadrado) item;
@@ -33,11 +35,17 @@ public class QuadradoForm extends javax.swing.JDialog {
         this.setVisible(true);
     }
 
-    public Renderizavel create() {
+    @Override
+    public Renderizavel inserir() {
         this.operacao = OpcoesSubMenu.CRIAR;
         this.setVisible(true);
 
         return this.quadrado;
+    }
+    
+    @Override
+    public void detalhes(Renderizavel item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -155,4 +163,6 @@ public class QuadradoForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField textTamanhoLado;
     // End of variables declaration//GEN-END:variables
+
+    
 }

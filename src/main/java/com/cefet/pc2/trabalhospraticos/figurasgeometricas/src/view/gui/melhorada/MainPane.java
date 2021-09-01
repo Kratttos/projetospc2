@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.circulo.CirculoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.quadrado.QuadradoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.reta.RetaView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.retangulo.RetanguloView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.texto.TextoView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.trapezio.TrapezioView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.triangulo.TrianguloView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.circulo.CirculoView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.quadrado.QuadradoView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.reta.RetaView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.retangulo.RetanguloView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.texto.TextoView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.trapezio.TrapezioView;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.triangulo.TrianguloView;
 import java.awt.CardLayout;
 
 import java.awt.Dimension;

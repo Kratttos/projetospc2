@@ -1,4 +1,4 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.IO;
 

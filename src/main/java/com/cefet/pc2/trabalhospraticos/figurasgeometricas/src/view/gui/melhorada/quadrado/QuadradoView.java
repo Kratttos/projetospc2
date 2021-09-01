@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.quadrado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.quadrado;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.AbstractSubMenuPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *

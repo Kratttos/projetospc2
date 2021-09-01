@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import java.util.List;
 import javax.swing.JDialog;

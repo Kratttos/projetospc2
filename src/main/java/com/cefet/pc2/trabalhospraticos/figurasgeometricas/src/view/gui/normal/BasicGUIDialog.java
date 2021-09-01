@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.IO;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.View;
