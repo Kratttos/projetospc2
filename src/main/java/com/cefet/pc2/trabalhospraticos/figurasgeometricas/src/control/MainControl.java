@@ -9,6 +9,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.View;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.*;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.MainGUIView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.Paint;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui_melhorada.MenuPrincipalPane;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class MainControl {
     private RenderizaveisRepository repository = new RenderizaveisRepository();
 
     public MainControl(View tela) {
-        this.tela = new MainGUIView();
+        this.tela = tela;
     }
 
     public void start() {

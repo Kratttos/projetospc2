@@ -6,12 +6,14 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.submenu;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Everton
  */
-public class Menu extends javax.swing.JDialog {
+public class Menu extends JDialog {
     
     private Enum opcaoEscolhida = OpcoesSubMenu.SAIR;
     
