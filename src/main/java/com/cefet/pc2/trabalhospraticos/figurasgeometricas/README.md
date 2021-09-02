@@ -76,3 +76,17 @@ UML e um linguagem usada em varios tipos de diagrama relacionados a desenvolvime
 #### Do seu protótipo até esta etapa você  acabou fazendo uso de comportamentos Polimórficos no seu trabalho  prático. Qual foi o benefício sobre a visão de "Legibilidade" do código  fonte? E sobre "organização" das classes?
 
 O polimorfismo me permitiu criar apenas uma unica lista para conter todos os objetos facilitando assim a legibilidade é a organização.
+
+
+## Fase 5
+
+Diagrama de Classe
+![Alt Diagrama](resources/img/Diagrama de Classe.png)
+
+Diagrama de Sequencia de uma parte básica do projeto
+
+Relatório da cosntrução e erros do projeto.
+
+Decisões importantes
+
+Questionário
