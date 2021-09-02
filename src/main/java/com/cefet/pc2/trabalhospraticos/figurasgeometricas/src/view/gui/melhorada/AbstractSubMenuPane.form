@@ -116,7 +116,7 @@
     <Component class="javax.swing.JButton" name="btnDetalhes">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="c4" green="92" id="Actions.Blue" palette="3" red="35" type="palette"/>
+          <Color blue="d8" green="75" red="2" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>

@@ -5,11 +5,8 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrianguloController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TrianguloForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *
@@ -19,7 +16,7 @@ public class TrianguloView extends AbstractSubMenuPane{
 
     public TrianguloView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new TrianguloForm(null, true);
+        this.form = new TrianguloForm();
         this.controller = new TrianguloController();
     }
     

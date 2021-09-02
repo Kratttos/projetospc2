@@ -78,7 +78,7 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
             }
         });
 
-        btnDetalhes.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        btnDetalhes.setBackground(new java.awt.Color(2, 117, 216));
         btnDetalhes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDetalhes.setForeground(new java.awt.Color(255, 255, 255));
         btnDetalhes.setText("Detalhes");

@@ -5,11 +5,8 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetanguloController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetanguloForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *
@@ -19,7 +16,7 @@ public class RetanguloView extends AbstractSubMenuPane {
 
     public RetanguloView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new RetanguloForm(null, true);
+        this.form = new RetanguloForm();
         this.controller = new RetanguloController();
     }
     

@@ -5,11 +5,8 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TextoController;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TextoForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
  *
@@ -19,7 +16,7 @@ public class TextoView  extends AbstractSubMenuPane{
 
     public TextoView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new TextoForm(null, true);
+        this.form = new TextoForm();
         this.controller = new TextoController();
     }
     

@@ -17,7 +17,7 @@ public class CirculoView extends AbstractSubMenuPane {
 
     public CirculoView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new CirculoForm(null, true);
+        this.form = new CirculoForm();
         this.controller = new CirculoController();
     }
 }

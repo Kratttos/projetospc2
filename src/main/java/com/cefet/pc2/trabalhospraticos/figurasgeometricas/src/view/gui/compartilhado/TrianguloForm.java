@@ -5,25 +5,18 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Triangulo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
  *
  * @author Everton
  */
-public class TrianguloForm extends javax.swing.JDialog implements IFormulario{
-
-    private OpcoesSubMenu operacao;
-    private Triangulo triangulo;
+public class TrianguloForm extends AbstractForm<Triangulo> {
 
     /**
      * Creates new form TrianguloForm
      */
-    public TrianguloForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public TrianguloForm() {
         initComponents();
     }
 
@@ -119,14 +112,25 @@ public class TrianguloForm extends javax.swing.JDialog implements IFormulario{
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
-        if (this.operacao == OpcoesSubMenu.CRIAR) {
-            salvar();
-        } else {
-            this.atualizar();
-        }
-        
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnInserirActionPerformed
 
+    @Override
+    protected void criar() {
+        int[] lados = new int[]{
+            Integer.parseInt(this.textLado1.getText()),
+            Integer.parseInt(this.textLado2.getText()),
+            Integer.parseInt(this.textLado3.getText())
+        };
+
+        this.objeto = new Triangulo(lados);
+        this.dispose();
+    }
+
+    @Override
+    protected void alterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInserir;
@@ -138,36 +142,4 @@ public class TrianguloForm extends javax.swing.JDialog implements IFormulario{
     private javax.swing.JTextField textLado3;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public Renderizavel inserir() {
-     this.operacao = OpcoesSubMenu.CRIAR;
-        this.setVisible(true);
-             
-        return triangulo;
-    }
-
-    @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void salvar() {
-        int[] lados = new int[]{
-            Integer.parseInt(this.textLado1.getText()),
-            Integer.parseInt(this.textLado2.getText()),
-            Integer.parseInt(this.textLado3.getText())
-        };
-        
-        this.triangulo = new Triangulo(lados);
-        this.dispose();
-    }
-
-    private void atualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

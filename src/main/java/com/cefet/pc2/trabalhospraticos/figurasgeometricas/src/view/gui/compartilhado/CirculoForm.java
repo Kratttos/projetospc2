@@ -6,24 +6,17 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
  *
  * @author Everton
  */
-public class CirculoForm extends javax.swing.JDialog implements IFormulario {
+public class CirculoForm extends AbstractForm<Circulo> {
 
-    private OpcoesSubMenu operacao;
-    private Circulo circulo;
-    
     /**
      * Creates new form CirculoForm
      */
-    public CirculoForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public CirculoForm() {
         initComponents();
         this.setModal(true);
     }
@@ -87,29 +80,8 @@ public class CirculoForm extends javax.swing.JDialog implements IFormulario {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        switch (operacao){
-            case CRIAR -> this.criar();
-        }
-       
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
-
-    @Override
-    public Renderizavel inserir() {
-        this.operacao = OpcoesSubMenu.CRIAR;
-        this.setVisible(true);
-             
-        return circulo;
-    }
-
-    @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
@@ -117,9 +89,15 @@ public class CirculoForm extends javax.swing.JDialog implements IFormulario {
     private javax.swing.JTextField textRaio;
     // End of variables declaration//GEN-END:variables
 
-    private void criar() {
-        this.circulo = new Circulo(Integer.parseInt(this.textRaio.getText()));
+    @Override
+    protected void criar() {
+        this.objeto = new Circulo(Integer.parseInt(this.textRaio.getText()));
         this.dispose();
+    }
+
+    @Override
+    protected void alterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

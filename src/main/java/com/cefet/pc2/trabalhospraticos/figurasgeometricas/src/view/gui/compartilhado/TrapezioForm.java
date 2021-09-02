@@ -6,20 +6,20 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
  *
  * @author Everton
  */
-public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
+public class TrapezioForm extends AbstractForm<Trapezio> {
 
     /**
      * Creates new form TrapezioForm
      */
-    public TrapezioForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+    public TrapezioForm() {
+       initComponents();
     }
 
     /**
@@ -45,12 +45,6 @@ public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        textMaiorBase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textMaiorBaseActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Tamanho da maior base");
 
         btnSalvar.setBackground(new java.awt.Color(0, 102, 0));
@@ -63,35 +57,11 @@ public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
             }
         });
 
-        textMenorBase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textMenorBaseActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Tamanho da menor base");
-
-        textLadoDireito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textLadoDireitoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Tamanho do lado Direito");
 
-        textAltura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textAlturaActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Altura");
-
-        textLadoEsquerdo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textLadoEsquerdoActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Tamanho do lado Esquerdo");
 
@@ -163,31 +133,21 @@ public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textMaiorBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaiorBaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textMaiorBaseActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void textMenorBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMenorBaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textMenorBaseActionPerformed
+    @Override
+    protected void criar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-    private void textLadoDireitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLadoDireitoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textLadoDireitoActionPerformed
-
-    private void textAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAlturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textAlturaActionPerformed
-
-    private void textLadoEsquerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLadoEsquerdoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textLadoEsquerdoActionPerformed
-
+    @Override
+    protected void alterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
@@ -200,22 +160,6 @@ public class TrapezioForm extends javax.swing.JDialog implements IFormulario {
     private javax.swing.JTextField textLadoEsquerdo;
     private javax.swing.JTextField textMaiorBase;
     private javax.swing.JTextField textMenorBase;
-    private javax.swing.JTextField textTamanhoReta;
-    private javax.swing.JTextField textTamanhoReta1;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public Renderizavel inserir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

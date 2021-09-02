@@ -14,16 +14,12 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormular
  *
  * @author Everton
  */
-public class TextoForm extends javax.swing.JDialog implements IFormulario {
-
-    private OpcoesSubMenu operacao;
-    private Texto texto;
+public class TextoForm extends AbstractForm<Texto> {
 
     /**
      * Creates new form Texto
      */
-    public TextoForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public TextoForm() {
         initComponents();
     }
 
@@ -86,12 +82,19 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        switch (operacao) {
-            case CRIAR -> this.criar();
-            case ALTERAR -> this.alterar();
-        }
-
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    @Override
+    protected void criar() {
+        this.objeto = new Texto(this.textTexto.getText());
+        this.dispose();
+    }
+
+    @Override
+    protected void alterar() {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
@@ -99,30 +102,4 @@ public class TextoForm extends javax.swing.JDialog implements IFormulario {
     private javax.swing.JTextField textTexto;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public Renderizavel inserir() {
-        this.operacao = OpcoesSubMenu.CRIAR;
-        this.setVisible(true);
-
-        return texto;
-    }
-
-    @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void criar() {
-       this.texto = new Texto(this.textTexto.getText());
-       this.dispose();
-    }
-
-    private void alterar() {
-       
-    }
 }

@@ -106,9 +106,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="textMaiorBase">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMaiorBaseActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -133,9 +130,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textMenorBase">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMenorBaseActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -143,9 +137,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textLadoDireito">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textLadoDireitoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -153,9 +144,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textAltura">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textAlturaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -163,9 +151,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textLadoEsquerdo">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textLadoEsquerdoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

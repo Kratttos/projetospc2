@@ -5,20 +5,18 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
 
 /**
  *
  * @author Everton
  */
-public class RetaForm extends javax.swing.JDialog implements IFormulario {
+public class RetaForm extends AbstractForm<Reta> {
 
     /**
      * Creates new form RetaForm
      */
-    public RetaForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public RetaForm() {
         initComponents();
     }
 
@@ -36,12 +34,6 @@ public class RetaForm extends javax.swing.JDialog implements IFormulario {
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        textTamanhoReta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTamanhoRetaActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Tamanho da Reta");
 
@@ -85,34 +77,25 @@ public class RetaForm extends javax.swing.JDialog implements IFormulario {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textTamanhoRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTamanhoRetaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textTamanhoRetaActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    @Override
+    protected void criar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void alterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField textRaio;
     private javax.swing.JTextField textTamanhoReta;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public Renderizavel inserir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

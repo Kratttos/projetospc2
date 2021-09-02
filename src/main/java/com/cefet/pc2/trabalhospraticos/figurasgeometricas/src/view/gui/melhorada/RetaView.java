@@ -7,7 +7,6 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetaController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetaForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetanguloForm;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
 
 /**
@@ -18,7 +17,7 @@ public class RetaView extends AbstractSubMenuPane{
 
     public RetaView(String nomeMenu) {
         super(nomeMenu);
-        this.form = new RetaForm(null,true);
+        this.form = new RetaForm();
         this.controller = new RetaController();
     }
     

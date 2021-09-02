@@ -6,19 +6,13 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Everton
  */
-public class QuadradoForm extends javax.swing.JDialog implements IFormulario{
-
-    private Quadrado quadrado;
-    private OpcoesSubMenu operacao;
+public class QuadradoForm extends AbstractForm<Quadrado> {
 
     //construtor para quando for inserir
     public QuadradoForm() {
@@ -26,28 +20,6 @@ public class QuadradoForm extends javax.swing.JDialog implements IFormulario{
         initComponents();
 
     }
-    
-    @Override
-    public void update(Renderizavel item) {
-        this.operacao = OpcoesSubMenu.ALTERAR;
-        this.quadrado = (Quadrado) item;
-        this.textTamanhoLado.setText(quadrado.getTamanhoLado()+"");
-        this.setVisible(true);
-    }
-
-    @Override
-    public Renderizavel inserir() {
-        this.operacao = OpcoesSubMenu.CRIAR;
-        this.setVisible(true);
-
-        return this.quadrado;
-    }
-    
-    @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,43 +81,8 @@ public class QuadradoForm extends javax.swing.JDialog implements IFormulario{
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
         // TODO add your handling code here:
-
-        if (this.operacao == OpcoesSubMenu.CRIAR) {
-            salvar();
-        } else {
-            this.atualizar();
-        }
-
+        super.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
-
-    private void atualizar() {
-        try {
-            int tamanhoLado = Integer.parseInt(this.textTamanhoLado.getText());
-            if (tamanhoLado < 0) {
-                throw new NumberFormatException();
-            } else {
-                this.quadrado.setTamanhoLado(tamanhoLado);
-                this.dispose();
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
-        }
-    }
-
-    private void salvar() {
-        String tamanhoLado = this.textTamanhoLado.getText();
-        int tamanhoLadoInt;
-        try {
-            tamanhoLadoInt = Integer.parseInt(tamanhoLado);
-            if (tamanhoLadoInt <= 0) {
-                throw new NumberFormatException();
-            }
-            this.quadrado = new Quadrado(tamanhoLadoInt);
-            this.dispose();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarAlterar;
@@ -153,5 +90,35 @@ public class QuadradoForm extends javax.swing.JDialog implements IFormulario{
     private javax.swing.JTextField textTamanhoLado;
     // End of variables declaration//GEN-END:variables
 
-    
+    @Override
+    protected void criar() {
+        String tamanhoLado = this.textTamanhoLado.getText();
+        int tamanhoLadoInt;
+        try {
+            tamanhoLadoInt = Integer.parseInt(tamanhoLado);
+            if (tamanhoLadoInt <= 0) {
+                throw new NumberFormatException();
+            }
+            this.objeto = new Quadrado(tamanhoLadoInt);
+            this.dispose();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
+        }
+    }
+
+    @Override
+    protected void alterar() {
+        try {
+            int tamanhoLado = Integer.parseInt(this.textTamanhoLado.getText());
+            if (tamanhoLado < 0) {
+                throw new NumberFormatException();
+            } else {
+                this.objeto.setTamanhoLado(tamanhoLado);
+                this.dispose();
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
+        }
+    }
+
 }
