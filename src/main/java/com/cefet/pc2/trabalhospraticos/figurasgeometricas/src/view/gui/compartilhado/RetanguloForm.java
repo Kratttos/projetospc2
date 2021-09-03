@@ -98,6 +98,9 @@ public class RetanguloForm extends AbstractForm<Retangulo> {
         int altura = Integer.parseInt(this.textTamanhoLado1.getText());
 
         this.objeto = new Retangulo(base, altura);
+
+        this.textTamanhoLado.setText("");
+        this.textTamanhoLado1.setText("");
         this.dispose();
     }
 

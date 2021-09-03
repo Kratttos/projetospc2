@@ -8,8 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhor
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.IRepository;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.repository.RenderizaveisRepository;
+
 import java.util.List;
-import jdk.javadoc.doclet.Reporter;
 
 /**
  *
@@ -19,6 +19,10 @@ public abstract class AbstractController implements ISubMenuController {
 
     protected IRepository dao = new RenderizaveisRepository();
     protected String tipo;
+
+    public AbstractController() {
+        this.tipo = this.getClass().getSimpleName().replace("Controller", "");;
+    }
 
     @Override
     public void create(Renderizavel item) {
@@ -41,8 +45,9 @@ public abstract class AbstractController implements ISubMenuController {
     }
 
     @Override
-    public List<Renderizavel> findByType(String tipo) {
-       return dao.findByType(tipo);
+    public List<Renderizavel> findAll() {
+        return dao.findByType(this.tipo);
+
     }
 
 }

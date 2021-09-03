@@ -100,6 +100,7 @@ public class QuadradoForm extends AbstractForm<Quadrado> {
                 throw new NumberFormatException();
             }
             this.objeto = new Quadrado(tamanhoLadoInt);
+            this.textTamanhoLado.setText("");
             this.dispose();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");

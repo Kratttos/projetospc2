@@ -8,16 +8,23 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TextoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TextoForm;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
- *
  * @author Everton
  */
-public class TextoView  extends AbstractSubMenuPane{
+public class TextoView extends AbstractSubMenuPane {
 
     public TextoView(String nomeMenu) {
-        super(nomeMenu);
+        super(nomeMenu, new ArrayList<>(Arrays.asList("Texto")));
         this.form = new TextoForm();
         this.controller = new TextoController();
     }
-    
+
+    @Override
+    protected void atualizaTabela() {
+
+    }
+
 }

@@ -5,31 +5,43 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import java.util.List;
-import javax.swing.JOptionPane;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.ISubMenuController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
- *
  * @author Everton
  */
 public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
 
+    protected List<String> nomeColunas;
     private String menuName;
     protected IFormulario form;
     protected ISubMenuController controller;
-    protected List<Renderizavel> listaTabela;
+    protected DefaultTableModel tablemodel;
 
     /**
      * Creates new form AbstractSubMenuPane
+     *
+     * @param nomeColunas O nome das Colunas na Tabela;
+     * @param nomeMenu    O nome do menu
      */
-    public AbstractSubMenuPane(String nomeMenu) {
+    public AbstractSubMenuPane(String nomeMenu, List<String> nomeColunas) {
         initComponents();
         this.menuName = nomeMenu;
         this.labelMenuName.setText(this.menuName);
+        this.tablemodel = (DefaultTableModel) this.tabelaObjetos.getModel();
+        this.nomeColunas = nomeColunas;
+        this.nomeColunas.add(0, "ID");
+        this.tablemodel.setColumnIdentifiers(this.nomeColunas.toArray());
+
     }
+
+    protected abstract void atualizaTabela();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,12 +61,12 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
         labelMenuName = new javax.swing.JLabel();
 
         tabelaObjetos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
+                },
+                new String[]{
 
-            }
+                }
         ));
         jScrollPane1.setViewportView(tabelaObjetos);
 
@@ -103,37 +115,37 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelMenuName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(75, 75, 75)
-                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(69, 69, 69)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(labelMenuName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(75, 75, 75)
+                                                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(69, 69, 69)
+                                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(labelMenuName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(labelMenuName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,13 +158,16 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
         Renderizavel item = this.form.inserir();
-        this.controller.create(item);
-        this.atualizarTabela();
+        if (item != null) {
+            this.controller.create(item);
+            this.atualizaTabela();
+        }
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ainda vai excluir alguma coisa aqui");
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
@@ -162,12 +177,6 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
 
     public void setForm(IFormulario form) {
         this.form = form;
-    }
-    
-   
-
-    protected void atualizarTabela() {
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

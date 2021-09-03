@@ -8,16 +8,23 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetanguloController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetanguloForm;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
- *
  * @author Everton
  */
 public class RetanguloView extends AbstractSubMenuPane {
 
     public RetanguloView(String nomeMenu) {
-        super(nomeMenu);
+        super(nomeMenu, new ArrayList<>(Arrays.asList("Base", "Altura")));
         this.form = new RetanguloForm();
         this.controller = new RetanguloController();
     }
-    
+
+    @Override
+    protected void atualizaTabela() {
+
+    }
+
 }

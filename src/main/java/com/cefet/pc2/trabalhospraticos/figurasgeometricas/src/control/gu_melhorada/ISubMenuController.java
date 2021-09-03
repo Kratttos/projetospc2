@@ -22,5 +22,5 @@ public interface ISubMenuController {
     
     Renderizavel details(int id);
     
-    List<Renderizavel> findByType(String tipo);
+    List<Renderizavel> findAll();
 }

@@ -5,10 +5,7 @@
  */
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
 
 /**
  *
@@ -88,6 +85,7 @@ public class TextoForm extends AbstractForm<Texto> {
     @Override
     protected void criar() {
         this.objeto = new Texto(this.textTexto.getText());
+        this.textTexto.setText("");
         this.dispose();
     }
 

@@ -7,18 +7,24 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetaController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetaForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
- *
  * @author Everton
  */
-public class RetaView extends AbstractSubMenuPane{
+public class RetaView extends AbstractSubMenuPane {
 
     public RetaView(String nomeMenu) {
-        super(nomeMenu);
+        super(nomeMenu, new ArrayList<>(Arrays.asList("Tamanho")));
         this.form = new RetaForm();
         this.controller = new RetaController();
     }
-    
+
+    @Override
+    protected void atualizaTabela() {
+
+    }
+
 }

@@ -92,6 +92,7 @@ public class CirculoForm extends AbstractForm<Circulo> {
     @Override
     protected void criar() {
         this.objeto = new Circulo(Integer.parseInt(this.textRaio.getText()));
+        this.textRaio.setText("");
         this.dispose();
     }
 

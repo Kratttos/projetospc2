@@ -7,18 +7,30 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrapezioController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TrapezioForm;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.AbstractSubMenuPane;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
- *
  * @author Everton
  */
-public class TrapezioView extends AbstractSubMenuPane{
+public class TrapezioView extends AbstractSubMenuPane {
 
     public TrapezioView(String nomeMenu) {
-        super(nomeMenu);
+        super(nomeMenu, new ArrayList<>(Arrays.asList(
+                "Maior Lado",
+                "Menor Lado",
+                "Lado Direito",
+                "Lado Esquerdo",
+                "Altura"
+        )));
         this.form = new TrapezioForm();
         this.controller = new TrapezioController();
     }
-    
+
+    @Override
+    protected void atualizaTabela() {
+       // List lista = this.controller.findByType()
+    }
+
 }

@@ -8,8 +8,9 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JButton;
 
 /**
  *
@@ -40,8 +41,9 @@ public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.J
     public Renderizavel inserir() {
         this.operacao = OpcoesSubMenu.CRIAR;
         this.setVisible(true);
-
-        return this.objeto;
+        T objetoTemporario = objeto;
+        this.objeto = null;
+        return objetoTemporario;
     }
 
     @Override
