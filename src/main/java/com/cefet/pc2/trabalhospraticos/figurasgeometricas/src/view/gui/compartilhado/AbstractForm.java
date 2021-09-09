@@ -27,6 +27,7 @@ public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.J
      */
     public AbstractForm() {
         this.setModal(true);
+        this.setLocationRelativeTo(null);
     }
 
     protected void btnSalvarEvent(ActionEvent evnt) {
@@ -47,8 +48,7 @@ public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.J
     }
 
     @Override
-    public void update(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Renderizavel item){
     }
 
     @Override

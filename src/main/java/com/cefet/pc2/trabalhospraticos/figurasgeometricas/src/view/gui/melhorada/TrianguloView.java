@@ -25,11 +25,11 @@ public class TrianguloView extends AbstractSubMenuPane {
         )));
         this.form = new TrianguloForm();
         this.controller = new TrianguloController();
-        this.atualizaTabela();
+        this.atualizarTabela();
     }
 
     @Override
-    protected void atualizaTabela() {
+    public void atualizarTabela() {
         this.tablemodel.setRowCount(0);
         List lista = this.controller.findAll();
         for (Object item : lista) {

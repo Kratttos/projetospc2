@@ -21,10 +21,4 @@ public class RetaView extends AbstractSubMenuPane {
         this.form = new RetaForm();
         this.controller = new RetaController();
     }
-
-    @Override
-    protected void atualizaTabela() {
-
-    }
-
 }

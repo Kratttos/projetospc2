@@ -269,7 +269,7 @@ public class MainPane extends JPanel {
     private void btnListarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTodosActionPerformed
         // TODO add your handling code here:
         this.card.show(this.placeholderResto, "PanelTodos");
-        this.paneltodos.atualizaTabela();
+        this.paneltodos.atualizarTabela();
 
     }//GEN-LAST:event_btnListarTodosActionPerformed
 
@@ -317,9 +317,7 @@ public class MainPane extends JPanel {
             Component[] components = this.placeholderResto.getComponents();
 
             Stream.of(components).forEach(component -> {
-                if ((component instanceof AbstractSubMenuPane)){
-                    ((AbstractSubMenuPane) component).atualizaTabela();
-                }
+                ((ITabela) component).atualizarTabela();
             });
         }
     }//GEN-LAST:event_btnRecarregarActionPerformed

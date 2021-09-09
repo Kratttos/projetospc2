@@ -23,8 +23,7 @@ public class QuadradoView extends AbstractSubMenuPane {
     }
 
     @Override
-    protected void atualizaTabela() {
+    public void atualizarTabela() {
 
     }
-
 }

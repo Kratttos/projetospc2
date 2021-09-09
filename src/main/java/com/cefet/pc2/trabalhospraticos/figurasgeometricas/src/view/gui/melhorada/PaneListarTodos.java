@@ -10,14 +10,15 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhora
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
-import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
  * @author Everton
  */
-public class PaneListarTodos extends javax.swing.JPanel {
+public class PaneListarTodos extends javax.swing.JPanel implements ITabela {
 
     private IController controller = new MainController();
 
@@ -26,40 +27,40 @@ public class PaneListarTodos extends javax.swing.JPanel {
      */
     public PaneListarTodos() {
         initComponents();
-        atualizaTabela();
+        atualizarTabela();
 
     }
 
-    public void atualizaTabela() {
+    @Override
+    public void atualizarTabela() {
         List<Renderizavel> lsta = this.controller.findAll();
         DefaultTableModel model = (DefaultTableModel) this.tabelaTodos.getModel();
         model.setRowCount(0);
         for (Renderizavel item : lsta) {
             if (item instanceof FigurasGeometricas) {
                 model.addRow(new Object[]{
-                    item.getClass().getSimpleName(),
-                    item.getId(),
-                    "",
-                    ((FigurasGeometricas) item).calcularArea(),
-                    ((FigurasGeometricas) item).calcularPerimetro(),
-                    ""
+                        item.getClass().getSimpleName(),
+                        item.getId(),
+                        "",
+                        ((FigurasGeometricas) item).calcularArea(),
+                        ((FigurasGeometricas) item).calcularPerimetro(),
+                        ""
                 });
             }
             if (item instanceof Texto) {
                 model.addRow(new Object[]{
-                    item.getClass().getSimpleName(),
-                    item.getId(),
-                    "",
-                    "",
-                    "",
-                    ((Texto) item).getText()
+                        item.getClass().getSimpleName(),
+                        item.getId(),
+                        "",
+                        "",
+                        "",
+                        ((Texto) item).getText()
                 });
 
             }
 
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,5 +129,7 @@ public class PaneListarTodos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaTodos;
+
+
     // End of variables declaration//GEN-END:variables
 }

@@ -21,10 +21,4 @@ public class TextoView extends AbstractSubMenuPane {
         this.form = new TextoForm();
         this.controller = new TextoController();
     }
-
-    @Override
-    protected void atualizaTabela() {
-
-    }
-
 }

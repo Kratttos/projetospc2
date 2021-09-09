@@ -23,7 +23,7 @@ public class CirculoView extends AbstractSubMenuPane {
     }
 
     @Override
-    protected void atualizaTabela() {
+    public void atualizarTabela() {
 
     }
 }

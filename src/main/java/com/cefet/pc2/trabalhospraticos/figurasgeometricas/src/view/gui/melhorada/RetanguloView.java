@@ -22,9 +22,4 @@ public class RetanguloView extends AbstractSubMenuPane {
         this.controller = new RetanguloController();
     }
 
-    @Override
-    protected void atualizaTabela() {
-
-    }
-
 }

@@ -11,12 +11,13 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormular
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.List;
 
 /**
  * @author Everton
  */
-public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
+public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements ITabela {
 
     protected List<String> nomeColunas;
     private String menuName;
@@ -33,15 +34,19 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
     public AbstractSubMenuPane(String nomeMenu, List<String> nomeColunas) {
         initComponents();
         this.menuName = nomeMenu;
+        this.nomeColunas = nomeColunas;
         this.labelMenuName.setText(this.menuName);
         this.tablemodel = (DefaultTableModel) this.tabelaObjetos.getModel();
-        this.nomeColunas = nomeColunas;
+
         this.nomeColunas.add(0, "ID");
         this.tablemodel.setColumnIdentifiers(this.nomeColunas.toArray());
 
     }
 
-    protected abstract void atualizaTabela();
+    @Override
+    public void atualizarTabela() {
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,7 +156,11 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-        tabelaObjetos.getSelectedRow();
+        final int colunaID = 0;
+        int linhaSelecionada = tabelaObjetos.getSelectedRow();
+        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
+        form.update(controller.findById(id));
+
         JOptionPane.showMessageDialog(this, "Ainda vai alterar alguma coisa aqui");
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -160,7 +169,7 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
         Renderizavel item = this.form.inserir();
         if (item != null) {
             this.controller.create(item);
-            this.atualizaTabela();
+            this.atualizarTabela();
         }
     }//GEN-LAST:event_btnInserirActionPerformed
 
@@ -177,6 +186,12 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel {
 
     public void setForm(IFormulario form) {
         this.form = form;
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        this.atualizarTabela();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

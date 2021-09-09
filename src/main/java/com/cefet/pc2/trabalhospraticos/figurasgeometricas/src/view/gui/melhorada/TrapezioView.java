@@ -27,10 +27,4 @@ public class TrapezioView extends AbstractSubMenuPane {
         this.form = new TrapezioForm();
         this.controller = new TrapezioController();
     }
-
-    @Override
-    protected void atualizaTabela() {
-       // List lista = this.controller.findByType()
-    }
-
 }
