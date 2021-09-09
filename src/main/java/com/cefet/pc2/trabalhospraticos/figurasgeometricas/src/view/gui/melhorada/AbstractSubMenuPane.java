@@ -186,8 +186,6 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
             this.controller.delete(id);
             this.atualizarTabela();
         }
-
-
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
