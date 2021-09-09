@@ -40,7 +40,7 @@ public abstract class AbstractController implements ISubMenuController {
     }
 
     @Override
-    public Renderizavel details(int id) {
+    public Renderizavel findById(int id) {
         return dao.findByID(id, tipo);
     }
 

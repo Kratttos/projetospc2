@@ -20,7 +20,8 @@ public interface ISubMenuController {
     
     void delete(int id);
     
-    Renderizavel details(int id);
+    Renderizavel findById(int id);
     
     List<Renderizavel> findAll();
+
 }
