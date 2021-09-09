@@ -176,7 +176,17 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Ainda vai excluir alguma coisa aqui");
+        final int colunaID = 0;
+        int linhaSelecionada = tabelaObjetos.getSelectedRow();
+        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
+        final int SIM = 0;
+        final int NAO = 1;
+        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir ?", "", JOptionPane.YES_NO_OPTION);
+        if (resposta == SIM) {
+            this.controller.delete(id);
+            this.atualizarTabela();
+        }
+
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 
