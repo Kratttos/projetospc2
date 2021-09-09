@@ -160,8 +160,9 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
         int linhaSelecionada = tabelaObjetos.getSelectedRow();
         int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
         form.update(controller.findById(id));
+        this.atualizarTabela();
 
-        JOptionPane.showMessageDialog(this, "Ainda vai alterar alguma coisa aqui");
+        //JOptionPane.showMessageDialog(this, "Ainda vai alterar alguma coisa aqui");
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed

@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
  *
  * @author Everton
  */
-public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.JDialog implements IFormulario {
+public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.JDialog implements IFormulario<T> {
 
     protected OpcoesSubMenu operacao;
     protected T objeto;
@@ -48,13 +48,16 @@ public abstract class AbstractForm<T extends Renderizavel> extends javax.swing.J
     }
 
     @Override
-    public void update(Renderizavel item){
+    public void update(T item) {
+        this.operacao = OpcoesSubMenu.ALTERAR;
+        objeto = item;
     }
 
     @Override
-    public void detalhes(Renderizavel item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void detalhes(T item) {
+
     }
+
 
     // Variables declaration - do not modify                     
     // End of variables declaration                   

@@ -11,11 +11,11 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel
  *
  * @author Everton
  */
-public interface IFormulario {
+public interface IFormulario<T> {
     
     Renderizavel inserir();
     
-    void update(Renderizavel item);
+    void update(T item);
     
-    void detalhes(Renderizavel item);
+    void detalhes(T item);
 }

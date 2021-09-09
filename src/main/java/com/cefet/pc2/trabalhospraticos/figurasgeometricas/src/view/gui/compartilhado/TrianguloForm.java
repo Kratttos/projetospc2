@@ -11,7 +11,6 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Triangulo;
  * @author Everton
  */
 public class TrianguloForm extends AbstractForm<Triangulo> {
-
     /**
      * Creates new form TrianguloForm
      */
@@ -130,7 +129,25 @@ public class TrianguloForm extends AbstractForm<Triangulo> {
 
     @Override
     protected void alterar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int[] lados = new int[]{
+                Integer.parseInt(this.textLado1.getText()),
+                Integer.parseInt(this.textLado2.getText()),
+                Integer.parseInt(this.textLado3.getText()),
+        };
+
+        this.objeto.setLados(lados);
+
+        this.dispose();
+    }
+
+    @Override
+    public void update(Triangulo item) {
+        super.update(item);
+        var lados = objeto.getLados();
+        this.textLado1.setText(lados[0] + "");
+        this.textLado2.setText(lados[1] + "");
+        this.textLado3.setText(lados[2] + "");
+        this.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
