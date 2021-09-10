@@ -7,11 +7,11 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.CirculoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.CirculoForm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Everton
@@ -23,17 +23,13 @@ public class CirculoView extends AbstractSubMenuPane {
         this.form = new CirculoForm();
         this.controller = new CirculoController();
     }
-
+    
     @Override
-    public void atualizarTabela() {
-        this.tablemodel.setRowCount(0);
-        List lista = this.controller.findAll();
-        for (Object item : lista) {
-            Circulo circulo = (Circulo) item;
-            this.tablemodel.addRow(new Object[]{
-                    circulo.getId(),
-                    circulo.getRaio()
-            });
-        }
+    protected Object[] criarLinha(Renderizavel item) {
+        Circulo circulo = (Circulo) item;
+        return new Object[]{
+                circulo.getId(),
+                circulo.getRaio()
+        };
     }
 }

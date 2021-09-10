@@ -6,6 +6,7 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrianguloController;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Triangulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TrianguloForm;
 
@@ -29,18 +30,14 @@ public class TrianguloView extends AbstractSubMenuPane {
     }
 
     @Override
-    public void atualizarTabela() {
-        this.tablemodel.setRowCount(0);
-        List lista = this.controller.findAll();
-        for (Object item : lista) {
-            Triangulo triangulo = (Triangulo) item;
-            int[] lados = triangulo.getLados();
-            this.tablemodel.addRow(new Object[]{
-                    triangulo.getId(),
-                    lados[0],
-                    lados[1],
-                    lados[2]
-            });
-        }
+    protected Object[] criarLinha(Renderizavel item) {
+        Triangulo triangulo = (Triangulo) item;
+        var lados = triangulo.getLados();
+        return new Object[]{
+                triangulo.getId(),
+                lados[0],
+                lados[1],
+                lados[2]
+        };
     }
 }

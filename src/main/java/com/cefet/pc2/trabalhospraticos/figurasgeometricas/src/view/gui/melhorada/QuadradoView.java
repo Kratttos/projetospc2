@@ -7,6 +7,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.QuadradoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.QuadradoForm;
 
 import java.util.ArrayList;
@@ -24,15 +25,11 @@ public class QuadradoView extends AbstractSubMenuPane {
     }
 
     @Override
-    public void atualizarTabela() {
-        this.tablemodel.setRowCount(0);
-        List lista = this.controller.findAll();
-        for (Object item : lista) {
-            Quadrado quad = (Quadrado) item;
-            this.tablemodel.addRow(new Object[]{
-                    quad.getId(),
-                    quad.getTamanhoLado()
-            });
-        }
+    protected Object[] criarLinha(Renderizavel item) {
+        Quadrado quad = (Quadrado) item;
+        return new Object[]{
+                quad.getId(),
+                quad.getTamanhoLado()
+        };
     }
 }

@@ -45,8 +45,14 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
 
     @Override
     public void atualizarTabela() {
-
+        this.tablemodel.setRowCount(0);
+        List<? extends Renderizavel> lista = this.controller.findAll();
+        for (Renderizavel item : lista) {
+            this.tablemodel.addRow(this.criarLinha(item));
+        }
     }
+
+    protected abstract Object[] criarLinha(Renderizavel item);
 
     /**
      * This method is called from within the constructor to initialize the form.
