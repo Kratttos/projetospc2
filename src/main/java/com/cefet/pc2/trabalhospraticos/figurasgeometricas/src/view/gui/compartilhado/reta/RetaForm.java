@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.reta;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
 /**
  *
  * @author Everton
  */
-public class RetaForm extends AbstractForm<Reta> {
+public abstract class RetaForm extends AbstractDialog<Reta> {
 
     /**
      * Creates new form RetaForm
@@ -20,6 +21,10 @@ public class RetaForm extends AbstractForm<Reta> {
         initComponents();
     }
 
+    @Override
+    protected void limparCampos() {
+        this.textTamanhoReta.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,23 +84,13 @@ public class RetaForm extends AbstractForm<Reta> {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        super.btnSalvarEvent(evt);
+        this.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    @Override
-    protected void criar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected void alterar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvar;
+    protected javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField textTamanhoReta;
+    protected javax.swing.JTextField textTamanhoReta;
     // End of variables declaration//GEN-END:variables
 
 }

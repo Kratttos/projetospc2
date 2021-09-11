@@ -15,7 +15,7 @@ public interface IFormulario<T> {
     
     Renderizavel inserir();
     
-    void update(T item);
+    void alterar(T item);
     
     void detalhes(T item);
 }

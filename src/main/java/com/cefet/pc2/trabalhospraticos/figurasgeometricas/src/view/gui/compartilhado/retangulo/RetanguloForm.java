@@ -3,20 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.retangulo;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
 /**
  *
  * @author Everton
  */
-public class RetanguloForm extends AbstractForm<Retangulo> {
+public abstract class RetanguloForm extends AbstractDialog<Retangulo> {
 
     public RetanguloForm() {
          initComponents();
     }
 
+    @Override
+    protected void limparCampos() {
+        this.textTamanhoLado.setText("");
+        this.textTamanhoLado1.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,32 +95,16 @@ public class RetanguloForm extends AbstractForm<Retangulo> {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
-        super.btnSalvarEvent(evt);
+        this.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
 
-    @Override
-    protected void criar() {
-        int base = Integer.parseInt(this.textTamanhoLado.getText());
-        int altura = Integer.parseInt(this.textTamanhoLado1.getText());
-
-        this.objeto = new Retangulo(base, altura);
-
-        this.textTamanhoLado.setText("");
-        this.textTamanhoLado1.setText("");
-        this.dispose();
-    }
-
-    @Override
-    protected void alterar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvarAlterar;
+    protected javax.swing.JButton btnSalvarAlterar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField textTamanhoLado;
-    private javax.swing.JTextField textTamanhoLado1;
+    protected javax.swing.JTextField textTamanhoLado;
+    protected javax.swing.JTextField textTamanhoLado1;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -3,21 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.texto;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
+
+import java.awt.event.ActionEvent;
 
 /**
  *
  * @author Everton
  */
-public class TextoForm extends AbstractForm<Texto> {
+public class TextoForm extends AbstractDialog<Texto> {
 
     /**
      * Creates new form Texto
      */
     public TextoForm() {
         initComponents();
+    }
+
+    @Override
+    protected void btnSalvarEvent(ActionEvent evnt) {
+
+    }
+
+    @Override
+    protected void limparCampos() {
+        this.textTexto.setText("");
+    }
+
+    @Override
+    public Texto run(Texto objeto) {
+        return null;
     }
 
     /**
@@ -79,20 +97,8 @@ public class TextoForm extends AbstractForm<Texto> {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        super.btnSalvarEvent(evt);
+      this.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
-
-    @Override
-    protected void criar() {
-        this.objeto = new Texto(this.textTexto.getText());
-        this.textTexto.setText("");
-        this.dispose();
-    }
-
-    @Override
-    protected void alterar() {
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;

@@ -8,7 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetaController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetaForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.reta.AlterarRetaForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.reta.DetalhesRetaForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.reta.InserirRetaForm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +23,11 @@ public class RetaView extends AbstractSubMenuPane {
 
     public RetaView(String nomeMenu) {
         super(nomeMenu, new ArrayList<>(Arrays.asList("Tamanho")));
-        this.form = new RetaForm();
+        this.form = new Form(
+                new InserirRetaForm(),
+                new AlterarRetaForm(),
+                new DetalhesRetaForm()
+        );
         this.controller = new RetaController();
     }
 

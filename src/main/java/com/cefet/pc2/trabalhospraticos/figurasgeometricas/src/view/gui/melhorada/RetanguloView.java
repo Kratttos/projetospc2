@@ -8,7 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.RetanguloController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.RetanguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.retangulo.AlterarRetanguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.retangulo.DetalhesRetanguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.retangulo.InserirRetanguloForm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +23,11 @@ public class RetanguloView extends AbstractSubMenuPane {
 
     public RetanguloView(String nomeMenu) {
         super(nomeMenu, new ArrayList<>(Arrays.asList("Base", "Altura")));
-        this.form = new RetanguloForm();
+        this.form = new Form(
+                new InserirRetanguloForm(),
+                new AlterarRetanguloForm(),
+                new DetalhesRetanguloForm()
+        );
         this.controller = new RetanguloController();
     }
     

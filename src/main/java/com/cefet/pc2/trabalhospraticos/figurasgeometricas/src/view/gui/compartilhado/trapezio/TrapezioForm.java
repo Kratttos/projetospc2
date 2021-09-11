@@ -3,23 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.trapezio;
 
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormulario;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
+
+import java.awt.event.ActionEvent;
 
 /**
  *
  * @author Everton
  */
-public class TrapezioForm extends AbstractForm<Trapezio> {
+public class TrapezioForm extends AbstractDialog<Trapezio> {
 
     /**
      * Creates new form TrapezioForm
      */
     public TrapezioForm() {
        initComponents();
+    }
+
+    @Override
+    protected void btnSalvarEvent(ActionEvent evnt) {
+
+    }
+
+    @Override
+    protected void limparCampos() {
+        this.textAltura.setText("");
+        this.textLadoDireito.setText("");
+        this.textLadoEsquerdo.setText("");
+        this.textMaiorBase.setText("");
+        this.textMenorBase.setText("");
+    }
+
+    @Override
+    public Trapezio run(Trapezio objeto) {
+        return null;
     }
 
     /**
@@ -135,18 +155,8 @@ public class TrapezioForm extends AbstractForm<Trapezio> {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        super.btnSalvarEvent(evt);
+        this.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
-
-    @Override
-    protected void criar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected void alterar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;

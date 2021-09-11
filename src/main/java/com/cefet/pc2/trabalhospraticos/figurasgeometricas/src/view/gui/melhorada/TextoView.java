@@ -8,7 +8,6 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TextoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.TextoForm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +19,7 @@ public class TextoView extends AbstractSubMenuPane {
 
     public TextoView(String nomeMenu) {
         super(nomeMenu, new ArrayList<>(Arrays.asList("Texto")));
-        this.form = new TextoForm();
+        //this.form = new TextoForm();
         this.controller = new TextoController();
     }
     

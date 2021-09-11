@@ -8,7 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.QuadradoController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.QuadradoForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.quadrado.AlterarQuadradoForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.quadrado.DetalhesQuadradoForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.quadrado.InserirQuadradoForm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +19,15 @@ import java.util.List;
 /**
  * @author Everton
  */
-public class QuadradoView extends AbstractSubMenuPane {
+public class QuadradoView extends AbstractSubMenuPane<Quadrado> {
 
     public QuadradoView(String nomeMenu) {
         super(nomeMenu, new ArrayList<>(List.of("Tamanho dos Lados")));
-        this.form = new QuadradoForm();
+        this.form = new Form(
+                new InserirQuadradoForm(),
+                new AlterarQuadradoForm(),
+                new DetalhesQuadradoForm()
+        );
         this.controller = new QuadradoController();
     }
 

@@ -17,13 +17,14 @@ import java.util.List;
 /**
  * @author Everton
  */
-public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements ITabela {
+public abstract class AbstractSubMenuPane<T> extends javax.swing.JPanel implements ITabela {
 
     protected List<String> nomeColunas;
     private String menuName;
     protected IFormulario form;
     protected ISubMenuController controller;
     protected DefaultTableModel tablemodel;
+
 
     /**
      * Creates new form AbstractSubMenuPane
@@ -165,7 +166,7 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
         final int colunaID = 0;
         int linhaSelecionada = tabelaObjetos.getSelectedRow();
         int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
-        form.update(controller.findById(id));
+        form.alterar(controller.findById(id));
         this.atualizarTabela();
 
         //JOptionPane.showMessageDialog(this, "Ainda vai alterar alguma coisa aqui");
@@ -196,7 +197,10 @@ public abstract class AbstractSubMenuPane extends javax.swing.JPanel implements 
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
         // TODO add your handling code here:]
-        JOptionPane.showMessageDialog(this, "Ainda vai mostrar detalhes de alguma coisa aqui");
+        final int colunaID = 0;
+        int linhaSelecionada = tabelaObjetos.getSelectedRow();
+        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
+        this.form.detalhes(this.controller.findById(id));
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     public void setForm(IFormulario form) {

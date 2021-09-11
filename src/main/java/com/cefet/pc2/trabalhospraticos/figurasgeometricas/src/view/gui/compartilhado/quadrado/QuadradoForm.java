@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.quadrado;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
-import javax.swing.JOptionPane;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
+
+import java.awt.event.ActionEvent;
 
 /**
  *
  * @author Everton
  */
-public class QuadradoForm extends AbstractForm<Quadrado> {
+public class QuadradoForm extends AbstractDialog<Quadrado> {
 
     //construtor para quando for inserir
     public QuadradoForm() {
@@ -20,6 +22,17 @@ public class QuadradoForm extends AbstractForm<Quadrado> {
         initComponents();
 
     }
+
+    @Override
+    protected void btnSalvarEvent(ActionEvent evnt) {
+
+    }
+
+    @Override
+    protected void limparCampos() {
+        this.textTamanhoLado.setText("");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,45 +94,13 @@ public class QuadradoForm extends AbstractForm<Quadrado> {
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
         // TODO add your handling code here:
-        super.btnSalvarEvent(evt);
+        this.btnSalvarEvent(evt);
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvarAlterar;
+    protected javax.swing.JButton btnSalvarAlterar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField textTamanhoLado;
+    protected javax.swing.JTextField textTamanhoLado;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    protected void criar() {
-        String tamanhoLado = this.textTamanhoLado.getText();
-        int tamanhoLadoInt;
-        try {
-            tamanhoLadoInt = Integer.parseInt(tamanhoLado);
-            if (tamanhoLadoInt <= 0) {
-                throw new NumberFormatException();
-            }
-            this.objeto = new Quadrado(tamanhoLadoInt);
-            this.textTamanhoLado.setText("");
-            this.dispose();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
-        }
-    }
-
-    @Override
-    protected void alterar() {
-        try {
-            int tamanhoLado = Integer.parseInt(this.textTamanhoLado.getText());
-            if (tamanhoLado < 0) {
-                throw new NumberFormatException();
-            } else {
-                this.objeto.setTamanhoLado(tamanhoLado);
-                this.dispose();
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "O valor entrado deve ser um numero maior do que 0.");
-        }
-    }
 
 }
