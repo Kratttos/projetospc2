@@ -30,7 +30,6 @@ public class Triangulo extends FigurasGeometricas {
     @Override
     public int calcularArea() {
         int s = (lado1 + lado2 + lado3) / 2;
-        System.out.println(s);
         double a = Math.sqrt(
                 (s * (s - lado1)) * (s - lado2) * (s - lado3)
         );

@@ -9,6 +9,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhora
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.MainController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.FigurasGeometricas;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
 
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +58,17 @@ public class PaneListarTodos extends javax.swing.JPanel implements ITabela {
                         ((Texto) item).getText()
                 });
 
+            }
+
+            if (item instanceof Reta){
+                model.addRow(new Object[]{
+                        item.getClass().getSimpleName(),
+                        item.getId(),
+                        "",
+                        "",
+                        ((Reta) item).getTamanho(),
+                        "",
+                });
             }
 
         }

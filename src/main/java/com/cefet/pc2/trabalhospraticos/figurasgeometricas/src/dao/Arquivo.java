@@ -22,7 +22,6 @@ public class Arquivo implements Persistence {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Figuras Salvas");
 
     }
 
