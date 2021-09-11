@@ -1,13 +1,30 @@
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.submenu;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.ISubMenuView;
-import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.BasicGUIDialog;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
 
 import java.util.List;
 
 public abstract class AbstractSubMenuGUIView extends BasicGUIDialog implements ISubMenuView {
-     
+
+    protected Form formularios;
+
+    @Override
+    public Renderizavel create() {
+        return this.formularios.inserir();
+    }
+
+    @Override
+    public void update(Renderizavel item) {
+        this.formularios.alterar(item);
+    }
+
+    @Override
+    public void showDetails(Renderizavel rend) {
+        this.formularios.detalhes(rend);
+    }
+
     @Override
     public Enum showMenu(String nomeMenu) {
         return new Menu().init(nomeMenu);

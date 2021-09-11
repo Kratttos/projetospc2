@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.submenu;
+package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal;
 
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.enums.OpcoesSubMenu;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+
+import javax.swing.*;
 
 /**
  *

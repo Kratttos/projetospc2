@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
        TipoInterface tipo =  new EscolhaInterface().run();
        switch(tipo){
-           case CLI -> new MainControl(new MainView()).start();
-           case GUI -> new MainControl(new MainGUIView()).start();
+           case CLI -> new MainControl(new MainView()).start(TipoInterface.CLI);
+           case GUI -> new MainControl(new MainGUIView()).start(TipoInterface.GUI);
            case GUI_2 -> new MainPane();
        }
     }
