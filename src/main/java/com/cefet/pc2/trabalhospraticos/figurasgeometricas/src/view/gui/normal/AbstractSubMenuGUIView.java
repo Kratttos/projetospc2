@@ -9,6 +9,7 @@ import java.util.List;
 public abstract class AbstractSubMenuGUIView extends BasicGUIDialog implements ISubMenuView {
 
     protected Form formularios;
+    protected String[] colunas;
 
     @Override
     public Renderizavel create() {
@@ -35,10 +36,6 @@ public abstract class AbstractSubMenuGUIView extends BasicGUIDialog implements I
         int ID = this.askID();
 
         return 0;
-    }
-    @Override
-    public void listAll(List<Renderizavel> lista) {
-            ///magia negra aqui
     }
 
     @Override
