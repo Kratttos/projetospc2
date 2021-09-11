@@ -1,35 +1,15 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
-import java.util.Objects;
+import lombok.*;
 
+@EqualsAndHashCode
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Circulo extends FigurasGeometricas {
 
     private int raio;
-
-    public Circulo(int raio) {
-        this.raio = raio;
-    }
-
-    public int getRaio() {
-        return raio;
-    }
-
-    public void setRaio(int raio) {
-        this.raio = raio;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Circulo circulo = (Circulo) o;
-        return raio == circulo.raio;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(raio);
-    }
 
     @Override
     public int calcularArea() {

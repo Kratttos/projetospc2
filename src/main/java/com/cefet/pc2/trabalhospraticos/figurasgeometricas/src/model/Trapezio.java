@@ -1,7 +1,11 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
-import java.util.Objects;
+import lombok.*;
 
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Trapezio extends Quadrilateros {
 
     private int baseMenor;
@@ -15,43 +19,6 @@ public class Trapezio extends Quadrilateros {
         this.ladoEsquerdo = ladoEsquerdo;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Trapezio trapezio = (Trapezio) o;
-        return baseMenor == trapezio.baseMenor && ladoEsquerdo == trapezio.ladoEsquerdo && ladoDireito == trapezio.ladoDireito;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), baseMenor, ladoEsquerdo, ladoDireito);
-    }
-
-    public int getBaseMenor() {
-        return baseMenor;
-    }
-
-    public void setBaseMenor(int baseMenor) {
-        this.baseMenor = baseMenor;
-    }
-
-    public int getLadoEsquerdo() {
-        return ladoEsquerdo;
-    }
-
-    public void setLadoEsquerdo(int ladoEsquerdo) {
-        this.ladoEsquerdo = ladoEsquerdo;
-    }
-
-    public int getLadoDireito() {
-        return ladoDireito;
-    }
-
-    public void setLadoDireito(int ladoDireito) {
-        this.ladoDireito = ladoDireito;
-    }
 
     @Override
     public int calcularArea() {

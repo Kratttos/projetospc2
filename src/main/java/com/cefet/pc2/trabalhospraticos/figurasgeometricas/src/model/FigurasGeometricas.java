@@ -1,9 +1,11 @@
 package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@EqualsAndHashCode
+@NoArgsConstructor
 public abstract class FigurasGeometricas extends Renderizavel {
-
-
-    public FigurasGeometricas(){}
 
     public abstract int calcularArea();
 
