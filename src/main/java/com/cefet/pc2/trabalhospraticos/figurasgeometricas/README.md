@@ -80,13 +80,16 @@ O polimorfismo me permitiu criar apenas uma unica lista para conter todos os obj
 
 ## Fase 5
 
+#Os textos da fase 5 são temporarios por enquanto. Eles podem e vão mudar ate o dia 13.
+
 Diagrama de Classe
 ![Alt Diagrama](resources/img/Diagrama de Classe.png)
 
-Diagrama de Sequencia de uma parte básica do projeto
+Diagrama de Sequencia da parte de escolha de interface do projeto
+![Alt Diagrama](resources/img/Diagrama de Sequencia.png)
+
 
 Relatório da cosntrução e erros do projeto.
 
 Decisões importantes
 
-Questionário
