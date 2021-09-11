@@ -8,12 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Triangulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
-import java.awt.event.ActionEvent;
-
 /**
  * @author Everton
  */
-public class TrianguloForm extends AbstractDialog<Triangulo> {
+public abstract class TrianguloForm extends AbstractDialog<Triangulo> {
     /**
      * Creates new form TrianguloForm
      */
@@ -22,22 +20,11 @@ public class TrianguloForm extends AbstractDialog<Triangulo> {
     }
 
     @Override
-    protected void btnSalvarEvent(ActionEvent evnt) {
-
-    }
-
-    @Override
     protected void limparCampos() {
         this.textLado1.setText("");
         this.textLado2.setText("");
         this.textLado3.setText("");
     }
-
-    @Override
-    public Triangulo run(Triangulo objeto) {
-        return null;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,13 +119,13 @@ public class TrianguloForm extends AbstractDialog<Triangulo> {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInserir;
+    protected javax.swing.JButton btnInserir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField textLado1;
-    private javax.swing.JTextField textLado2;
-    private javax.swing.JTextField textLado3;
+    protected javax.swing.JTextField textLado1;
+    protected javax.swing.JTextField textLado2;
+    protected javax.swing.JTextField textLado3;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -8,6 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrianguloController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Triangulo;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.triangulo.AlterarTrianguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.triangulo.DetalhesTrianguloForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.triangulo.InserirTrianguloForm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +27,11 @@ public class TrianguloView extends AbstractSubMenuPane {
                 "Lado 2",
                 "Lado 3"
         )));
-        //this.form = new TrianguloForm();
+        this.form = new Form(
+                new InserirTrianguloForm(),
+                new AlterarTrianguloForm(),
+                new DetalhesTrianguloForm()
+        );
         this.controller = new TrianguloController();
         this.atualizarTabela();
     }

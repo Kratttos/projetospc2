@@ -8,6 +8,10 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorad
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.control.gu_melhorada.TrapezioController;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Renderizavel;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.Form;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.trapezio.AlterarTrapezioForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.trapezio.DetalhesTrapezioForm;
+import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.trapezio.InserirTrapezioForm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +29,11 @@ public class TrapezioView extends AbstractSubMenuPane {
                 "Lado Esquerdo",
                 "Altura"
         )));
-        //this.form = new TrapezioForm();
+        this.form = new Form(
+                new InserirTrapezioForm(),
+                new AlterarTrapezioForm(),
+                new DetalhesTrapezioForm()
+        );
         this.controller = new TrapezioController();
     }
 

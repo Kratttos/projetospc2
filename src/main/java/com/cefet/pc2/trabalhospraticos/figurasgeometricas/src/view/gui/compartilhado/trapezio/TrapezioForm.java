@@ -8,24 +8,17 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
-import java.awt.event.ActionEvent;
-
 /**
  *
  * @author Everton
  */
-public class TrapezioForm extends AbstractDialog<Trapezio> {
+public abstract class TrapezioForm extends AbstractDialog<Trapezio> {
 
     /**
      * Creates new form TrapezioForm
      */
     public TrapezioForm() {
        initComponents();
-    }
-
-    @Override
-    protected void btnSalvarEvent(ActionEvent evnt) {
-
     }
 
     @Override
@@ -36,12 +29,6 @@ public class TrapezioForm extends AbstractDialog<Trapezio> {
         this.textMaiorBase.setText("");
         this.textMenorBase.setText("");
     }
-
-    @Override
-    public Trapezio run(Trapezio objeto) {
-        return null;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -159,17 +146,17 @@ public class TrapezioForm extends AbstractDialog<Trapezio> {
     }//GEN-LAST:event_btnSalvarActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvar;
+    protected javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField textAltura;
-    private javax.swing.JTextField textLadoDireito;
-    private javax.swing.JTextField textLadoEsquerdo;
-    private javax.swing.JTextField textMaiorBase;
-    private javax.swing.JTextField textMenorBase;
+    protected javax.swing.JTextField textAltura;
+    protected javax.swing.JTextField textLadoDireito;
+    protected javax.swing.JTextField textLadoEsquerdo;
+    protected javax.swing.JTextField textMaiorBase;
+    protected javax.swing.JTextField textMenorBase;
     // End of variables declaration//GEN-END:variables
 
 }

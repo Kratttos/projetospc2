@@ -8,13 +8,11 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
-import java.awt.event.ActionEvent;
-
 /**
  *
  * @author Everton
  */
-public class TextoForm extends AbstractDialog<Texto> {
+public abstract class TextoForm extends AbstractDialog<Texto> {
 
     /**
      * Creates new form Texto
@@ -24,18 +22,8 @@ public class TextoForm extends AbstractDialog<Texto> {
     }
 
     @Override
-    protected void btnSalvarEvent(ActionEvent evnt) {
-
-    }
-
-    @Override
     protected void limparCampos() {
         this.textTexto.setText("");
-    }
-
-    @Override
-    public Texto run(Texto objeto) {
-        return null;
     }
 
     /**
@@ -101,9 +89,9 @@ public class TextoForm extends AbstractDialog<Texto> {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvar;
+    protected javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField textTexto;
+    protected javax.swing.JTextField textTexto;
     // End of variables declaration//GEN-END:variables
 
 }
