@@ -8,6 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
+import javax.swing.*;
+
 /**
  *
  * @author Everton
@@ -19,6 +21,16 @@ public abstract class RetaForm extends AbstractDialog<Reta> {
      */
     public RetaForm() {
         initComponents();
+    }
+
+    @Override
+    protected boolean checarCampos() {
+        try{
+            Integer.parseInt(this.textTamanhoReta.getText());
+            return true;
+        }catch (NumberFormatException ex){
+            return false;
+        }
     }
 
     @Override
@@ -84,7 +96,11 @@ public abstract class RetaForm extends AbstractDialog<Reta> {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        this.btnSalvarEvent(evt);
+        if (checarCampos()){
+            this.btnSalvarEvent(evt);
+        }else{
+            JOptionPane.showMessageDialog(null,"Os valores digitados nos campos devem ser numeros inteiros");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

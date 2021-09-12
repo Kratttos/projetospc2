@@ -8,6 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
+import javax.swing.*;
+
 /**
  *
  * @author Everton
@@ -23,6 +25,18 @@ public abstract class RetanguloForm extends AbstractDialog<Retangulo> {
         this.textTamanhoLado.setText("");
         this.textTamanhoLado1.setText("");
     }
+
+    @Override
+    protected boolean checarCampos() {
+        try{
+            Integer.parseInt(textTamanhoLado1.getText());
+            Integer.parseInt(textTamanhoLado1.getText());
+            return true;
+        }catch (NumberFormatException ex){
+            return false;
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,7 +109,11 @@ public abstract class RetanguloForm extends AbstractDialog<Retangulo> {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
-        this.btnSalvarEvent(evt);
+        if (checarCampos()){
+            this.btnSalvarEvent(evt);
+        }else{
+            JOptionPane.showMessageDialog(null,"Os valores digitados nos campos devem ser numeros inteiros");
+        }
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
 
 

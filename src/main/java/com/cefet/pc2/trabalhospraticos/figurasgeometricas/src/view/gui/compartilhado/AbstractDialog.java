@@ -27,6 +27,8 @@ public abstract class AbstractDialog<T extends Renderizavel> extends javax.swing
 
     protected abstract void btnSalvarEvent(ActionEvent evnt);
 
+    protected abstract boolean checarCampos();
+
     protected abstract void limparCampos();
 
     public T run(T objeto){

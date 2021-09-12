@@ -8,6 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
+import javax.swing.*;
+
 /**
  * @author Everton
  */
@@ -83,9 +85,24 @@ public abstract class CirculoDialog extends AbstractDialog<Circulo> {
         this.textRaio.setText("");
     }
 
+    @Override
+    protected boolean checarCampos() {
+        try{
+            Integer.parseInt(this.textRaio.getText());
+            return true;
+        }catch (NumberFormatException ex){
+            return false;
+        }
+    }
+
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        this.btnSalvarEvent(evt);
+        if (checarCampos()){
+            this.btnSalvarEvent(evt);
+        }else{
+            JOptionPane.showMessageDialog(null,"Os valores digitados nos campos devem ser numeros inteiros");
+        }
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

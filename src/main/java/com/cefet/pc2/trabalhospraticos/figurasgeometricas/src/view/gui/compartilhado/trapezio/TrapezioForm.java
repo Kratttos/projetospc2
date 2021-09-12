@@ -8,6 +8,8 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
+import javax.swing.*;
+
 /**
  *
  * @author Everton
@@ -29,6 +31,21 @@ public abstract class TrapezioForm extends AbstractDialog<Trapezio> {
         this.textMaiorBase.setText("");
         this.textMenorBase.setText("");
     }
+
+    @Override
+    protected boolean checarCampos() {
+        try{
+            Integer.parseInt(textMenorBase.getText());
+            Integer.parseInt(textMaiorBase.getText());
+            Integer.parseInt(textLadoEsquerdo.getText());
+            Integer.parseInt(textLadoDireito.getText());
+            Integer.parseInt(textAltura.getText());
+            return true;
+        }catch (NumberFormatException ex){
+            return false;
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,7 +159,11 @@ public abstract class TrapezioForm extends AbstractDialog<Trapezio> {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        this.btnSalvarEvent(evt);
+        if (checarCampos()){
+            this.btnSalvarEvent(evt);
+        }else{
+            JOptionPane.showMessageDialog(null,"Os valores digitados nos campos devem ser numeros inteiros");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,6 +8,7 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.compartilhado.AbstractDialog;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -26,6 +27,16 @@ public abstract class  QuadradoForm extends AbstractDialog<Quadrado> {
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
 
+    }
+
+    @Override
+    protected boolean checarCampos() {
+        try{
+            Integer.parseInt(this.textTamanhoLado.getText());
+            return true;
+        }catch (NumberFormatException ex){
+            return false;
+        }
     }
 
     @Override
@@ -94,7 +105,11 @@ public abstract class  QuadradoForm extends AbstractDialog<Quadrado> {
 
     private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
         // TODO add your handling code here:
-        this.btnSalvarEvent(evt);
+        if (checarCampos()){
+            this.btnSalvarEvent(evt);
+        }else{
+            JOptionPane.showMessageDialog(null,"Os valores digitados nos campos devem ser numeros inteiros");
+        }
     }//GEN-LAST:event_btnSalvarAlterarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
