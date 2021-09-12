@@ -191,8 +191,8 @@ public class EscolhaInterface extends javax.swing.JDialog {
         if (this.checarSelecionado()) {
             switch (tipoSelecionado) {
                 case CLI -> mensagem = "Interface Padrão em texto";
-                case GUI -> mensagem = "Interface grafica usando exatamente os mesmo controllers";
-                case GUI_2 -> mensagem = "Interface Grafica com possiveis mudanças nos controllers";
+                case GUI -> mensagem = "Interface grafica usando exatamente os mesmo controllers  \n\n (Possivelmente a mais instavel é propicia a bug das 3)";
+                case GUI_2 -> mensagem = "Interface Grafica com mudanças nos controllers para tornar a aplicação mais voltada a eventos";
             }
 
         }else{

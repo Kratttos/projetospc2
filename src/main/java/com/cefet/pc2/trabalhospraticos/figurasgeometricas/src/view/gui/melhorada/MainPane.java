@@ -28,6 +28,7 @@ public class MainPane extends JPanel {
         initComponents();
         init();
         addPanes();
+        frame.setJMenuBar(menu);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +39,9 @@ public class MainPane extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menu = new javax.swing.JMenuBar();
+        menuInicio = new javax.swing.JMenu();
+        menuConfig = new javax.swing.JMenuItem();
         placeholderMenu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
@@ -53,6 +57,18 @@ public class MainPane extends JPanel {
         btnRecarregar = new javax.swing.JButton();
         btnDesenhar = new javax.swing.JButton();
         placeholderResto = new javax.swing.JPanel();
+
+        menuInicio.setText("Inicio");
+
+        menuConfig.setText("Configurações");
+        menuConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConfigActionPerformed(evt);
+            }
+        });
+        menuInicio.add(menuConfig);
+
+        menu.add(menuInicio);
 
         placeholderMenu.setBackground(new java.awt.Color(204, 51, 0));
         placeholderMenu.setMaximumSize(new java.awt.Dimension(264, 505));
@@ -332,6 +348,11 @@ public class MainPane extends JPanel {
         new Paint().desenhar(this.controller.findAll());
     }//GEN-LAST:event_btnDesenharActionPerformed
 
+    private void menuConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConfigActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(frame, "Se der tempo eu vou implementar um inicio de menu de configurações aqui");
+    }//GEN-LAST:event_menuConfigActionPerformed
+
     private void init() {
         this.card = (CardLayout) this.placeholderResto.getLayout();
         MainPane.frame = new JFrame();
@@ -340,7 +361,7 @@ public class MainPane extends JPanel {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.add(this);
-        frame.setVisible(true);
+        frame.setVisible(true);      
     }
 
     /**
@@ -374,6 +395,9 @@ public class MainPane extends JPanel {
     private javax.swing.JButton btnTrapezio;
     private javax.swing.JButton btnTriangulo;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenuItem menuConfig;
+    private javax.swing.JMenu menuInicio;
     private javax.swing.JPanel placeholderMenu;
     private javax.swing.JPanel placeholderResto;
     // End of variables declaration//GEN-END:variables
