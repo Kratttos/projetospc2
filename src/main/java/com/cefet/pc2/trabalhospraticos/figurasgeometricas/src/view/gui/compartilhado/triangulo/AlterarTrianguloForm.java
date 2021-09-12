@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class AlterarTrianguloForm extends TrianguloForm{
 
+    public AlterarTrianguloForm() {
+        setTitle("Alterar Triangulo");
+    }
+
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
         int[] lados = new int[]{

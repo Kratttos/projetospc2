@@ -4,6 +4,10 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Retangulo;
 
 public class DetalhesRetanguloForm extends AlterarRetanguloForm {
 
+    public DetalhesRetanguloForm() {
+        setTitle("Detalhes Retangulo");
+    }
+
     @Override
     public Retangulo run(Retangulo objeto) {
         textTamanhoLado.setEnabled(false);

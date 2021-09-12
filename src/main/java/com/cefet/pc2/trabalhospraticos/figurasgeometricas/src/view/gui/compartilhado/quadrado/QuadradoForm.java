@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
  *
  * @author Everton
  */
-public class QuadradoForm extends AbstractDialog<Quadrado> {
+public abstract class  QuadradoForm extends AbstractDialog<Quadrado> {
 
     //construtor para quando for inserir
     public QuadradoForm() {

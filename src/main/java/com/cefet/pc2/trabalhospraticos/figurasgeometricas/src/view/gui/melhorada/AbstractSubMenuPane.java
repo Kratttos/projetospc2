@@ -188,7 +188,7 @@ public abstract class AbstractSubMenuPane<T> extends javax.swing.JPanel implemen
         int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
         final int SIM = 0;
         final int NAO = 1;
-        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir ?", "", JOptionPane.YES_NO_OPTION);
+        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir ?", "Confirmação de exclusão", JOptionPane.YES_NO_OPTION);
         if (resposta == SIM) {
             this.controller.delete(id);
             this.atualizarTabela();

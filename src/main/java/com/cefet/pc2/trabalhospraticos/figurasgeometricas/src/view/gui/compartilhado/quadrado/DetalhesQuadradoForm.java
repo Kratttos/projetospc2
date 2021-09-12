@@ -3,6 +3,9 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 
 public class DetalhesQuadradoForm extends AlterarQuadradoForm {
+    public DetalhesQuadradoForm() {
+        setTitle("Detalhes Quadrado");
+    }
 
     @Override
     public Quadrado run(Quadrado objeto) {

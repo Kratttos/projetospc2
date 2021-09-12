@@ -3,6 +3,9 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Circulo;
 
 public class DetalhesCirculoForm extends AlterarCirculoForm{
+    public DetalhesCirculoForm() {
+        setTitle("Detalhes Circulo");
+    }
 
     @Override
     public Circulo run(Circulo objeto) {

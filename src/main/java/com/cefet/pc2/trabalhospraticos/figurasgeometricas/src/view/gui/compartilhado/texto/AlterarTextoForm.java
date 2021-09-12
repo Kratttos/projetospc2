@@ -5,6 +5,11 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
 import java.awt.event.ActionEvent;
 
 public class AlterarTextoForm extends TextoForm{
+
+    public AlterarTextoForm() {
+        setTitle("Alterar Texto");
+    }
+
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
         this.objeto.setText(this.textTexto.getText());

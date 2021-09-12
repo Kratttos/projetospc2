@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class InserirQuadradoForm extends QuadradoForm{
 
+    public InserirQuadradoForm() {
+        setTitle("Inserir Quadrado");
+    }
+
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
         this.objeto = new Quadrado(

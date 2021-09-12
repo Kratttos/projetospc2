@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
  */
 public class InserirCirculoForm extends CirculoDialog {
 
+    public InserirCirculoForm() {
+        setTitle("Inserir Circulo");
+    }
 
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {

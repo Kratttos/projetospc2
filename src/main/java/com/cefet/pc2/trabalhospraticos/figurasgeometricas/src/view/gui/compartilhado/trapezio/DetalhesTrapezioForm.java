@@ -4,6 +4,10 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Trapezio;
 
 public class DetalhesTrapezioForm extends AlterarTrapezioForm{
 
+    public DetalhesTrapezioForm() {
+        setTitle("Detalhes Trapezio");
+    }
+
     @Override
     public Trapezio run(Trapezio objeto) {
         textLadoDireito.setEnabled(false);

@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class InserirTrapezioForm extends TrapezioForm {
 
+    public InserirTrapezioForm() {
+        setTitle("Inserir Trapezio");
+    }
+
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
         this.objeto = new Trapezio(

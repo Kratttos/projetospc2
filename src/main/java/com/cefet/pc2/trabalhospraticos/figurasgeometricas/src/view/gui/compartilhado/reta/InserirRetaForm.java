@@ -5,6 +5,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Reta;
 import java.awt.event.ActionEvent;
 
 public class InserirRetaForm extends RetaForm {
+    public InserirRetaForm() {
+        setTitle("Inserir Reta");
+    }
 
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {

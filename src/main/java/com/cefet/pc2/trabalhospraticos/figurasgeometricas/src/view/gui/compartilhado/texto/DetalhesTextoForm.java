@@ -3,6 +3,11 @@ package com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.comparti
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Texto;
 
 public class DetalhesTextoForm extends AlterarTextoForm{
+
+    public DetalhesTextoForm() {
+        setTitle("Detalhes Texto");
+    }
+
     @Override
     public Texto run(Texto objeto) {
         this.textTexto.setEnabled(false);

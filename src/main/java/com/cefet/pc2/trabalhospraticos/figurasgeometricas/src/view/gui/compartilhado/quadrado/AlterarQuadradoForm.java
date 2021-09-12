@@ -5,6 +5,9 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.model.Quadrado;
 import java.awt.event.ActionEvent;
 
 public class AlterarQuadradoForm extends QuadradoForm {
+    public AlterarQuadradoForm() {
+        setTitle("Alterar Quadrado");
+    }
 
     @Override
     public Quadrado run(Quadrado objeto) {

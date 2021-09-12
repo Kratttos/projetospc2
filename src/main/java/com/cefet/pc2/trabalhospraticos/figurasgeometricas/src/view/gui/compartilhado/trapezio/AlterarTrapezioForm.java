@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class AlterarTrapezioForm extends TrapezioForm{
 
+    public AlterarTrapezioForm() {
+        setTitle("Alterar Trapezio");
+    }
+
     @Override
     protected void btnSalvarEvent(ActionEvent evnt) {
         objeto.setAltura(
