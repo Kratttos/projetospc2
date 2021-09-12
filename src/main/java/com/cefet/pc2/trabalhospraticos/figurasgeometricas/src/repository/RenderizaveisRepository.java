@@ -70,6 +70,13 @@ public class RenderizaveisRepository implements IRepository {
     @Override
     public void load(Local opcao) throws IOException, ClassNotFoundException {
         listaFiguras = new Arquivo().load();
+        int maior = 1;
+        for ( Renderizavel item: listaFiguras ) {
+            if ( item.getId() > maior){
+                maior = item.getId();
+            }
+        }
+        autoIncrement = maior+1;
     }
 
     @Override
