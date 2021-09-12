@@ -15,5 +15,4 @@ public class Quadrado extends Quadrilateros{
         return this.getAltura();
     }
 
-
 }

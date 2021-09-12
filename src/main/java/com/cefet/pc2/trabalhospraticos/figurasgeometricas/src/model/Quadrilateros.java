@@ -24,6 +24,6 @@ public abstract class Quadrilateros extends FigurasGeometricas{
 
     @Override
     public String toString() {
-        return super.toString().replaceAll("@",("{ "+(this.base)+" de base é "+this.altura + " de altura }"));
+        return super.toString().replaceAll("@",("{ Base = "+(this.base)+", Altura = "+this.altura + "}"));
     }
 }

@@ -13,6 +13,7 @@ public class Texto extends Renderizavel{
 
     @Override
     public String toString() {
-        return "Texto: { Meu ID é: "+this.getId() +" e meu texto é : "+ this.text +" }";
+        return "Texto: { ID = "+this.getId() +", Texto = "+ this.text +" }";
     }
 }
+

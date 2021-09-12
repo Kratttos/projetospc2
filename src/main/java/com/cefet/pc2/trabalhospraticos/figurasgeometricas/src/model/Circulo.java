@@ -23,6 +23,7 @@ public class Circulo extends FigurasGeometricas {
 
     @Override
     public String toString() {
-         return super.toString().replaceAll("@",("{ "+(2*this.raio)+" de Diametro é "+this.raio + " de raio }"));
+         return "Circulo { ID = "+getId ()+ ", Diametro = "+(2*this.raio)+", Raio = "+this.raio + " } : " +
+                 "minha area é " + calcularArea() + " é meu perimetro é "+ calcularPerimetro()+".";
     }
 }

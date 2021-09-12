@@ -13,6 +13,6 @@ public class Reta extends Renderizavel {
     
     @Override
     public String toString() {
-        return "Reta { ID = " + this.getId() + " Tamanho = " + tamanho + "}";
+        return "Reta { ID = " + this.getId() + ", Tamanho = " + tamanho + "}";
     }
 }

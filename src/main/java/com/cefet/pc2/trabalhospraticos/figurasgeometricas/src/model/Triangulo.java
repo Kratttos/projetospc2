@@ -43,7 +43,7 @@ public class Triangulo extends FigurasGeometricas {
 
     @Override
     public String toString() {
-        return "Triangulo { ID = " + this.getId() + " lado1 = " + lado1 + " lado2 =  " + lado2 + " lado3 = " + lado3 + " } : Meu perimetro é " + this.calcularPerimetro()
+        return "Triangulo { ID = " + this.getId() + ", Lado 1 = " + lado1 + ", Lado 2 =  " + lado2 + ", Lado 3 = " + lado3 + " } : Meu perimetro é " + this.calcularPerimetro()
                 + " e minha area é " + this.calcularArea();
     }
 }
