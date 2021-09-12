@@ -91,6 +91,11 @@ baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma esp
 submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um
 unico objeto e listar todos os objetos do mesmo tipo.
 
+O projeto foi divido em 5 camadas: o Model resposavel pelo modelo, o View sendo resposavel pela forma
+de como o software se aprenseta ao usuario, o Repository pelo gerenciamento na memória
+dos dados, o Dao pelo armazenamento e recuperamento dos dados gravados em arquivo é o
+controller por gerenciar o funcionamento do programa.
+
 Diagrama de Classe
 ![Alt Diagrama](resources/img/DiagramaClasse.png)
 
