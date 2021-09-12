@@ -24,10 +24,12 @@ public class EscolhaInterface extends javax.swing.JDialog {
         initComponents();
         this.setModal(true);
         this.setLocationRelativeTo(null);
+        this.setTitle("Escolha de tipo de Interface");
     }
 
     public TipoInterface run() {
         this.setVisible(true);
+
 
         return this.tipoSelecionado;
     }

@@ -82,14 +82,47 @@ O polimorfismo me permitiu criar apenas uma unica lista para conter todos os obj
 
 #Os textos da fase 5 são temporarios por enquanto. Eles podem e vão mudar ate o dia 13.
 
+
+## A ideia inicial
+
+A ideia inicial do projeto era criar um pequeno software para gerenciar alguns
+tipos de dados (Texto, Reta, Triangulo, Trapezio, Quadrado, Retangulo é Circulo)
+baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma espécie de 
+submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um
+unico objeto e listar todos os objetos do mesmo tipo.
+
 Diagrama de Classe
-![Alt Diagrama](resources/img/Diagrama de Classe.png)
+![Alt Diagrama](resources/img/DiagramaClasse.png)
+
+
+## Dependencias
+
+O projeto tem uma unica dependencia, que é uma dependencia de desenvolvimento chamada Lombok. O Lombok
+atraves de anotações gerar templates padrões dos POJOs (construtor vazio, construtores com todos os
+argumentos, getters, setters, equals é hashcode).
+
+Exemplo de classe Circulo usando Lombok
+![Alt Diagrama](resources/img/comLombok.png)
+
+Exemplo de classe Circulo sem usar o Lombok
+![Alt Diagrama](resources/img/semLombok.png)
+
+
+
+## Decisões importantes
+
+A partir da Fase 4 eu decidi implementar 3 tipos de interface para o usuário, uma totalmente baseada
+no console, uma gráfica porem a manter os controllers da mesma forma é uma terceira também gráfica
+porem voltada a eventos e com controllers diferentes das outros 2 tipos de interface. Para selecionar
+o tipo de interface que o usuario deseja usar e aberto um Dialog onde o mesmo deve selecionar qual ele
+gostaria de saber. Nesta tela tambem o usuario tem a opção de selecionar o tipo e clicar em detalhes
+para ter uma descrição da interface.
+
+![Alt Diagrama](resources/img/EscolhaInterface.png)
 
 Diagrama de Sequencia da parte de escolha de interface do projeto
-![Alt Diagrama](resources/img/Diagrama de Sequencia.png)
+![Alt Diagrama](resources/img/DiagramaSequencia.png)
 
 
-Relatório da cosntrução e erros do projeto.
 
-Decisões importantes
 
