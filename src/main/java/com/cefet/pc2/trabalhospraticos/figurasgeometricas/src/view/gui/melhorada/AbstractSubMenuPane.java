@@ -12,6 +12,7 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.IFormular
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.InputMismatchException;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ public abstract class AbstractSubMenuPane<T> extends javax.swing.JPanel implemen
     protected IFormulario form;
     protected ISubMenuController controller;
     protected DefaultTableModel tablemodel;
+    private static final int COLUNA_ID = 0;
 
 
     /**
@@ -161,13 +163,25 @@ public abstract class AbstractSubMenuPane<T> extends javax.swing.JPanel implemen
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private int getIdObjetoSelecionado() throws InputMismatchException {
+
+        int linhaSelecionada = tabelaObjetos.getSelectedRow();
+        if (linhaSelecionada == -1) {
+            throw new InputMismatchException("Nenhuma linha selecionada");
+        }
+        return (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, COLUNA_ID);
+    }
+
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-        final int colunaID = 0;
-        int linhaSelecionada = tabelaObjetos.getSelectedRow();
-        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
-        form.alterar(controller.findById(id));
-        this.atualizarTabela();
+        try {
+            int id = this.getIdObjetoSelecionado();
+            form.alterar(controller.findById(id));
+            this.atualizarTabela();
+        } catch (InputMismatchException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+
 
         //JOptionPane.showMessageDialog(this, "Ainda vai alterar alguma coisa aqui");
     }//GEN-LAST:event_btnAlterarActionPerformed
@@ -183,24 +197,30 @@ public abstract class AbstractSubMenuPane<T> extends javax.swing.JPanel implemen
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        final int colunaID = 0;
-        int linhaSelecionada = tabelaObjetos.getSelectedRow();
-        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
-        final int SIM = 0;
-        final int NAO = 1;
-        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir ?", "Confirmação de exclusão", JOptionPane.YES_NO_OPTION);
-        if (resposta == SIM) {
-            this.controller.delete(id);
-            this.atualizarTabela();
+        try {
+            int id = this.getIdObjetoSelecionado();
+            final int SIM = 0;
+            final int NAO = 1;
+            int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir ?", "Confirmação de exclusão", JOptionPane.YES_NO_OPTION);
+            if (resposta == SIM) {
+                this.controller.delete(id);
+                this.atualizarTabela();
+            }
+        } catch (InputMismatchException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
         // TODO add your handling code here:]
-        final int colunaID = 0;
-        int linhaSelecionada = tabelaObjetos.getSelectedRow();
-        int id = (Integer) this.tabelaObjetos.getValueAt(linhaSelecionada, colunaID);
-        this.form.detalhes(this.controller.findById(id));
+        try {
+            int id = this.getIdObjetoSelecionado();
+            this.form.detalhes(this.controller.findById(id));
+        } catch (InputMismatchException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     public void setForm(IFormulario form) {
