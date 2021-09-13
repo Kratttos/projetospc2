@@ -137,6 +137,8 @@ gráfica padrão os menus são renderizados em um JDialog ao inves de ser direta
 clicar em algum dos botões ou digitar uma opção no caso do modo texto, e retornado um Enum ao controller
 que chama então o proximo menu conforme a escolha.
 
+![Alt CLI](resources/img/SubMenuGUIPadrao.png) ![Alt GUI1](resources/img/SubMenuCLI.png)
+
 ### Interface GUI 2
 ![Alt GUI2](resources/img/InterfaceGrafica2.png)
 
