@@ -130,7 +130,7 @@ controllers e o software e iniciado.
 
 ### Interface GUI Padrão e Interface Console
 
-![Alt GUI1](resources/img/InterfaceGraficaPadrao.png) ![Alt CLI](resources/img/InterfaceTexto.png)
+![Alt GUI1](resources/img/interfaceGraficaPadrao.png) ![Alt CLI](resources/img/interfaceTexto.png)
 
 Ambas as interfaces têm o seu funcionamento bem-parecido, sendo a unica diferença e que no caso da interface
 gráfica padrão os menus são renderizados em um JDialog ao inves de ser diretamente no console. Ao
