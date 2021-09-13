@@ -92,14 +92,11 @@ O projeto foi divido em 5 camadas: o Model resposavel pelos dados que definem o 
 pela forma de como o software se aprenseta ao usuario, o Repository pelo gerenciamento na memória dos dados, o Dao pelo
 persistencia e recuperamento dos dados gravados em disco é o controller por gerenciar o funcionamento do programa.
 
-<figure>
-    <img src="resources/img/DiagramaClasse.png" alt="Diagrama de Classe">
-    <figcaption>Diagrama de Classe</figcaption>
-</figure>
-<figure style="margin: auto">
-    <img src="resources/img/DiagramaSequencia.png.png" alt="Diagrama de Sequencia">
-    <figcaption>Diagrama de Sequencia</figcaption>
-</figure>
+Diagrama de Classe
+![Alt Diagrama de Classe](resources/img/DiagramaClasse.png)
+
+Diagrama de Sequencia da parte de escolha de interface do projeto
+![Alt Diagrama de Sequencia](resources/img/DiagramaSequencia.png)
 
 ## Dependencias
 
@@ -107,15 +104,11 @@ O projeto tem uma unica dependencia, sendo uma dependencia de desenvolvimento ch
 anotações auxilia a evitar codigos que são normalmente autogeradas pela IDE dos POJOs (construtor vazio, construtores
 com todos os argumentos, getters, setters, equals é hashcode).
 
-<figure style="margin: auto">
-    <img src="resources/img/comLombok.png">
-    <figcaption>Exemplo de classe Circulo usando Lombok</figcaption>
-</figure>
+Exemplo de classe Circulo usando Lombok
+![Alt Com Lombok](resources/img/comLombok.png)
 
-<figure>
-    <img src="resources/img/semLombok.png">
-    <figcaption>Exemplo de classe Circulo sem usar Lombok</figcaption>
-</figure>
+Exemplo de classe Circulo sem usar o Lombok
+![Alt Sem Lombok](resources/img/semLombok.png)
 
 ## Decisões importantes
 
@@ -124,10 +117,7 @@ gráfica porem a manter os controllers da mesma forma é uma terceira também gr
 controllers diferentes das outros 2 tipos de interface. Para selecionar o tipo de interface que o usuario deseja usar e
 aberto um Dialog onde o mesmo deve selecionar qual ele gostaria de saber.
 
-<figure style="margin: auto">
-    <img src="resources/img/EscolhaInterface.png" alt="Menu escolha de interface">
-    <figcaption>Menu de Escolha de Interface</figcaption>
-</figure>
+![Alt Escolha de Interface](resources/img/EscolhaInterface.png)
 
 Nesta tela o usuário além de poder escolher qual interface que ele deseja usar, é também possivel ter uma breve
 descrição da interface selecionando um dos tipos e clicando em detalhes.
@@ -139,37 +129,27 @@ e o software e iniciado.
 
 ### Interface GUI Padrão e Interface Console
 
-<div style="display: flex;flex-direction: row;">
-    <figure style="margin: auto">
-        <img src="resources/img/interfaceGraficaPadrao.png">
-        <figcaption>Menu Principal na Inteface grafica padrão</figcaption>
-    </figure>
-    <figure style="margin: auto">
-        <img src="resources/img/interfaceTexto.png">
-        <figcaption>Menu Principal em console</figcaption>
-    </figure>
-</div>
+![Alt GUI1](resources/img/interfaceGraficaPadrao.png) ![Alt CLI](resources/img/interfaceTexto.png)
 
 Ambas as interfaces têm o seu funcionamento bem-parecido, sendo a unica diferença e que no caso da interface gráfica
 padrão os menus são renderizados em um JDialog ao inves de ser diretamente no console. Ao clicar em algum dos botões ou
 digitar uma opção no caso do modo texto, e retornado um Enum ao controller que chama então o proximo menu conforme a
 escolha.
 
-<div style="display: flex;flex-direction: row;">
-    <figure style="margin: auto">
+<div>
+    <figure style="float: left">
         <img src="resources/img/SubMenuGUIPadrao.png" width="auto" height="auto" alt=""/>
-        <figcaption>Exemplo SubMenu em Interface Grafica</figcaption>
+        <figcaption>Exe</figcaption>
     </figure>
-    <figure style="margin: auto">
+    <figure style="float: right">
         <img src="resources/img/SubMenuCLI.png" width="auto" height="auto" alt=""/>
-        <figcaption style="" > Exemplo SubMenu em CLI</figcaption>
+        <figcaption style="text-align: center" > sdasdadsada</figcaption>
     </figure>
 </div>
+
 <p style="clear: both">
 
-​    
-
-<div style="clear:both"></div>
+</p>
 
 ### Interface GUI 2
 
