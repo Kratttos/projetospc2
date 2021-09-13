@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 
 /**
  * @author Everton
+ *
+ * @param <T>  O tipo do formulario
  */
 @AllArgsConstructor
 public class Form<T extends Renderizavel> implements IFormulario<T> {
@@ -18,7 +20,7 @@ public class Form<T extends Renderizavel> implements IFormulario<T> {
     protected AbstractDialog inserir;
     protected AbstractDialog alterar;
     protected AbstractDialog detalhes;
-
+    
     @Override
     public Renderizavel inserir() {
         return this.inserir.run(null);

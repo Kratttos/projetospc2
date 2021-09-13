@@ -7,6 +7,10 @@ import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.cli.MainView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.normal.MainGUIView;
 import com.cefet.pc2.trabalhospraticos.figurasgeometricas.src.view.gui.melhorada.MainPane;
 
+/**
+ * @author Everton
+ */
+
 public class Main {
 
     public static void main(String[] args) {

@@ -17,6 +17,12 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
     public SubMenuView() {
     }
 
+    /**
+     * Mostra o menu e retorna um Enum relativo à escolha
+     *
+     * @param className nome do menu
+     * @return {@link Enum} retorna correspondendo a escolha. Esse enum é do tipo {@link OpcoesSubMenu}
+     */
     @Override
     public Enum showMenu(String className) {
         
@@ -47,6 +53,15 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
         } while (true);
     }
 
+    /**
+     * Mostra o menu para se alterar um objeto passando as propriedades e o valores que podem ser alterados por uma {@link LinkedHashMap}
+     *
+     * @param valoresAtuais um {@link LinkedHashMap<String,String>} correspondendo aos valores do objeto que deseja alterar, sendo a Key o nome da
+     *                      propriedade eo Value o valor da propriedade
+     * @param nomeMenu o nome que vai aparecer no Menu. Por exemplo **Alterar Circulo** on "Circulo" seria o nomeMenu.
+     * @return  um {@link Map<String,String>} correspondendo aos valores atualizados tambem respeitava a mesma regra da entrada, K = nome da propriedade e
+     * Value = valor da propriedade
+     */
     public Map<String, String> showUpdateMenu(LinkedHashMap<String, String> valoresAtuais, String nomeMenu) {
         Map<String, String> editado = new LinkedHashMap<>();
         List<String> listaPropiedades = new ArrayList<>();
@@ -101,6 +116,10 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
         return opcaoString.equalsIgnoreCase("x") ? valoresAtuais : editado;
     }
 
+    /**
+     * Mostra o menu para deletar uma figura
+     * @return retorna um inteiro referente ao ID do objeto que vai ser deletado
+     */
     @Override
     public int showDeleteMenu() {
         this.printLine("------ Deletar Figuras ------");
@@ -113,6 +132,7 @@ public abstract class SubMenuView extends BasicView implements ISubMenuView {
 
     @Override
     public abstract void update(Renderizavel item);
+
 
     @Override
     public void listAll(List<Renderizavel> lista) {

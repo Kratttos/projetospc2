@@ -17,9 +17,6 @@ public class EscolhaInterface extends javax.swing.JDialog {
     private TipoInterface tipoSelecionado = null;
     private static final String NADA_SELECIONADO = "Você precisa selecionar alguma opção primeiro";
 
-    /**
-     * Creates new form EscolhaInterface
-     */
     public EscolhaInterface() {
         initComponents();
         this.setModal(true);
@@ -27,10 +24,13 @@ public class EscolhaInterface extends javax.swing.JDialog {
         this.setTitle("Escolha de tipo de Interface");
     }
 
+    /**
+     * Inicia a tela e retornar uma {@link TipoInterface}
+     *
+     * @return Retorna um {@link TipoInterface} correspondente a interface escolhida
+     */
     public TipoInterface run() {
         this.setVisible(true);
-
-
         return this.tipoSelecionado;
     }
 
@@ -166,6 +166,10 @@ public class EscolhaInterface extends javax.swing.JDialog {
         super.dispose();
     }
 
+    /**
+     * Checa se tem algum dos radios selecionado.
+     * @return retorna true se tiver algum radio selecionado ou false caso nenhuma esteja selecionado
+     */
     private boolean checarSelecionado() {
         return radioCLI.isSelected() || radioGUI.isSelected() || radioGUI2.isSelected();
     }
@@ -218,9 +222,6 @@ public class EscolhaInterface extends javax.swing.JDialog {
         this.tipoSelecionado = TipoInterface.GUI_2;
     }//GEN-LAST:event_radioGUI2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetalhes;
     private javax.swing.JButton btnEscolher;

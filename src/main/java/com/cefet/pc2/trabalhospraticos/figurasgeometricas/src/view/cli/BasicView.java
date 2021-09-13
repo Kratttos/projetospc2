@@ -41,6 +41,12 @@ public abstract class BasicView implements View {
         return io.askDouble();
     }
 
+
+    /**
+     * Pergunta por um inteiro garantindo que o mesmo seja maior que 0;
+     *
+     * @return retorna um inteiro maior do que 0;
+     */
     public int askIntegerBiggerThanZero() {
         String number;
         int numberI = -50;
