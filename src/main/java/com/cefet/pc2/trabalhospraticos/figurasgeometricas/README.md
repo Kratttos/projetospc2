@@ -79,18 +79,16 @@ a organização.
 
 # Fase 5
 
-# Os textos da fase 5 são temporarios por enquanto. Eles podem e vão mudar ate o dia 13.
-
 ## A ideia inicial
 
-A ideia inicial do projeto era criar um pequeno software para gerenciar alguns tipos de dados (Texto, Reta, Triangulo,
-Trapezio, Quadrado, Retangulo é Circulo)baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma
-espécie de submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um unico objeto e listar todos os
+A ideia inicial do projeto era criar um pequeno software para gerir algumas categorias de dados (Texto, Reta, Triângulo,
+Trapézio, Quadrado, Retângulo é Circulo)baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma
+espécie de submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um unicos objeto e listar todos os
 objetos do mesmo tipo.
 
-O projeto foi divido em 5 camadas: o Model resposavel pelos dados que definem o que é cada tipo, o View sendo resposavel
-pela forma de como o software se aprenseta ao usuario, o Repository pelo gerenciamento na memória dos dados, o Dao pelo
-persistencia e recuperamento dos dados gravados em disco é o controller por gerenciar o funcionamento do programa.
+O projeto foi divido em 5 camadas: o Model responsável pelos dados que definem o que é cada tipo, o View sendo responsável
+pela forma de como o software se apresenta ao usuário, o Repository pela gestão na memória dos dados, o Dao pela
+persistência e recuperamento dos dados gravados em disco é o controller por gerir o funcionamento do programa.
 
 Diagrama de Classe
 ![Alt Diagrama de Classe](resources/img/DiagramaClasse.png)
@@ -98,10 +96,10 @@ Diagrama de Classe
 Diagrama de Sequencia da parte de escolha de interface do projeto
 ![Alt Diagrama de Sequencia](resources/img/DiagramaSequencia.png)
 
-## Dependencias
+## Dependências
 
-O projeto tem uma unica dependencia, sendo uma dependencia de desenvolvimento chamada Lombok. O Lombok atraves de
-anotações auxilia a evitar codigos que são normalmente autogeradas pela IDE dos POJOs (construtor vazio, construtores
+O projeto tem uma unica dependência, sendo uma dependência de desenvolvimento chamada Lombok. O Lombok através de
+anotações auxilia a evitar códigos que são normalmente autogeradas pela IDE dos POJOs (construtor vazio, construtores
 com todos os argumentos, getters, setters, equals é hashcode).
 
 Exemplo de classe Circulo usando Lombok
@@ -160,17 +158,31 @@ escolha.
 
 ![Alt GUI2](resources/img/interfaceGrafica2.png)
 
-Na interface gráfica 2 é utilizo o CardLayout é a interface funciona a sobrepor JPanes conforme as escolhas do
+Na interface gráfica 2 é utilizado o CardLayout, é a interface funciona a sobrepor JPanes conforme as escolhas do
 utilizador. Diferente das outras 2 interfaces, não existe uma chamada ao controller a cada opção que o usuário
 seleciona. Essas chamadas so acontecem quando o usuario tenta Criar, Alterar, Excluir ou pesquisar algo específico do
-banco.
+banco. Na imagem abaixo a area marcada em vermelho e onde os submenus são renderizados e a area azul fica o menu
+principal que não muda. Ao clicar em uma das opções nesse submenu e mostrado um JDialog com o formulario referente ao botão clicado.
 
 ![Alt GUI2](resources/img/mainmenumarcado.png)
 
+### Possiveis Mudanças que eu faria
+
+Se eu fosse refazer o projeto de novo eu provavelmente teria feito os controllers mais parecidos com a da
+interface gráfica 2 (no condigo eu chamei de GUI melhorada) deixando os controllers com uma cara mais parecida com um controller de uma API. No caso
+o controller simplesmente processando as requisições do front, mas não necessariamente controlando cada passo
+do front se e que você me entende. Deixando todo a parte do front bem mais parecida como uma SPA.
 
 
+[comment]: # (comentarios.... caso vc abra o readme pela IDE)
 
-[comment]: # (isso renderiza ?)
+[comment]: # (desculpa pelo portugues meio falhado)
+
+[comment]: # (aquele botão Inicio que aparece ali na image e onde eu possivelmente iria implementar uma especie
+de menu de configurações. Eu to deixando isso aqui em forma de comentario pq não sei se vou terminar de implementar
+ate o momento em que vc vai corrigir)
+
+
 
 
 
