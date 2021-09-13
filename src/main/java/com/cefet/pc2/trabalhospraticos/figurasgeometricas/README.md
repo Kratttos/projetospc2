@@ -145,6 +145,7 @@ padrão os menus são renderizados em um JDialog ao inves de ser diretamente no 
 digitar uma opção no caso do modo texto, e retornado um Enum ao controller que chama então o proximo menu conforme a
 escolha.
 
+
 <div style="display: flex;flex-direction: row">
     <figure style="margin: auto">
         <img src="resources/img/SubMenuGUIPadrao.png" width="auto" height="auto" alt=""/>
@@ -163,6 +164,14 @@ Na interface gráfica 2 é utilizo o CardLayout é a interface funciona a sobrep
 utilizador. Diferente das outras 2 interfaces, não existe uma chamada ao controller a cada opção que o usuário
 seleciona. Essas chamadas so acontecem quando o usuario tenta Criar, Alterar, Excluir ou pesquisar algo específico do
 banco.
+
+![Alt GUI2](resources/img/mainmenumarcado.png)
+
+
+
+
+[comment]: # (isso renderiza ?)
+
 
 
 
