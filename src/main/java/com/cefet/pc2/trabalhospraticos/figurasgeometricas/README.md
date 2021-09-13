@@ -84,14 +84,13 @@ a organização.
 ## A ideia inicial
 
 A ideia inicial do projeto era criar um pequeno software para gerenciar alguns tipos de dados (Texto, Reta, Triangulo,
-Trapezio, Quadrado, Retangulo é Circulo)baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma 
-espécie de submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um unico objeto e listar todos os 
+Trapezio, Quadrado, Retangulo é Circulo)baseada no projeto original do Alessio. Cada um desses tipos deveria ter uma
+espécie de submenu que permitia alterar, excluir, inserir, mostrar os detalhes de um unico objeto e listar todos os
 objetos do mesmo tipo.
 
-O projeto foi divido em 5 camadas: o Model resposavel pelos dados que definem o que é cada tipo, o View sendo 
-resposavel pela forma de como o software se aprenseta ao usuario, o Repository pelo gerenciamento na memória dos dados,
-o Dao pelo persistencia e recuperamento dos dados gravados em disco é o controller por gerenciar o
-funcionamento do programa.
+O projeto foi divido em 5 camadas: o Model resposavel pelos dados que definem o que é cada tipo, o View sendo resposavel
+pela forma de como o software se aprenseta ao usuario, o Repository pelo gerenciamento na memória dos dados, o Dao pelo
+persistencia e recuperamento dos dados gravados em disco é o controller por gerenciar o funcionamento do programa.
 
 Diagrama de Classe
 ![Alt Diagrama de Classe](resources/img/DiagramaClasse.png)
@@ -101,9 +100,9 @@ Diagrama de Sequencia da parte de escolha de interface do projeto
 
 ## Dependencias
 
-O projeto tem uma unica dependencia, sendo uma dependencia de desenvolvimento chamada Lombok.
-O Lombok atraves de anotações auxilia a evitar codigos que são normalmente autogeradas pela IDE
-dos POJOs (construtor vazio, construtores com todos os argumentos, getters, setters, equals é hashcode).
+O projeto tem uma unica dependencia, sendo uma dependencia de desenvolvimento chamada Lombok. O Lombok atraves de
+anotações auxilia a evitar codigos que são normalmente autogeradas pela IDE dos POJOs (construtor vazio, construtores
+com todos os argumentos, getters, setters, equals é hashcode).
 
 Exemplo de classe Circulo usando Lombok
 ![Alt Com Lombok](resources/img/comLombok.png)
@@ -125,26 +124,41 @@ descrição da interface selecionando um dos tipos e clicando em detalhes.
 
 ## Funcionamento do Software
 
-Apos o usuario selecionar a interface que ele deseja utilizar e passado o comando o para os seus respectivos
-controllers e o software e iniciado.
+Apos o usuario selecionar a interface que ele deseja utilizar e passado o comando o para os seus respectivos controllers
+e o software e iniciado.
 
 ### Interface GUI Padrão e Interface Console
 
 ![Alt GUI1](resources/img/interfaceGraficaPadrao.png) ![Alt CLI](resources/img/interfaceTexto.png)
 
-Ambas as interfaces têm o seu funcionamento bem-parecido, sendo a unica diferença e que no caso da interface
-gráfica padrão os menus são renderizados em um JDialog ao inves de ser diretamente no console. Ao
-clicar em algum dos botões ou digitar uma opção no caso do modo texto, e retornado um Enum ao controller
-que chama então o proximo menu conforme a escolha.
+Ambas as interfaces têm o seu funcionamento bem-parecido, sendo a unica diferença e que no caso da interface gráfica
+padrão os menus são renderizados em um JDialog ao inves de ser diretamente no console. Ao clicar em algum dos botões ou
+digitar uma opção no caso do modo texto, e retornado um Enum ao controller que chama então o proximo menu conforme a
+escolha.
 
-![Alt CLI](resources/img/SubMenuGUIPadrao.png) ![Alt GUI1](resources/img/SubMenuCLI.png)
+<div>
+    <figure style="float: left">
+        <img src="resources/img/SubMenuGUIPadrao.png" width="auto" height="auto" alt=""/>
+        <figcaption>Exe</figcaption>
+    </figure>
+    <figure style="float: right">
+        <img src="resources/img/SubMenuCLI.png" width="auto" height="auto" alt=""/>
+        <figcaption>sdasdadsada</figcaption>
+    </figure>
+</div>
+
+<p style="clear: both">
+
+</p>
 
 ### Interface GUI 2
-![Alt GUI2](resources/img/InterfaceGrafica2.png)
 
-Na interface gráfica 2 é utilizo o CardLayout é a interface funciona a sobrepor JPanes conforme as escolhas do utilizador.
-Diferente das outras 2 interfaces, não existe uma chamada ao controller a cada opção que o usuário seleciona.
-Essas chamadas so acontecem quando o usuario tenta Criar, Alterar, Excluir um pesquisar algo especifico do banco.
+![Alt GUI2](resources/img/interfaceGrafica2.png)
+
+Na interface gráfica 2 é utilizo o CardLayout é a interface funciona a sobrepor JPanes conforme as escolhas do
+utilizador. Diferente das outras 2 interfaces, não existe uma chamada ao controller a cada opção que o usuário
+seleciona. Essas chamadas so acontecem quando o usuario tenta Criar, Alterar, Excluir ou pesquisar algo específico do
+banco.
 
 
 
