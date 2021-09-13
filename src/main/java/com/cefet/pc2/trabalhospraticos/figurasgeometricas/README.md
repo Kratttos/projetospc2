@@ -143,7 +143,7 @@ escolha.
     </figure>
     <figure style="float: right">
         <img src="resources/img/SubMenuCLI.png" width="auto" height="auto" alt=""/>
-        <figcaption>sdasdadsada</figcaption>
+        <figcaption style="text-align: center" > sdasdadsada</figcaption>
     </figure>
 </div>
 
