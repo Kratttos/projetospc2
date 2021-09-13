@@ -129,27 +129,31 @@ e o software e iniciado.
 
 ### Interface GUI Padrão e Interface Console
 
-![Alt GUI1](resources/img/interfaceGraficaPadrao.png) ![Alt CLI](resources/img/interfaceTexto.png)
+
+<div style="display: flex;flex-direction: row">
+    <figure style="margin: auto">
+        <img src="resources/img/interfaceGraficaPadrao.png" width="auto" height="auto" alt=""/>
+    </figure>
+    <figure style="margin: auto">
+        <img src="resources/img/interfaceTexto.png" width="auto" height="auto" alt=""/>
+    </figure>
+</div>
+
 
 Ambas as interfaces têm o seu funcionamento bem-parecido, sendo a unica diferença e que no caso da interface gráfica
 padrão os menus são renderizados em um JDialog ao inves de ser diretamente no console. Ao clicar em algum dos botões ou
 digitar uma opção no caso do modo texto, e retornado um Enum ao controller que chama então o proximo menu conforme a
 escolha.
 
-<div>
-    <figure style="float: left">
+<div style="display: flex;flex-direction: row">
+    <figure style="margin: auto">
         <img src="resources/img/SubMenuGUIPadrao.png" width="auto" height="auto" alt=""/>
-        <figcaption>Exe</figcaption>
     </figure>
-    <figure style="float: right">
+    <figure style="margin: auto">
         <img src="resources/img/SubMenuCLI.png" width="auto" height="auto" alt=""/>
-        <figcaption style="text-align: center" > sdasdadsada</figcaption>
     </figure>
 </div>
 
-<p style="clear: both">
-
-</p>
 
 ### Interface GUI 2
 
